@@ -1,0 +1,17 @@
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\API.dll.config
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\API.dll
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\API.pdb
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\Newtonsoft.Json.dll
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\System.Net.Http.Formatting.dll
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\System.Web.Http.dll
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\System.Web.Http.WebHost.dll
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\Newtonsoft.Json.xml
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\System.Net.Http.Formatting.xml
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\System.Web.Http.xml
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\bin\System.Web.Http.WebHost.xml
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\obj\Debug\API.csprojResolveAssemblyReference.cache
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\obj\Debug\API.csproj.CoreCompileInputs.cache
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\obj\Debug\API.dll
+E:\סמינר\פרויקט גמר\פרויקט\server\FinalProject2018\API\obj\Debug\API.pdb

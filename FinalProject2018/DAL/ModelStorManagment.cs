@@ -1,10 +1,11 @@
+
+using System;
+using System.Data.Entity;
+using System.Linq;
+using Entities;
+
 namespace DAL
 {
-    using System;
-    using System.Data.Entity;
-    using System.Linq;
-    using Entities;
-
     public class ModelStorManagment : DbContext
     {
         // Your context has been configured to use a 'Model2' connection string from your application's 
@@ -14,8 +15,12 @@ namespace DAL
         // If you wish to target a different database and/or database provider, modify the 'Model2' 
         // connection string in the application configuration file.
         public ModelStorManagment()
-            : base("name=MainContext")
+            : base("Data Source=DESKTOP-V2MV35R/SQLEXPRESS;Initial Catalog=CleverManager;Integrated Security=True")
+           // : base("Data Source=DESKTOP-V2MV35R/SQLEXPRESS;Initial Catalog=CleverManager;Integrated Security=True")
         {
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.AutoDetectChangesEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 

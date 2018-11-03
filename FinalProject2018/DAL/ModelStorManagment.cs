@@ -14,8 +14,8 @@ namespace DAL
         // 
         // If you wish to target a different database and/or database provider, modify the 'Model2' 
         // connection string in the application configuration file.
-        public ModelStorManagment()
-            : base("Data Source=DESKTOP-V2MV35R/SQLEXPRESS;Initial Catalog=CleverManager;Integrated Security=True")
+        public ModelStorManagment() : base()
+            //https://www.codeproject.com/Articles/821439/Getting-started-with-ASP-Net-Web-API-using-CodeF
            // : base("Data Source=DESKTOP-V2MV35R/SQLEXPRESS;Initial Catalog=CleverManager;Integrated Security=True")
         {
             Configuration.ProxyCreationEnabled = false;

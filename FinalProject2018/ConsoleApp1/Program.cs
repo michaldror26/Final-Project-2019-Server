@@ -15,19 +15,19 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
-            ModelStorManagment modelStorManagment = new ModelStorManagment();
-            AuthenticationType authenticationType = new AuthenticationType() { AuthenticationTypeId = 1, AuthName = "manager" };
-            SiteUser user = new SiteUser() { UserId = 1258754, FirstName = "חיים", LastName = "כהן", MobilePhone = "0548466708", Telephone = "036191438", Email = "chaim@gmail.com", City = "bney brak", Password = "15987452", JoiningDate = new DateTime(),UserName="chaimke",UserSiteId=1, AuthenticationTypeId= authenticationType.AuthenticationTypeId };
+            //ModelStorManagment modelStorManagment = new ModelStorManagment();
+            //AuthenticationType authenticationType = new AuthenticationType() { AuthenticationTypeId = 1, AuthName = "manager" };
+            //SiteUser user = new SiteUser() { UserId = 1258754, FirstName = "חיים", LastName = "כהן", MobilePhone = "0548466708", Telephone = "036191438", Email = "chaim@gmail.com", City = "bney brak", Password = "15987452", JoiningDate = new DateTime(),UserName="chaimke",UserSiteId=1, AuthenticationTypeId= authenticationType.AuthenticationTypeId };
 
-            modelStorManagment.Users.Add(user);
-            try
-            {
-                modelStorManagment.SaveChanges();
-            }
-            catch (DbEntityValidationException e1)
-            {
-                var v = e1.EntityValidationErrors.First().ValidationErrors;
-            }
+            //modelStorManagment.Users.Add(user);
+            //try
+            //{
+            //    modelStorManagment.SaveChanges();
+            //}
+            //catch (DbEntityValidationException e1)
+            //{
+            //    var v = e1.EntityValidationErrors.First().ValidationErrors;
+            //}
 
         }
     }

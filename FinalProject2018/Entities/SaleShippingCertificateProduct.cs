@@ -15,7 +15,7 @@ namespace Entities
         [Key]
         public int SaleShippingCertificateId { get; set; }
         public virtual SaleShippingCertificate SaleShippingCertificate { get; set; }
-        //[Key]
+        [Key]
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
 

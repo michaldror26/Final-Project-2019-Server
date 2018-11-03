@@ -9,34 +9,14 @@ namespace BLL
 {
     class CustomerService : BaseService
     {
-        public override int add(BaseService val)
+        public List<Customer> GetAllCustomers()
         {
-            throw new NotImplementedException();
+            return db.Customers.ToList();
         }
 
         public Customer getCustomerById(int id)
         {
-            return db.SiteUser.FirstOrDefault(u => u.UserSiteId == id);
+            return db.Customers.FirstOrDefault(u => u.CustomerId == id);
         }
-
-        public void finishOrder(int custId, List<SaleOrderProduct> lst)
-        {
-            Customer cust = getCustomerById(custId);
-            SaleOrder so = new SaleOrder();
-            so.Date = DateTime.Now;
-            so.Customer = cust;
-            so.CustomerId = custId;
-            so.Remark = "Done by customer";
-            so.SaleOrderProducts = lst;
-
-            cust.SaleOrders.Add(so);
-            
-        }
-
-        public getSaleOrdersById(int id)
-        {
-
-        }
-
     }
 }

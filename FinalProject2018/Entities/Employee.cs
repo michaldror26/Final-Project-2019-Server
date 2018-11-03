@@ -14,9 +14,13 @@ namespace Entities
     {
         [Key]
         public int EmployeeId { get; set; }
+        [ForeignKey("SiteUser")]
+        public int SiteUserId { get; set; }
         public string Role { get; set; }
         public float Salary { get; set; }
         public virtual List<EmployeeSchedule> EmployeeSchedules { get; set; }
+
+        public virtual SiteUser SiteUser { get; set; }
 
     }
 }

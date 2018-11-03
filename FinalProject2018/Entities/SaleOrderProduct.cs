@@ -15,7 +15,7 @@ namespace Entities
         [Key]
         public int SaleOrderId { get; set; }
         public virtual SaleOrder SaleOrder { get; set; }
-        //[Key]
+        [Key]
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
 

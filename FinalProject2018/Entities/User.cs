@@ -43,11 +43,12 @@ namespace Entities
         [Required(ErrorMessage = "Required field!")]
         public string Email { get; set; }
     }
+
     [Table("site_user")]
-    public class SiteUser : User
+    public class SiteUser 
     {
         [Key]
-        public int UserSiteId { get; set; }
+        public int SiteUserId { get; set; }
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Required field!")]

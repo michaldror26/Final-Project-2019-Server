@@ -4,21 +4,24 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using BLL;
+using Entities;
 
 namespace API.Controllers
 {
     public class userController : ApiController
     {
+        public EmployeeService employeeService = new EmployeeService();
         // GET: api/test
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //public IEnumerable<string> Get()
+        //{
+        //    return Em;
+        //}
 
         // GET: api/test/5
-        public string Get(int id)
+        public AuthenticationType Get(int id)
         {
-            return "value";
+            return employeeService.getEmployeeById(1);
         }
 
         // POST: api/test

@@ -18,8 +18,8 @@ namespace Entities
         [Required(ErrorMessage = "Required field!")]
         public string Name { get; set; }
 
-        //[ForeignKey("ParentCategory")]
-        public int ParentCategoryId { get; set; }
+        [ForeignKey("ParentCategory")]
+        public Nullable<int> ParentCategoryId { get; set; }
 
         public virtual Category ParentCategory { get; set; }
 

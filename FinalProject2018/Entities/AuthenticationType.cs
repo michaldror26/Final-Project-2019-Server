@@ -14,6 +14,6 @@ namespace Entities
         [Key]
         public int AuthenticationTypeId { get; set; }
         public string  AuthName { get; set; }
-        public virtual List<User> Users { get; set; }
+        public virtual List<SiteUser> SiteUsers { get; set; }
     }
 }

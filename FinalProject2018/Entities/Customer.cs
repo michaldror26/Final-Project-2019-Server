@@ -14,10 +14,14 @@ namespace Entities
     {
         [Key]
         public int CustomerId { get; set; }
-        public DateTime JoiningDate { get; set; }
+
+        [ForeignKey("SiteUser")]
+        public int SiteUserId { get; set; }
+        public DateTime RegisteredDate { get; set; }
 
         [DefaultValue(0)]
         public int DiscountPercentage { get; set; }
+        public virtual SiteUser SiteUser { get; set; }
 
         public virtual List<SaleOrder> SaleOrders { get; set; }
         public virtual List<SaleShippingCertificate> SaleShippingCertificates { get; set; }

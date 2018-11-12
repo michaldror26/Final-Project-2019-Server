@@ -21,7 +21,6 @@ namespace Entities
 
         [DefaultValue(0)]
         public int DiscountPercentage { get; set; }
-        public virtual SiteUser SiteUser { get; set; }
 
         public virtual List<SaleOrder> SaleOrders { get; set; }
         public virtual List<SaleShippingCertificate> SaleShippingCertificates { get; set; }

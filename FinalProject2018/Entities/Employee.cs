@@ -20,7 +20,7 @@ namespace Entities
         public float Salary { get; set; }
         public virtual List<EmployeeSchedule> EmployeeSchedules { get; set; }
 
-        public virtual SiteUser SiteUser { get; set; }
+      
 
     }
 }

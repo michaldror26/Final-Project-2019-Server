@@ -15,6 +15,8 @@ namespace Entities
         [Key]
         public int UserId { get; set; }
 
+        public virtual SiteUser SiteUser;
+
         [RegularExpression(@"[A-Za-zא-ת]+",
         ErrorMessage = "First name can contain only letters")]
         [Required(ErrorMessage = "Required field!")]
@@ -49,6 +51,8 @@ namespace Entities
     {
         [Key]
         public int SiteUserId { get; set; }
+       
+
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Required field!")]

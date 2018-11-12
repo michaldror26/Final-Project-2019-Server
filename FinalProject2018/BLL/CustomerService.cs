@@ -7,7 +7,7 @@ using Entities;
 
 namespace BLL
 {
-    class CustomerService : BaseService
+    class CustomerService : UserSiteService
     {
         public List<Customer> GetAllCustomers()
         {
@@ -18,5 +18,31 @@ namespace BLL
         {
             return db.Customers.FirstOrDefault(u => u.CustomerId == id);
         }
+
+        public List<string> func(User user)
+        {
+            List<List<string>> ret = new List<List<string>>();
+         //   if(user is Customer)
+            Customer cust = user as Customer;
+
+          List<SaleOrder> soLst=  db.SaleOrders.Where(s => s.CustomerId== 1).ToList();
+          List<SaleShippingCertificate> ssLst=  db.SaleShippingCertificates.Where(s => s.CustomerId == 1).ToList();
+
+            foreach(SaleOrder so in soLst)
+            {
+                foreach(SaleOrderProduct sop in so.SaleOrderProducts)
+                {
+                   foreach(SaleShippingCertificate ss in ssLst)
+                    {
+                        foreach(SaleShippingCertificateProduct ssp in ss.SaleShippingCertificateProducts)
+                        {
+                            if(sop.ProductId==ssp.ProductId)
+                                ret.Add()
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

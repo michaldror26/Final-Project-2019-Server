@@ -11,59 +11,61 @@ namespace BLL
 {
     public class UserSiteService : BaseService
     {
-        public SiteUser getSiteUserByUserName(string userName)
+        public User getUserByUserName(string userName)
         {
-            return db.SiteUsers.FirstOrDefault(u => u.UserName.Equals(userName));
+            return db.Users.FirstOrDefault(u => u.SiteUser.UserName.Equals(userName));
         }
 
-        public SiteUser getSiteUserById(int id)
+        public User getUserById(int id)
         {
-            return db.SiteUsers.FirstOrDefault(u => u.SiteUserId == id);
+            return db.Users.FirstOrDefault(u => u.UserId == id);
         }
 
-        public int AuthenticationById(int id)
-        {
-            SiteUser user = getSiteUserById(id);
-            return user.AuthenticationTypeId;
-        }
 
-        public int Login(String userName, string password)
+        public User Login(String userName, string password)
         {
-            SiteUser user = getSiteUserByUserName(userName);
+            User user = getUserByUserName(userName);
             if (user == null)
-                return -1;
-            if (!user.Password.Equals(password))
-                return -2;
-            return user.UserSiteId;
+                return null;
+            if (!user.SiteUser.Password.Equals(password))
+                return null;
+            return user;
         }
 
         public void ForgetUserName()
-        { }
-
-        public void ForgetPassword(int id)
         {
-            SiteUser user = getSiteUserById(id);
-            string newPass = string.Empty;
+            
+        }
+
+        public void ForgetPassword(string userName)
+        {
+            User user = getUserByUserName(userName);
+            string newPass = randStr(5); ;
+            user.SiteUser.Password = newPass;
+            //send an email
+        }
+
+        private string randStr(int n)
+        {
+            string str = string.Empty;
             Random rand = new Random();
             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < n; i++)
             {
-                newPass += chars[rand.Next(0, chars.Length)];
+                str += chars[rand.Next(0, chars.Length)];
             }
-            //בדיקה אם לא קיים שם משתמש וסיסמא זהים
-            //שליחת מייל
+            return str;
         }
-
-        public int ChangePassword(int userId, string prevPass, string newPass1, string newPass2)
+        public int ChangePassword(User user, string prevPass, string newPass1, string newPass2)
         {
-            SiteUser user = getSiteUserById(userId);
-            if (!user.Password.Equals(prevPass))
-                return -1;
-            if (!newPass1.Equals(newPass2))
-                return -2;
-            user.Password = newPass1;
-            return 0;
+            //User user = getSiteUserById(userId);
+            //if (!user.Password.Equals(prevPass))
+            //    return -1;
+            //if (!newPass1.Equals(newPass2))
+            //    return -2;
+            //user.Password = newPass1;
+            //return 0;
         }
 
 

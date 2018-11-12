@@ -11,25 +11,25 @@ namespace BLL
 {
     public class UserSiteService : BaseService
     {
-        public User getUserByUserName(string userName)
+        public SiteUser getSiteUserByUserName(string userName)
         {
-            return db.Users.FirstOrDefault(u => u.SiteUser.UserName.Equals(userName));
+            return db.SiteUsers.FirstOrDefault(u => u.UserName.Equals(userName));
         }
 
-        public User getUserById(int id)
+        public SiteUser getUserById(int id)
         {
-            return db.Users.FirstOrDefault(u => u.UserId == id);
+            return db.SiteUsers.FirstOrDefault(u => u.SiteUserId == id);
         }
 
 
-        public User Login(String userName, string password)
+        public SiteUser Login(String userName, string password)
         {
-            User user = getUserByUserName(userName);
-            if (user == null)
+            SiteUser siteUser = getSiteUserByUserName(userName);
+            if (siteUser == null)
                 return null;
-            if (!user.SiteUser.Password.Equals(password))
-                return null;
-            return user;
+            //if (!user.SiteUser.Password.Equals(password))
+            //    return null;
+            return siteUser;
         }
 
         public void ForgetUserName()
@@ -39,9 +39,9 @@ namespace BLL
 
         public void ForgetPassword(string userName)
         {
-            User user = getUserByUserName(userName);
+            SiteUser user = getSiteUserByUserName(userName);
             string newPass = randStr(5); ;
-            user.SiteUser.Password = newPass;
+            //user.SiteUser.Password = newPass;
             //send an email
         }
 
@@ -65,7 +65,7 @@ namespace BLL
             //if (!newPass1.Equals(newPass2))
             //    return -2;
             //user.Password = newPass1;
-            //return 0;
+            return 0;
         }
 
 

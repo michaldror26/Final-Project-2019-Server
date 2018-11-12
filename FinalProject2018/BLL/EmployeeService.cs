@@ -14,7 +14,7 @@ namespace BLL
             return db.Employees.ToList();
         }
 
-        public Employee getEmployeeById(int id)
+        public Employee GetEmployeeById(int id)
         {
             return db.Employees.FirstOrDefault(e => e.EmployeeId == id);
         }

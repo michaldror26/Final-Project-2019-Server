@@ -17,6 +17,8 @@ namespace Entities
 
         [ForeignKey("SiteUser")]
         public int SiteUserId { get; set; }
+        public virtual SiteUser SiteUser { get; set; }
+
         public DateTime RegisteredDate { get; set; }
 
         [DefaultValue(0)]

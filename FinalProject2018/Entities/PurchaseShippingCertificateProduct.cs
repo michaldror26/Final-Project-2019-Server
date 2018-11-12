@@ -13,9 +13,11 @@ namespace Entities
     public class PurchaseShippingCertificateProduct
     {
         [Key]
+        [Column(Order = 1)]
         public int PurchaseShippingCertificateId { get; set; }
         public virtual PurchaseShippingCertificate PurchaseShippingCertificate { get; set; }
         [Key]
+        [Column(Order = 2)]
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
 

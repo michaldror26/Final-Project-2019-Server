@@ -11,17 +11,19 @@ namespace BLL
 {
     public class PurchaseOrderService : BaseService
     {
+        CustomerService customerService = new CustomerService();
+
         public void finishOrder(int custId, List<PurchaseOrderProduct> lst)
         {
-            Provider p = null;//= getCustomerById(custId);
-            PurchaseOrder po = new PurchaseOrder();
-            po.Date = DateTime.Now;
-            po.Provider = cust;
-            po.CustomerId = custId;
+            //Provider p = CustomerService.getCustomerById(custId);
+            //PurchaseOrder po = new PurchaseOrder();
+            //p.Date = DateTime.Now;
+            //p.Provider = cust;
+            //p.CustomerId = custId;
          
-            po.SaleOrderProducts = lst;
+            //p.SaleOrderProducts = lst;
 
-            p.PurchaseOrders.Add(po);
+            //p.PurchaseOrders.Add(po);
 
         }
     }

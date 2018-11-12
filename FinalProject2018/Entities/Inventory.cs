@@ -13,9 +13,11 @@ namespace Entities
     public class Inventory
     {
         [Key]
+        public int InventoryId { get; set; }
+
+        [ForeignKey("Product")]
         public int ProductId { get; set; }
 
-        [Key]
         public virtual Product Product { get; set; }
 
         [DefaultValue(0)]

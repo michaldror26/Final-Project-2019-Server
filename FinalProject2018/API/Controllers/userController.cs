@@ -19,10 +19,10 @@ namespace API.Controllers
         //}
 
         // GET: api/test/5
-        public AuthenticationType Get(int id)
-        {
-            return employeeService.getEmployeeById(1);
-        }
+        //public AuthenticationType Get(int id)
+        //{
+        //    return employeeService.GetEmployeeById(1);
+        //}
 
         // POST: api/test
         public void Post([FromBody]string value)

@@ -51,13 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201811011750251_Initial.cs" />
-    <Compile Include="Migrations\201811011750251_Initial.Designer.cs">
-      <DependentUpon>201811011750251_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201811121949207_Initial.cs" />
+    <Compile Include="Migrations\201811121949207_Initial.Designer.cs">
+      <DependentUpon>201811121949207_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811011946473_Initial1.cs" />
-    <Compile Include="Migrations\201811011946473_Initial1.Designer.cs">
-      <DependentUpon>201811011946473_Initial1.cs</DependentUpon>
+    <Compile Include="Migrations\201811122000183_Initial1.cs" />
+    <Compile Include="Migrations\201811122000183_Initial1.Designer.cs">
+      <DependentUpon>201811122000183_Initial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
@@ -74,11 +74,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811011750251_Initial.resx">
-      <DependentUpon>201811011750251_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811121949207_Initial.resx">
+      <DependentUpon>201811121949207_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811011946473_Initial1.resx">
-      <DependentUpon>201811011946473_Initial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811122000183_Initial1.resx">
+      <DependentUpon>201811122000183_Initial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

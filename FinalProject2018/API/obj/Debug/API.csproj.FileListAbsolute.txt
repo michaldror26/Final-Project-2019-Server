@@ -75,3 +75,10 @@ E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProjec
 E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\API\bin\System.Web.Cors.dll
 E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\API\bin\System.Web.Http.Cors.dll
 E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\API\bin\System.Web.Http.Cors.xml
+C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\API\bin\EntityFramework.SqlServer.dll
+C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\API\bin\System.Web.Cors.dll
+C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\API\bin\System.Web.Http.Cors.dll
+C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\API\bin\BLL.dll.config
+C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\API\bin\EntityFramework.xml
+C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\API\bin\EntityFramework.SqlServer.xml
+C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\API\bin\System.Web.Http.Cors.xml

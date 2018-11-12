@@ -11,9 +11,10 @@ namespace BLL
 {
     public class EmployeeScheduleService : BaseService
     {
+        EmployeeService employeeService = new EmployeeService();
         public List<EmployeeSchedule> getEmoloyeeSchedule(int id)
         {
-            Employee emp = getEmployeeById(id);
+            Employee emp = employeeService.GetEmployeeById(id);
             if (emp != null)
             {
                 return emp.EmployeeSchedules;
@@ -23,7 +24,7 @@ namespace BLL
 
         public int enter(int id)
         {
-            Employee emp = getEmployeeById(id);
+            Employee emp = employeeService.GetEmployeeById(id);
             if (emp == null)
                 return -1;
 
@@ -37,7 +38,7 @@ namespace BLL
 
         public int exit(int id)
         {
-            Employee emp = getEmployeeById(id);
+            Employee emp = employeeService.GetEmployeeById(id);
             if (emp == null)
                 return -1;
             try

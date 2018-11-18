@@ -7,7 +7,7 @@ using Entities;
 
 namespace BLL
 {
-    class CustomerService : UserSiteService
+    public class CustomerService : UserSiteService
     {
         public List<Customer> GetAllCustomers()
         {
@@ -19,6 +19,26 @@ namespace BLL
             return db.Customers.FirstOrDefault(u => u.CustomerId == id);
         }
 
+        public void AddCustomer(Customer customer)
+        {
+            db.Customers.Add(customer);
+        }
+
+        public void DeleteCustomer(int id)
+        {
+            Customer customer = db.Customers.FirstOrDefault(c => c.CustomerId == id);
+            db.Customers.Remove(customer);
+        }
+
+        public void EditCustomer(Customer customer)
+        {
+
+        }
+
+        public void UpdateCustomerSiteUserId(int siteUserId)
+        {
+
+        }
         //public List<string> func(User user)
         //{
         //    List<List<string>> ret = new List<List<string>>();

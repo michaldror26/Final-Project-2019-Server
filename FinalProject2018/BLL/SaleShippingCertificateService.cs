@@ -11,5 +11,57 @@ namespace BLL
 {
     public class SaleShippingCertificateService : BaseService
     {
+        public List<SaleShippingCertificate> GetAllSaleShippingCertificates()
+        {
+            return db.SaleShippingCertificates.ToList();
+        }
+
+        public List<SaleShippingCertificate> GetAllSaleShippingCertificatesOfCustomer(int providerId)
+        {
+            return db.SaleShippingCertificates
+                .Where(saleShippingCertificates => saleShippingCertificates.ProviderId == providerId)
+                .ToList();
+            //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+
+        }
+        public SaleShippingCertificate GetSaleShippingCertificateById(int id)
+        {
+            return db.SaleShippingCertificates.FirstOrDefault(e => e.SaleShippingCertificateId == id);
+            //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+        }
+
+        public void AddSaleShippingCertificate(SaleShippingCertificate saleShippingCertificate)
+        {
+            db.SaleShippingCertificates.Add(saleShippingCertificate);
+            //לבדוק אם מכניס גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+        }
+
+        public void DeleteSaleShippingCertificate(int id)
+        {
+            SaleShippingCertificate saleShippingCertificate = db.SaleShippingCertificates.FirstOrDefault(c => c.SaleShippingCertificateId == id);
+            db.SaleShippingCertificates.Remove(saleShippingCertificate);
+            //לבדוק אם מוחק גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+        }
+
+        public void EditSaleShippingCertificate(SaleShippingCertificate saleShippingCertificate)
+        {
+
+        }
+
+        #region toCheckIfItNeeded
+        public void EditSaleShippingCertificateProduct(SaleShippingCertificateProduct saleShippingCertificateProduct)
+        {
+
+        }
+
+        public void DeleteSaleShippingCertificateProduct(int saleShippingCertificateProductId)
+        {
+
+        }
+        public void EditSaleShippingCertificateProduct(int saleShippingCertificateProductId)
+        {
+
+        }
+        #endregion
     }
 }

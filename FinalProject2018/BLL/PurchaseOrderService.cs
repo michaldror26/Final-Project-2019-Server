@@ -11,20 +11,57 @@ namespace BLL
 {
     public class PurchaseOrderService : BaseService
     {
-        CustomerService customerService = new CustomerService();
-
-        public void finishOrder(int custId, List<PurchaseOrderProduct> lst)
+        public List<PurchaseOrder> GetAllPurchaseOrders()
         {
-            //Provider p = CustomerService.getCustomerById(custId);
-            //PurchaseOrder po = new PurchaseOrder();
-            //p.Date = DateTime.Now;
-            //p.Provider = cust;
-            //p.CustomerId = custId;
-         
-            //p.SaleOrderProducts = lst;
+            return db.PurchaseOrders.ToList();
+        }
 
-            //p.PurchaseOrders.Add(po);
+        public List<PurchaseOrder> GetAllPurchaseOrdersOfCustomer(int providerId)
+        {
+            return db.PurchaseOrders
+                .Where(purchaseOrders => purchaseOrders.ProviderId == providerId)
+                .ToList();
+            //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
 
         }
+        public PurchaseOrder GetPurchaseOrderById(int id)
+        {
+            return db.PurchaseOrders.FirstOrDefault(e => e.PurchaseOrderId == id);
+            //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+        }
+
+        public void AddPurchaseOrder(PurchaseOrder purchaseOrder)
+        {
+            db.PurchaseOrders.Add(purchaseOrder);
+            //לבדוק אם מכניס גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+        }
+
+        public void DeletePurchaseOrder(int id)
+        {
+            PurchaseOrder purchaseOrder = db.PurchaseOrders.FirstOrDefault(c => c.PurchaseOrderId == id);
+            db.PurchaseOrders.Remove(purchaseOrder);
+            //לבדוק אם מוחק גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+        }
+
+        public void EditPurchaseOrder(PurchaseOrder purchaseOrder)
+        {
+
+        }
+
+        #region toCheckIfItNeeded
+        public void EditPurchaseOrderProduct(PurchaseOrderProduct purchaseOrderProduct)
+        {
+
+        }
+
+        public void DeletePurchaseOrderProduct(int purchaseOrderProductId)
+        {
+
+        }
+        public void EditPurchaseOrderProduct(int purchaseOrderProductId)
+        {
+
+        }
+        #endregion
     }
 }

@@ -8,7 +8,7 @@ using Entities;
 
 namespace BLL
 {
-    class CustomerPaymentService : BaseService
+    public class CustomerPaymentService : BaseService
     {
         public List<CustomerPayment> GetAllCustomerPayments()
         {
@@ -18,6 +18,22 @@ namespace BLL
         public CustomerPayment getCustomerPaymentById(int id)
         {
             return db.CustomerPayments.FirstOrDefault(c => c.CustomerPaymentId == id);
+        }
+
+        public void AddCustomerPayment(CustomerPayment customerPayment)
+        {
+            db.CustomerPayments.Add(customerPayment);
+        }
+
+        public void DeleteCustomerPayment(int id)
+        {
+            CustomerPayment customerPayment = db.CustomerPayments.FirstOrDefault(c => c.CustomerPaymentId == id);
+            db.CustomerPayments.Remove(customerPayment);
+        }
+
+        public void EditCustomerPayment(CustomerPayment customerPayment)
+        {
+
         }
     }
 }

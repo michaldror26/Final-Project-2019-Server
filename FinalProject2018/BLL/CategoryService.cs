@@ -19,8 +19,6 @@ namespace BLL
             return db.Categories.FirstOrDefault(c => c.CategoryId == id);
         }
 
-     
-
         public void AddCategory(Category category)
         {
             db.Categories.Add(category);
@@ -31,6 +29,11 @@ namespace BLL
             Category category = db.Categories.FirstOrDefault(c => c.CategoryId == id);
             //לוודא שאין תת-קטגוריה שתלויה בו
             db.Categories.Remove(category);
+        }
+
+        public void EditCategory(Category category)
+        {
+
         }
     }
 }

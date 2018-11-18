@@ -11,9 +11,19 @@ namespace BLL
 {
     public class UserSiteService : BaseService
     {
-        public SiteUser getSiteUserByUserName(string userName)
+        public SiteUser getUserByUserName(string userName)
         {
             return db.SiteUsers.FirstOrDefault(u => u.UserName.Equals(userName));
+        }
+
+        public SiteUser getUserByUserNameAndPass(string userName, string userPassword)
+        {
+            return db.SiteUsers.FirstOrDefault(u => u.UserName.Equals(userName) && u.Password.Equals(userPassword));
+        }
+
+        public List<SiteUser> getAllUsers()
+        {
+            return db.SiteUsers.ToList();
         }
 
         public SiteUser getUserById(int id)
@@ -21,27 +31,53 @@ namespace BLL
             return db.SiteUsers.FirstOrDefault(u => u.SiteUserId == id);
         }
 
-
-        public SiteUser Login(String userName, string password)
+        public void AddUser(User user)
         {
-            SiteUser siteUser = getSiteUserByUserName(userName);
-            if (siteUser == null)
-                return null;
-            //if (!user.SiteUser.Password.Equals(password))
-            //    return null;
-            return siteUser;
+            db.Users.Add(user);
+        }
+
+        public void DeleteUser(int id)
+        {
+            User user = db.Users.FirstOrDefault(c => c.UserId == id);
+            db.Users.Remove(user);
+        }
+
+        public void EditUser(User user)
+        {
+
+        }
+
+
+        public int Login(String userName, String password)
+        {
+            SiteUser siteUser = getUserByUserName(userName);
+            if (siteUser != null)
+                if (siteUser.Password.Equals(password))
+                    return siteUser.SiteUserId;
+            return -1;
+        }
+        public int Register(SiteUser siteUser, int userId)
+        {
+            db.SiteUsers.Add(siteUser);
+            int siteUserId = Login(siteUser.UserName, siteUser.Password);
+            if (siteUser.AuthenticationType.AuthName == "Customer")
+                (new CustomerService()).UpdateCustomerSiteUserId(siteUserId);
+            else
+                 if (siteUser.AuthenticationType.AuthName == "Employee")
+                (new EmployeeService()).UpdateEmployeeSiteUserId(siteUserId);
+            return userId;
         }
 
         public void ForgetUserName()
         {
-            
+
         }
 
         public void ForgetPassword(string userName)
         {
-            SiteUser user = getSiteUserByUserName(userName);
+            SiteUser user = getUserByUserName(userName);
             string newPass = randStr(5); ;
-            //user.SiteUser.Password = newPass;
+            //user.SiteUser.Password = newPass;קיווקו 
             //send an email
         }
 
@@ -59,6 +95,7 @@ namespace BLL
         }
         public int ChangePassword(User user, string prevPass, string newPass1, string newPass2)
         {
+            //זה פשוט קיוקוו
             //User user = getSiteUserById(userId);
             //if (!user.Password.Equals(prevPass))
             //    return -1;

@@ -7,7 +7,7 @@ using Entities;
 
 namespace BLL
 {
-    class MailboxMessageService : BaseService
+    public class MailboxMessageService : BaseService
     {
         public List<MailboxMessage> GetAllMailboxMessages()
         {
@@ -17,6 +17,22 @@ namespace BLL
         public MailboxMessage getMailboxMessageById(int id)
         {
             return db.MailboxMessages.FirstOrDefault(e => e.MailboxMessageId == id);
+        }
+
+        public void AddMailboxMessage(MailboxMessage mailboxMessage)
+        {
+            db.MailboxMessages.Add(mailboxMessage);
+        }
+
+        public void DeleteMailboxMessage(int id)
+        {
+            MailboxMessage mailboxMessage = db.MailboxMessages.FirstOrDefault(c => c.MailboxMessageId == id);
+            db.MailboxMessages.Remove(mailboxMessage);
+        }
+
+        public void EditMailboxMessage(MailboxMessage mailboxMessage)
+        {
+
         }
     }
 }

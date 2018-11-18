@@ -7,31 +7,59 @@ using Entities;
 
 namespace BLL
 {
-    class SaleOrderService : BaseService
+    public class SaleOrderService : BaseService
     {
-        public void finishOrder(int custId, List<SaleOrderProduct> lst)
-        {
-            Customer cust=null;//= getCustomerById(custId);
-            SaleOrder so = new SaleOrder();
-            so.Date = DateTime.Now;
-            so.Customer = cust;
-            so.CustomerId = custId;
-            so.Remark = "Done by customer";
-            so.SaleOrderProducts = lst;
-
-            cust.SaleOrders.Add(so);
-
-        }
-
-        public SaleOrder getSaleOrderById(int id)
-        {
-            return db.SaleOrders.FirstOrDefault(u => u.SaleOrderId == id);
-        }
-
-        public List<SaleOrder> getSiteUserById()
+        public List<SaleOrder> GetAllSaleOrders()
         {
             return db.SaleOrders.ToList();
         }
 
+        public List<SaleOrder> GetAllSaleOrdersOfCustomer(int providerId)
+        {
+            return db.SaleOrders
+                .Where(saleOrders => saleOrders.ProviderId == providerId)
+                .ToList();
+            //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+
+        }
+        public SaleOrder GetSaleOrderById(int id)
+        {
+            return db.SaleOrders.FirstOrDefault(e => e.SaleOrderId == id);
+            //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+        }
+
+        public void AddSaleOrder(SaleOrder saleOrder)
+        {
+            db.SaleOrders.Add(saleOrder);
+            //לבדוק אם מכניס גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+        }
+
+        public void DeleteSaleOrder(int id)
+        {
+            SaleOrder saleOrder = db.SaleOrders.FirstOrDefault(c => c.SaleOrderId == id);
+            db.SaleOrders.Remove(saleOrder);
+            //לבדוק אם מוחק גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+        }
+
+        public void EditSaleOrder(SaleOrder saleOrder)
+        {
+
+        }
+
+        #region toCheckIfItNeeded
+        public void EditSaleOrderProduct(SaleOrderProduct saleOrderProduct)
+        {
+
+        }
+
+        public void DeleteSaleOrderProduct(int saleOrderProductId)
+        {
+
+        }
+        public void EditSaleOrderProduct(int saleOrderProductId)
+        {
+
+        }
+        #endregion
     }
 }

@@ -17,16 +17,16 @@ namespace BLL
         }
 
         public List<Product> getAllProductByCategory(Category category)
-        {
+        {//עושים את הסינון הזה בקליינט
             return db.Products.Where(p => p.Category == category).ToList();
         }
         public List<Product> getAllProductByCategory(int category)
-        {
+        {//עושים את הסינון הזה בקליינט
             return db.Products.Where(p => p.CategoryId == category).ToList();
         }
 
         public List<Product> getAllProductByCategory(string category)
-        {
+        {//עושים את הסינון הזה בקליינט
             return db.Products.Where(p => p.Category.Name == category).ToList();
         }
 

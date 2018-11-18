@@ -14,6 +14,7 @@ namespace Entities
     {
         [Key]
         public int MailboxMessageId { get; set; }
+
         public DateTime Date { get; set; }
         
         public string From { get; set; } //user or מערכת

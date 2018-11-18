@@ -54,5 +54,10 @@ namespace BLL
             }
             return 0;
         }
+
+        public void Edit()
+        {
+
+        }
     }
 }

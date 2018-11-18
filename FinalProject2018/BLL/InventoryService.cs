@@ -17,9 +17,30 @@ namespace BLL
             return db.Inventory.ToList();
         }
 
-        public Inventory getProductCountById(int id)
+        public Inventory getInventoryById(int id)
         {
             return db.Inventory.FirstOrDefault(e => e.ProductId == id);
+        }
+
+        public Inventory getProductAmountById(int ProductId)
+        {
+            return db.Inventory.FirstOrDefault(e => e.ProductId == ProductId);
+        }
+
+        public void AddInventory(Inventory inventory)
+        {
+            db.Inventory.Add(inventory);
+        }
+
+        public void DeleteInventory(int id)
+        {
+            Inventory inventory = db.Inventory.FirstOrDefault(c => c.InventoryId == id);
+            db.Inventory.Remove(inventory);
+        }
+
+        public void EditInventory(Inventory inventory)
+        {
+
         }
     }
 }

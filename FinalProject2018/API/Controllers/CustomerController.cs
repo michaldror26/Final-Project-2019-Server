@@ -27,7 +27,7 @@ namespace API.Controllers
         [Route("getAllCustomers")]
         public List<Customer> GetAllCustomers()
         {
-            return service.GetAllCustomers();
+            return service.GetAllCustomers().ToList();
         }
 
         // PUT: api/customer/5

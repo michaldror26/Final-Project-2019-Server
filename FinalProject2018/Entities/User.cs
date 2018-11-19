@@ -12,9 +12,6 @@ namespace Entities
     [Table("user")]
     public abstract class User
     {
-        [Key]
-        public int UserId { get; set; }
-
         [RegularExpression(@"[A-Za-zא-ת]+",
         ErrorMessage = "First name can contain only letters")]
         [Required(ErrorMessage = "Required field!")]

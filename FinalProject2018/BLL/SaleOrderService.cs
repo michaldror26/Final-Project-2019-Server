@@ -14,10 +14,10 @@ namespace BLL
             return db.SaleOrders.ToList();
         }
 
-        public List<SaleOrder> GetAllSaleOrdersOfCustomer(int providerId)
+        public List<SaleOrder> GetAllSaleOrdersOfCustomer(int customerId)
         {
             return db.SaleOrders
-                .Where(saleOrders => saleOrders.ProviderId == providerId)
+                .Where(saleOrders => saleOrders.CustomerId == customerId)
                 .ToList();
             //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
 

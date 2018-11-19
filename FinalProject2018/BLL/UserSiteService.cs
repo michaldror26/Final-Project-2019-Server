@@ -31,15 +31,15 @@ namespace BLL
             return db.SiteUsers.FirstOrDefault(u => u.SiteUserId == id);
         }
 
-        public void AddUser(User user)
+        public void AddUser(SiteUser user)
         {
-            db.Users.Add(user);
+            db.SiteUsers.Add(user);
         }
 
         public void DeleteUser(int id)
         {
-            User user = db.Users.FirstOrDefault(c => c.UserId == id);
-            db.Users.Remove(user);
+            SiteUser siteUser = db.SiteUsers.FirstOrDefault(c => c.SiteUserId == id);
+            db.SiteUsers.Remove(siteUser);
         }
 
         public void EditUser(User user)

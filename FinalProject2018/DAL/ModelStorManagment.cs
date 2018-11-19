@@ -27,8 +27,7 @@ namespace DAL
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         public virtual DbSet<AuthenticationType> AuthenticationTypes { get; set; }
-        public virtual DbSet<SiteUser> SiteUsers { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<SiteUser> SiteUsers { get; set; }       
 
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomerPayment> CustomerPayments { get; set; }

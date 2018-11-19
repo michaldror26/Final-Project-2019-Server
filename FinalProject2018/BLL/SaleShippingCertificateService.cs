@@ -16,10 +16,10 @@ namespace BLL
             return db.SaleShippingCertificates.ToList();
         }
 
-        public List<SaleShippingCertificate> GetAllSaleShippingCertificatesOfCustomer(int providerId)
+        public List<SaleShippingCertificate> GetAllSaleShippingCertificatesOfCustomer(int customerId)
         {
             return db.SaleShippingCertificates
-                .Where(saleShippingCertificates => saleShippingCertificates.ProviderId == providerId)
+                .Where(saleShippingCertificates => saleShippingCertificates.CustomerId == customerId)
                 .ToList();
             //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
 

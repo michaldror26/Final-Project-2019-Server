@@ -1,0 +1,2 @@
+INSERT INTO [dbo].[customer]([RegisteredDate],[DiscountPercentage],[FirstName],[LastName],[MobilePhone],[Telephone],[City],[Email])
+VALUES (GETDATE(),50,'מיכל','דרור','0548466705','036191438', 'בני ברק','michaldror26@gmail.com')

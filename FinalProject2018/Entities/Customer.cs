@@ -16,7 +16,7 @@ namespace Entities
         public int CustomerId { get; set; }
 
         [ForeignKey("SiteUser")]
-        public int SiteUserId { get; set; }
+        public Nullable<int> SiteUserId { get; set; }
         public virtual SiteUser SiteUser { get; set; }
 
         public DateTime RegisteredDate { get; set; }

@@ -34,6 +34,7 @@ namespace BLL
         {
             db.SaleShippingCertificates.Add(saleShippingCertificate);
             //לבדוק אם מכניס גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+            db.SaveChanges();
         }
 
         public void DeleteSaleShippingCertificate(int id)
@@ -41,6 +42,7 @@ namespace BLL
             SaleShippingCertificate saleShippingCertificate = db.SaleShippingCertificates.FirstOrDefault(c => c.SaleShippingCertificateId == id);
             db.SaleShippingCertificates.Remove(saleShippingCertificate);
             //לבדוק אם מוחק גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+            db.SaveChanges();
         }
 
         public void EditSaleShippingCertificate(SaleShippingCertificate saleShippingCertificate)

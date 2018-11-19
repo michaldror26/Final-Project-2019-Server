@@ -22,12 +22,14 @@ namespace BLL
         public void AddEmployee(Employee employee)
         {
             db.Employees.Add(employee);
+            db.SaveChanges();
         }
 
         public void DeleteEmployee(int id)
         {
             Employee employee = db.Employees.FirstOrDefault(c => c.EmployeeId == id);
             db.Employees.Remove(employee);
+            db.SaveChanges();
         }
 
         public void EditEmployee(Employee employee)

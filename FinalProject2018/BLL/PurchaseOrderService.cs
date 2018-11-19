@@ -34,6 +34,7 @@ namespace BLL
         {
             db.PurchaseOrders.Add(purchaseOrder);
             //לבדוק אם מכניס גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+            db.SaveChanges();
         }
 
         public void DeletePurchaseOrder(int id)
@@ -41,6 +42,7 @@ namespace BLL
             PurchaseOrder purchaseOrder = db.PurchaseOrders.FirstOrDefault(c => c.PurchaseOrderId == id);
             db.PurchaseOrders.Remove(purchaseOrder);
             //לבדוק אם מוחק גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+            db.SaveChanges();
         }
 
         public void EditPurchaseOrder(PurchaseOrder purchaseOrder)

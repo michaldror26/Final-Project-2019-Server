@@ -22,12 +22,14 @@ namespace BLL
         public void AddCustomer(Customer customer)
         {
             db.Customers.Add(customer);
+            db.SaveChanges();
         }
 
         public void DeleteCustomer(int id)
         {
             Customer customer = db.Customers.FirstOrDefault(c => c.CustomerId == id);
             db.Customers.Remove(customer);
+            db.SaveChanges();
         }
 
         public void EditCustomer(Customer customer)

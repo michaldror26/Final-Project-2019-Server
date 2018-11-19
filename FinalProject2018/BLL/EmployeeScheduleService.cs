@@ -33,6 +33,7 @@ namespace BLL
             es.EnterDateTime = DateTime.Now;
             //צריך להוסיף לקיחת מיקום
             emp.EmployeeSchedules.Add(es);
+            db.SaveChanges();
             return 0;
         }
 
@@ -47,6 +48,7 @@ namespace BLL
                 if (exitDate > emp.EmployeeSchedules.Last().EnterDateTime)
                     emp.EmployeeSchedules.Last().ExitDateTime = DateTime.Now;
                 //צריך להוסיף לקיחת מיקום והשוואה
+                db.SaveChanges();
             }
             catch
             {

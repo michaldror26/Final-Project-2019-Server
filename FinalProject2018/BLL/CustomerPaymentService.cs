@@ -23,12 +23,14 @@ namespace BLL
         public void AddCustomerPayment(CustomerPayment customerPayment)
         {
             db.CustomerPayments.Add(customerPayment);
+            db.SaveChanges();
         }
 
         public void DeleteCustomerPayment(int id)
         {
             CustomerPayment customerPayment = db.CustomerPayments.FirstOrDefault(c => c.CustomerPaymentId == id);
             db.CustomerPayments.Remove(customerPayment);
+            db.SaveChanges();
         }
 
         public void EditCustomerPayment(CustomerPayment customerPayment)

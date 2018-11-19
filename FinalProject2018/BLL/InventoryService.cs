@@ -30,12 +30,14 @@ namespace BLL
         public void AddInventory(Inventory inventory)
         {
             db.Inventory.Add(inventory);
+            db.SaveChanges();
         }
 
         public void DeleteInventory(int id)
         {
             Inventory inventory = db.Inventory.FirstOrDefault(c => c.InventoryId == id);
             db.Inventory.Remove(inventory);
+            db.SaveChanges();
         }
 
         public void EditInventory(Inventory inventory)

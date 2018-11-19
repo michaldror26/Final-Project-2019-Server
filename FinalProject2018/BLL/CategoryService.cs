@@ -22,6 +22,7 @@ namespace BLL
         public void AddCategory(Category category)
         {
             db.Categories.Add(category);
+            db.SaveChanges();
         }
 
         public void DeleteCategory(int id)
@@ -29,6 +30,7 @@ namespace BLL
             Category category = db.Categories.FirstOrDefault(c => c.CategoryId == id);
             //לוודא שאין תת-קטגוריה שתלויה בו
             db.Categories.Remove(category);
+            db.SaveChanges();
         }
 
         public void EditCategory(Category category)

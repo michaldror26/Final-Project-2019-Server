@@ -24,12 +24,14 @@ namespace BLL
         public void AddProvider(Provider provider)
         {
             db.Providers.Add(provider);
+            db.SaveChanges();
         }
 
         public void DeleteProvider(int id)
         {
             Provider provider = db.Providers.FirstOrDefault(c => c.ProviderId == id);
             db.Providers.Remove(provider);
+            db.SaveChanges();
         }
 
         public void EditProvider(Provider provider)

@@ -22,12 +22,14 @@ namespace BLL
         public void AddMailboxMessage(MailboxMessage mailboxMessage)
         {
             db.MailboxMessages.Add(mailboxMessage);
+            db.SaveChanges();
         }
 
         public void DeleteMailboxMessage(int id)
         {
             MailboxMessage mailboxMessage = db.MailboxMessages.FirstOrDefault(c => c.MailboxMessageId == id);
             db.MailboxMessages.Remove(mailboxMessage);
+            db.SaveChanges();
         }
 
         public void EditMailboxMessage(MailboxMessage mailboxMessage)

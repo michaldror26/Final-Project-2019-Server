@@ -30,36 +30,44 @@ namespace API.Controllers
             return service.GetAllCustomers().ToList();
         }
 
-        // PUT: api/customer/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        // GET: api/customer/getCustomerById/5
+        public Customer getCustomerById(int id)
+        {
+            return service.getCustomerById(id);
+        }
 
-        // DELETE: api/user/5
-        public void Delete(int id)
+        // POST: api/customer
+        [HttpPost]
+        [Route("editCustomer")]
+        public bool EditCustomer([FromBody]Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                service.AddCustomer(customer);
+                return true;
+            }
+            return false;
+        }
+
+        // DELETE: api/user/DeleteCustomer/5
+        [HttpGet]
+        [Route("deleteCustomer")]
+        public bool DeleteCustomer(int id)
         {
             service.DeleteCustomer(id);
+            return true;
         }
-        
-        #region old
-        public EmployeeService employeeService = new EmployeeService();
-        
-        //public IEnumerable<string> Get()
-        //{
-        //    return Em;
-        //}
 
-        // GET: api/test/5
-        //public AuthenticationType Get(int id)
-        //{
-        //    return employeeService.GetEmployeeById(1);
-        //}
-
-        // POST: api/test
-        public void Post([FromBody]string value)
+        // ADD: api/user/AddCustomer
+        [HttpPost]
+        public bool AddCustomer([FromBody]Customer customer)
         {
+            if (ModelState.IsValid)
+            {
+                service.AddCustomer(customer);
+                return true;
+            }
+            return false;
         }
-       
-        #endregion
     }
 }

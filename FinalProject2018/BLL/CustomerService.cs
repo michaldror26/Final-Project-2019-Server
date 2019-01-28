@@ -20,24 +20,49 @@ namespace BLL
             return db.Customers.FirstOrDefault(u => u.CustomerId == id);
         }
 
-        public void AddCustomer(Customer customer)
+        public Customer AddCustomer(Customer customer)
         {
-            db.Customers.Add(customer);
-            db.SaveChanges();
+            try
+            {
+                db.Customers.Add(customer);
+                db.SaveChanges();
+                return customer;//TODO return real from db
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
-        public void DeleteCustomer(int id)
+        public Customer DeleteCustomer(int id)
         {
-            Customer customer = db.Customers.FirstOrDefault(c => c.CustomerId == id);
-            db.Customers.Remove(customer);
-            db.SaveChanges();
+            try
+            {
+                Customer customer = db.Customers.FirstOrDefault(c => c.CustomerId == id);
+                db.Customers.Remove(customer);
+                db.SaveChanges();
+                return customer;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
-        public void EditCustomer(Customer customer)
+        public Customer EditCustomer(Customer customer)
         {
-            db.Customers.Attach(customer);
-            db.Entry(customer).State = EntityState.Modified;
-            db.SaveChanges();
+            //db.Customers.Attach(customer);
+            try
+            {
+
+                db.Entry(customer).State = EntityState.Modified;
+                db.SaveChanges();
+                return customer;//TODO return real from db
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         public void UpdateCustomerSiteUserId(int siteUserId)

@@ -3,6 +3,8 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using Entities;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.ComponentModel.DataAnnotations;
 
 namespace DAL
 {
@@ -35,7 +37,6 @@ namespace DAL
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<EmployeeSchedule> EmployeeSchedules { get; set; }
 
-        public virtual DbSet<Inventory> Inventory { get; set; }
         public virtual DbSet<MailboxMessage> MailboxMessages { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
@@ -53,7 +54,13 @@ namespace DAL
         public virtual DbSet<SaleShippingCertificate> SaleShippingCertificates { get; set; }
         public virtual DbSet<SaleShippingCertificateProduct> SaleShippingCertificateProducts { get; set; }
 
-
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>()  
+           .HasRequired<Category>(c=>c.Category)  
+           .WithMany(c =>c.Products)  
+           .HasForeignKey(c =>c.CategoryId);  
+        }
 
     }
 }

@@ -51,17 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201811191653186_Initial.cs" />
-    <Compile Include="Migrations\201811191653186_Initial.Designer.cs">
-      <DependentUpon>201811191653186_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201901091245152_Initial.cs" />
+    <Compile Include="Migrations\201901091245152_Initial.Designer.cs">
+      <DependentUpon>201901091245152_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811191754476_Initial1.cs" />
-    <Compile Include="Migrations\201811191754476_Initial1.Designer.cs">
-      <DependentUpon>201811191754476_Initial1.cs</DependentUpon>
+    <Compile Include="Migrations\201901102125216_Initial1.cs" />
+    <Compile Include="Migrations\201901102125216_Initial1.Designer.cs">
+      <DependentUpon>201901102125216_Initial1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811191757018_Initial2.cs" />
-    <Compile Include="Migrations\201811191757018_Initial2.Designer.cs">
-      <DependentUpon>201811191757018_Initial2.cs</DependentUpon>
+    <Compile Include="Migrations\201901141517357_Initial2.cs" />
+    <Compile Include="Migrations\201901141517357_Initial2.Designer.cs">
+      <DependentUpon>201901141517357_Initial2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
@@ -78,14 +78,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811191653186_Initial.resx">
-      <DependentUpon>201811191653186_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901091245152_Initial.resx">
+      <DependentUpon>201901091245152_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811191754476_Initial1.resx">
-      <DependentUpon>201811191754476_Initial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901102125216_Initial1.resx">
+      <DependentUpon>201901102125216_Initial1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811191757018_Initial2.resx">
-      <DependentUpon>201811191757018_Initial2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901141517357_Initial2.resx">
+      <DependentUpon>201901141517357_Initial2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

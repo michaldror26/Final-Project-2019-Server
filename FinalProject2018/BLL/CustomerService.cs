@@ -33,11 +33,19 @@ namespace BLL
             db.SaveChanges();
         }
 
-        public void EditCustomer(Customer customer)
+        public bool EditCustomer(Customer customer)
         {
-            db.Customers.Attach(customer);
-            db.Entry(customer).State = EntityState.Modified;
-            db.SaveChanges();
+            try
+            {
+                db.Customers.Attach(customer);
+                db.Entry(customer).State = EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public void UpdateCustomerSiteUserId(int siteUserId)

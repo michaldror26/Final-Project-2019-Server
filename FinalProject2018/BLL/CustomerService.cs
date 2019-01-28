@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,9 @@ namespace BLL
 
         public void EditCustomer(Customer customer)
         {
-
+            db.Customers.Attach(customer);
+            db.Entry(customer).State = EntityState.Modified;
+            db.SaveChanges();
         }
 
         public void UpdateCustomerSiteUserId(int siteUserId)

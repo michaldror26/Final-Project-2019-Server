@@ -39,13 +39,14 @@ namespace API.Controllers
         // POST: api/customer
         [HttpPost]
         [Route("editCustomer")]
-        public List<Customer> EditCustomer([FromBody]Customer customer)
+        public bool EditCustomer([FromBody]Customer customer)
         {
             if (ModelState.IsValid)
             {
-               return service.EditCustomer(customer) ? service.GetAllCustomers() : null;
+                service.AddCustomer(customer);
+                return true;
             }
-            return null;
+            return false;
         }
 
         // DELETE: api/user/DeleteCustomer/5
@@ -59,7 +60,6 @@ namespace API.Controllers
 
         // ADD: api/user/AddCustomer
         [HttpPost]
-        [Route("addCustomer")]
         public bool AddCustomer([FromBody]Customer customer)
         {
             if (ModelState.IsValid)

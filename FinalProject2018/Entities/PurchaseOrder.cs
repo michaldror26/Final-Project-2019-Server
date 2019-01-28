@@ -21,6 +21,7 @@ namespace Entities
         public virtual Provider Provider { get; set; }
 
         public string Remark { get; set; }
+        public string isOrdered { get; set; }
         public virtual List<PurchaseOrderProduct> PurchaseOrderProducts { get; set; }
 
 

@@ -25,5 +25,8 @@ namespace Entities
 
         [Required(ErrorMessage = "Required field!")]
         public float SellingPrice { get; set; }
+
+        public float Image { get; set; }
+
     }
 }

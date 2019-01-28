@@ -10,8 +10,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Entities
 {
     [Table("user")]
-    public abstract class User
+    public class User
     {
+        [Key]
+        public int UserId { get; set; }
+
         [RegularExpression(@"[A-Za-zא-ת]+",
         ErrorMessage = "First name can contain only letters")]
         [Required(ErrorMessage = "Required field!")]
@@ -46,7 +49,11 @@ namespace Entities
     {
         [Key]
         public int SiteUserId { get; set; }
-       
+
+
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
 
         public string UserName { get; set; }
 

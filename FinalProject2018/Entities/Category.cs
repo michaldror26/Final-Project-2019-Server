@@ -12,6 +12,11 @@ namespace Entities
     [Table("category")]
     public class Category
     {
+
+        public Category()
+        {
+          this.Products= new List<Product> ();
+        }
         [Key]
         public int CategoryId { get; set; }
 

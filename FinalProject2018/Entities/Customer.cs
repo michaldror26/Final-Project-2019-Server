@@ -15,9 +15,9 @@ namespace Entities
         [Key]
         public int CustomerId { get; set; }
 
-        [ForeignKey("SiteUser")]
-        public Nullable<int> SiteUserId { get; set; }
-        public virtual SiteUser SiteUser { get; set; }
+        //[ForeignKey("SiteUser")]
+        //public Nullable<int> SiteUserId { get; set; }
+        //public virtual SiteUser SiteUser { get; set; }
 
         public DateTime RegisteredDate { get; set; }
 
@@ -29,3 +29,9 @@ namespace Entities
         public virtual List<CustomerPayment> CustomerPayments { get; set; }
     }
 }
+
+
+       
+
+ 
+   

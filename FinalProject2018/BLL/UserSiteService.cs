@@ -1,42 +1,57 @@
 ﻿using System;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using Entities;
-
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace BLL
 {
     public class UserSiteService : BaseService
     {
-        public SiteUser getUserByUserName(string userName)
+        private SiteUser getSiteUser(string userName)
         {
-            return db.SiteUsers.FirstOrDefault(u => u.UserName.Equals(userName));
+            SiteUser siteUser = db.SiteUsers.FirstOrDefault(u => u.UserName.Equals(userName));
+            if (siteUser == null)
+                throw new Exception("888");
+            return siteUser;
         }
 
-        public SiteUser getUserByUserNameAndPass(string userName, string userPassword)
+        public User getUser(string userName, string password)
         {
-            return db.SiteUsers.FirstOrDefault(u => u.UserName.Equals(userName) && u.Password.Equals(userPassword));
-        }
+            SiteUser siteUser = db.SiteUsers.Include("user")
+                .FirstOrDefault(u => u.UserName.Equals(userName));
+            if (siteUser == null)
+                throw new Exception("888");
+            if (!siteUser.Password.Equals(password))
+                throw new Exception("999");
 
-        public List<SiteUser> getAllUsers()
-        {
-            return db.SiteUsers.ToList();
-        }
+            if (siteUser.AuthenticationTypeId == 2)
+                return siteUser.User as Customer;
 
-        public SiteUser getUserById(int id)
-        {
-            return db.SiteUsers.FirstOrDefault(u => u.SiteUserId == id);
+            return siteUser.User;
         }
+        
 
-        public void AddUser(SiteUser user)
+        //  public List<User> getAllUsers() { }
+
+
+        //  public User getUser(int id) {}
+
+        private void AddSiteUser(SiteUser user)
         {
+
             db.SiteUsers.Add(user);
+
         }
 
-        public void DeleteUser(int id)
+        public void DeleteSiteUser(int id)
         {
             SiteUser siteUser = db.SiteUsers.FirstOrDefault(c => c.SiteUserId == id);
             db.SiteUsers.Remove(siteUser);
@@ -48,37 +63,35 @@ namespace BLL
         }
 
 
-        public int Login(String userName, String password)
-        {
-            SiteUser siteUser = getUserByUserName(userName);
-            if (siteUser != null)
-                if (siteUser.Password.Equals(password))
-                    return siteUser.SiteUserId;
-            return -1;
-        }
-        public int Register(SiteUser siteUser, int userId)
-        {
-            db.SiteUsers.Add(siteUser);
-            int siteUserId = Login(siteUser.UserName, siteUser.Password);
-            if (siteUser.AuthenticationType.AuthName == "Customer")
-                (new CustomerService()).UpdateCustomerSiteUserId(siteUserId);
-            else
-                 if (siteUser.AuthenticationType.AuthName == "Employee")
-                (new EmployeeService()).UpdateEmployeeSiteUserId(siteUserId);
-            return userId;
-        }
-
         public void ForgetUserName()
         {
 
         }
 
-        public void ForgetPassword(string userName)
+        //change to voig and send email;
+        public string ChangePassword(string userName)
         {
-            SiteUser user = getUserByUserName(userName);
-            string newPass = randStr(5); ;
-            //user.SiteUser.Password = newPass;קיווקו 
-            //send an email
+
+            string newPass = randStr(8);
+            SiteUser siteUser = null;
+            //  db.Entry(siteUser).State = EntityState.Modified;
+            try
+            {
+                siteUser = getSiteUser(userName);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            siteUser.Password = newPass;
+            db.SaveChanges();
+
+            new SmtpClient("smtp.server.com", 25).Send("yehuditravina@gmail.com",
+                                           "yr0548494662@gmail.com",
+                                           "subject",
+                                           "body");
+            return siteUser.Password;
         }
 
         private string randStr(int n)

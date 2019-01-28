@@ -17,3 +17,4 @@ namespace Entities
         public virtual List<SiteUser> SiteUsers { get; set; }
     }
 }
+

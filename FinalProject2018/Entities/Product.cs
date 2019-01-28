@@ -17,13 +17,14 @@ namespace Entities
 
         [Required(ErrorMessage = "Required field!")]
         public string Name { get; set; }
-
+        
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
-
-        public virtual Category Category { get; set; }
+        public Category Category { get; set; }
 
         [Required(ErrorMessage = "Required field!")]
         public float SellingPrice { get; set; }
+
+        public int Amount { get; set; }
     }
 }

@@ -11,61 +11,105 @@ namespace BLL
 {
     public class ProductService : BaseService
     {
-        public Product getProductById(int id)
+
+        CategoryService cService;
+
+        public ProductService()
         {
-            return db.Products.FirstOrDefault(p => p.ProductId == id);
+            cService = new CategoryService();
         }
 
-        public List<Product> getAllProductByCategory(Category category)
-        {//עושים את הסינון הזה בקליינט
-            return db.Products.Where(p => p.Category == category).ToList();
-        }
-        public List<Product> getAllProductByCategory(int category)
-        {//עושים את הסינון הזה בקליינט
-            return db.Products.Where(p => p.CategoryId == category).ToList();
-        }
-
-        public List<Product> getAllProductByCategory(string category)
-        {//עושים את הסינון הזה בקליינט
-            return db.Products.Where(p => p.Category.Name == category).ToList();
-        }
-
-      
-        //האם יחזיר ליסט של סטרינג או של קטגורי?
-        public List<string> getFullCategory(int id)
+        public int getAmountProduct(int id)
         {
-            Product p = getProductById(id);
-            return FullCategory(p.Category);
+            Product p = db.Products.FirstOrDefault(p1 => p1.ProductId == id);
+            if (p != null)
+                return p.Amount;
+            return 0;
         }
 
-        public Category getMainCategory(int id)
+        public List<Product> getAllProduct()
         {
-            Product p = getProductById(id);
-            return FullCategory1(p.Category).First();
-
+            return db.Products.ToList();
         }
 
-        private List<string> FullCategory(Category c)
+
+        public List<Product> getAllProduct(int categoryId)
         {
-            List<string> lst;
-            if (c == null)
-                return new List<string>();
-
-          lst=  FullCategory(c.ParentCategory);
-            lst.Add(c.Name);
-            return lst;
+            //List<Category> lstc = cService.GetSubCategories(categoryId);
+            //List<Product> lstp = new List<Product>();
+            //foreach (Category c in lstc)
+            //{
+            //    if(c.Products!=null)
+            //    lstp.AddRange(c.Products);
+            //}
+            //return lstp;
+            return db.Products.ToList();
         }
 
-        private List<Category> FullCategory1(Category c)
+        public List<Product> getAllProduct(Category category)
         {
-            List<Category> lst;
-            if (c == null)
-                return new List<Category>();
-
-            lst = FullCategory1(c.ParentCategory);
-            lst.Add(c);
-            return lst;
+            return getAllProduct(category.CategoryId);
         }
+
+
+
+
+
+        //public Product getProductById(int id)
+        //{
+        //    return db.Products.FirstOrDefault(p => p.ProductId == id);
+        //}
+
+        //public List<Product> getAllProductByCategory(Category category)
+        //{//עושים את הסינון הזה בקליינט
+        //    return db.Products.Where(p => p.Category == category).ToList();
+        //}
+        //public List<Product> getAllProductByCategory(int category)
+        //{//עושים את הסינון הזה בקליינט
+        //    return db.Products.Where(p => p.CategoryId == category).ToList();
+        //}
+
+        //public List<Product> getAllProductByCategory(string category)
+        //{//עושים את הסינון הזה בקליינט
+        //    return db.Products.Where(p => p.Category.Name == category).ToList();
+        //}
+
+
+        ////האם יחזיר ליסט של סטרינג או של קטגורי?
+        //public List<string> getFullCategory(int id)
+        //{
+        //    Product p = getProductById(id);
+        //    return FullCategory(p.Category);
+        //}
+
+        //public Category getMainCategory(int id)
+        //{
+        //    Product p = getProductById(id);
+        //    return FullCategory1(p.Category).First();
+
+        //}
+
+        //private List<string> FullCategory(Category c)
+        //{
+        //    List<string> lst;
+        //    if (c == null)
+        //        return new List<string>();
+
+        //  lst=  FullCategory(c.ParentCategory);
+        //    lst.Add(c.Name);
+        //    return lst;
+        //}
+
+        //private List<Category> FullCategory1(Category c)
+        //{
+        //    List<Category> lst;
+        //    if (c == null)
+        //        return new List<Category>();
+
+        //    lst = FullCategory1(c.ParentCategory);
+        //    lst.Add(c);
+        //    return lst;
+        //}
 
 
     }

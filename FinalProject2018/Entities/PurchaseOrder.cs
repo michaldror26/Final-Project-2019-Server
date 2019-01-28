@@ -23,7 +23,5 @@ namespace Entities
         public string Remark { get; set; }
         public virtual List<PurchaseOrderProduct> PurchaseOrderProducts { get; set; }
 
-
-
     }
 }

@@ -36,6 +36,8 @@ namespace DAL
 
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<EmployeeSchedule> EmployeeSchedules { get; set; }
+        //!!!!!!!!!!!!!!!!?????????????????
+       // public virtual DbSet<Inventory> Inventory { get; set; }
 
         public virtual DbSet<MailboxMessage> MailboxMessages { get; set; }
         public virtual DbSet<Product> Products { get; set; }
@@ -53,14 +55,6 @@ namespace DAL
 
         public virtual DbSet<SaleShippingCertificate> SaleShippingCertificates { get; set; }
         public virtual DbSet<SaleShippingCertificateProduct> SaleShippingCertificateProducts { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Product>()  
-           .HasRequired<Category>(c=>c.Category)  
-           .WithMany(c =>c.Products)  
-           .HasForeignKey(c =>c.CategoryId);  
-        }
 
     }
 }

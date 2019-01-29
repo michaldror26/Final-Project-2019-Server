@@ -20,12 +20,11 @@ namespace Entities
 
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
 
         [Required(ErrorMessage = "Required field!")]
         public float SellingPrice { get; set; }
 
         public float Image { get; set; }
-
-        public int Amount { get; set; }
     }
 }

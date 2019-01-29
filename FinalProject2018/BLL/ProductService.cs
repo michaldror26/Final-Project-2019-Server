@@ -21,9 +21,9 @@ namespace BLL
 
         public int getAmountProduct(int id)
         {
-            Product p = db.Products.FirstOrDefault(p1 => p1.ProductId == id);
-            if (p != null)
-                return p.Amount;
+            //Product p = db.Products.FirstOrDefault(p1 => p1.ProductId == id);
+            //if (p != null)
+            //    return p.Amount;
             return 0;
         }
 

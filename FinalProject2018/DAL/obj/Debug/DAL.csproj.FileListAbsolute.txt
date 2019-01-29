@@ -49,4 +49,3 @@ Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.pdb
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Initial.resources
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Initial1.resources
-Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Initial2.resources

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,13 +25,28 @@ namespace BLL
         {
             try
             {
+                customer.RegisteredDate = DateTime.Now;
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return customer;//TODO return real from db
             }
-            catch (Exception e)
+            catch (DbEntityValidationException e)
             {
-                return null;
+                var errorMessage = new StringBuilder();
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        //errorMessage.Append(string.Format("Property: {0}, Error: {1}",
+                        //    ve.PropertyName, ve.ErrorMessage));
+                        errorMessage.Append(string.Format("{0} \n",  ve.ErrorMessage));
+                    }
+                }
+                throw new DbEntityValidationException(errorMessage.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -51,17 +67,35 @@ namespace BLL
 
         public Customer EditCustomer(Customer customer)
         {
-            //db.Customers.Attach(customer);
+           
             try
-            {
-
-                db.Entry(customer).State = EntityState.Modified;
+            { 
+                var entity = db.Customers.Find(customer.CustomerId);
+                if (entity == null)
+                {
+                    return null;
+                }
+                db.Entry(entity).CurrentValues.SetValues(customer);
                 db.SaveChanges();
-                return customer;//TODO return real from db
+                return customer;
             }
-            catch (Exception e)
+            catch (DbEntityValidationException e)
             {
-                return null;
+                var errorMessage = new StringBuilder();
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        //errorMessage.Append(string.Format("Property: {0}, Error: {1}",
+                        //    ve.PropertyName, ve.ErrorMessage));
+                        errorMessage.Append(string.Format("{0} \n", ve.ErrorMessage));
+                    }
+                }
+                throw new DbEntityValidationException(errorMessage.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 

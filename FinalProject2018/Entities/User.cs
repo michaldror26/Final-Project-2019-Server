@@ -12,23 +12,23 @@ namespace Entities
     [Table("user")]
     public abstract class User
     {
-        [RegularExpression(@"[A-Za-zא-ת]+",
-        ErrorMessage = "First name can contain only letters")]
-        [Required(ErrorMessage = "Required field!")]
+        [RegularExpression(@"[A-Za-zא-ת1-9 ]+",
+        ErrorMessage = "שם פרטי יכול להכיל רק אותיות אנגלית ועברית או מספרים")]
+        [Required(ErrorMessage = "שם פרטי הוא שדה חובה")]
         public string FirstName { get; set; }
 
-        [RegularExpression(@"[A-Za-zא-ת]+",
-        ErrorMessage = "First name can contain only letters")]
-        [Required(ErrorMessage = "Required field!")]
+        [RegularExpression(@"[A-Za-z1-9 א-ת]+",
+        ErrorMessage = "שם משפחה יכול להכיל רק אותיות אנגלית ועברית או מספרים")]
+        [Required(ErrorMessage = "שם משפחה הוא שדה חובה!")]
         public string LastName { get; set; }
 
-        [RegularExpression(@"/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/",
-                  ErrorMessage = "MobilePhone is not valid")]
-        [Required(ErrorMessage = "Required field!")]
+        [RegularExpression(@"\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})",
+                  ErrorMessage = "מס נייד אינו תקין")]
+        [Required(ErrorMessage = "מספר נייד הוא שדה חובה!")]
         public string MobilePhone { get; set; }
 
-        [RegularExpression(@"/\(?([0-9]{0,2,3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/",
-                   ErrorMessage = "Telephone is not valid")]
+        [RegularExpression(@"0\d-\d{7}",
+                   ErrorMessage = "מספר טלפון אינו חוקי")]
         public string Telephone { get; set; }
 
         public string City { get; set; }
@@ -36,8 +36,8 @@ namespace Entities
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
             @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
             @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
-            ErrorMessage = "Email is not valid")]
-        [Required(ErrorMessage = "Required field!")]
+            ErrorMessage = "מייל אינו חוקי")]
+        [Required(ErrorMessage = "שדה מייל הוא שדה חובה!")]
         public string Email { get; set; }
     }
 

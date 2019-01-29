@@ -37,7 +37,7 @@ namespace API.Controllers
             return service.getCustomerById(id);
         }
 
-        // POST: api/customer
+        // POST: api/customer/editCustomer
         [HttpPost]
         [Route("editCustomer")]
         public Customer EditCustomer([FromBody]Customer customer)

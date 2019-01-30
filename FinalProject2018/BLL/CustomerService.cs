@@ -28,6 +28,10 @@ namespace BLL
                 customer.RegisteredDate = DateTime.Now;
                 db.Customers.Add(customer);
                 db.SaveChanges();
+                if (customer.SiteUser != null)
+                {
+                    (new UserSiteService()).RegisterUpdateUser(customer.SiteUser.UserName, customer.SiteUser.Password, 2, customer.CustomerId);
+                }
                 return customer;//TODO return real from db
             }
             catch (DbEntityValidationException e)
@@ -39,7 +43,7 @@ namespace BLL
                     {
                         //errorMessage.Append(string.Format("Property: {0}, Error: {1}",
                         //    ve.PropertyName, ve.ErrorMessage));
-                        errorMessage.Append(string.Format("{0} \n",  ve.ErrorMessage));
+                        errorMessage.Append(string.Format("{0} \n", ve.ErrorMessage));
                     }
                 }
                 throw new DbEntityValidationException(errorMessage.ToString());
@@ -67,9 +71,8 @@ namespace BLL
 
         public Customer EditCustomer(Customer customer)
         {
-           
             try
-            { 
+            {
                 var entity = db.Customers.Find(customer.CustomerId);
                 if (entity == null)
                 {
@@ -77,6 +80,10 @@ namespace BLL
                 }
                 db.Entry(entity).CurrentValues.SetValues(customer);
                 db.SaveChanges();
+                if(customer.SiteUser != null)
+                {
+                    (new UserSiteService()).RegisterUpdateUser(customer.SiteUser.UserName, customer.SiteUser.Password, 2, customer.CustomerId);
+                }
                 return customer;
             }
             catch (DbEntityValidationException e)
@@ -99,9 +106,11 @@ namespace BLL
             }
         }
 
-        public void UpdateCustomerSiteUserId(int siteUserId)
+        public Customer UpdateCustomerSiteUserId(int siteUserId, int cusId)
         {
-
+            Customer c = db.Customers.FirstOrDefault(cus => cus.CustomerId == cusId);
+            if (c != null) { c.SiteUserId = siteUserId; }
+            return c;
         }
         //public List<string> func(User user)
         //{

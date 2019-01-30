@@ -31,10 +31,6 @@ namespace BLL
             return db.SiteUsers.FirstOrDefault(u => u.SiteUserId == id);
         }
 
-        public void AddUser(SiteUser user)
-        {
-            db.SiteUsers.Add(user);
-        }
 
         public void DeleteUser(int id)
         {
@@ -44,29 +40,67 @@ namespace BLL
 
         public void EditUser(User user)
         {
-
+         
         }
-
-
-        public int Login(String userName, String password)
+        private User gerUserBySiteUserId(SiteUser siteUser)
+        {
+            if (siteUser.AuthenticationTypeId == 1)
+            {
+                return db.Customers.FirstOrDefault(c => c.SiteUserId == siteUser.SiteUserId);
+            }
+            else if (siteUser.AuthenticationTypeId == 2)
+            {
+                return db.Employees.FirstOrDefault(c => c.SiteUserId == siteUser.SiteUserId);
+            }
+            return null;
+        }
+        public User Login(String userName, String password)
         {
             SiteUser siteUser = getUserByUserName(userName);
             if (siteUser != null)
                 if (siteUser.Password.Equals(password))
-                    return siteUser.SiteUserId;
-            return -1;
+                    return gerUserBySiteUserId(siteUser);
+            throw new Exception("שם משתמש או סיסמא שגויים");
         }
-        public int Register(SiteUser siteUser, int userId)
+
+        public User RegisterUpdateUser(String userName, String password, int authType, int userId)//userId = id of customer or employee
         {
-            db.SiteUsers.Add(siteUser);
-            int siteUserId = Login(siteUser.UserName, siteUser.Password);
-            if (siteUser.AuthenticationType.AuthName == "Customer")
-                (new CustomerService()).UpdateCustomerSiteUserId(siteUserId);
-            else
-                 if (siteUser.AuthenticationType.AuthName == "Employee")
-                (new EmployeeService()).UpdateEmployeeSiteUserId(siteUserId);
-            return userId;
+            SiteUser site_user = getUserByUserNameAndPass(userName, password);
+            if (site_user != null)
+            {
+                throw new Exception("קיים כבר שם משתמש וסיסמא זהים");
+            }
+
+            SiteUser siteUser = new SiteUser() { UserName = userName, Password = password, AuthenticationTypeId = authType };
+            try
+            {
+                siteUser.JoiningDate = DateTime.Now;
+                db.SiteUsers.Add(siteUser);
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("לא הצלחנו לרשום אותך למערכת");
+            }
+            SiteUser site_User = getUserByUserNameAndPass(userName, password);
+            //update user with siteUserId
+            return updateUserWithSiteUserId(site_User, userId);
         }
+
+        private User updateUserWithSiteUserId(SiteUser site_User, int userId)
+        {
+            if (site_User != null)
+            {
+                if (site_User.AuthenticationType.AuthName == "Customer")
+                    return (new CustomerService()).UpdateCustomerSiteUserId(site_User.SiteUserId, userId);
+                else
+                 if (site_User.AuthenticationType.AuthName == "Employee")
+                    return (new EmployeeService()).UpdateEmployeeSiteUserId(site_User.SiteUserId, userId);
+            }
+            return null;
+
+        }
+
 
         public void ForgetUserName()
         {

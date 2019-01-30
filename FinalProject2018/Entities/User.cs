@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.ComponentModel;
 
 namespace Entities
 {
-    [Table("user")]
     public abstract class User
     {
         [RegularExpression(@"[A-Za-zא-ת1-9 ]+",
@@ -46,8 +45,7 @@ namespace Entities
     {
         [Key]
         public int SiteUserId { get; set; }
-       
-
+    
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Required field!")]
@@ -60,6 +58,7 @@ namespace Entities
         public DateTime JoiningDate { get; set; }
 
         [ForeignKey("AuthenticationType")]
+        [DefaultValue(1)]
         public int AuthenticationTypeId { get; set; }
         public virtual AuthenticationType AuthenticationType { get; set; }
     }

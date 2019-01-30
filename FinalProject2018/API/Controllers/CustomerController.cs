@@ -49,7 +49,7 @@ namespace API.Controllers
             //return null;
         }
 
-        // DELETE: api/user/DeleteCustomer/5
+        // DELETE: api/customer/DeleteCustomer/5
         [HttpDelete]
         [Route("deleteCustomer")]
         public Customer DeleteCustomer(int id)
@@ -57,7 +57,7 @@ namespace API.Controllers
             return service.DeleteCustomer(id);
         }
 
-        // ADD: api/user/AddCustomer
+        // ADD: api/customer/AddCustomer
         [HttpPut]
         [Route("addCustomer")]
         public Customer AddCustomer([FromBody]Customer customer)

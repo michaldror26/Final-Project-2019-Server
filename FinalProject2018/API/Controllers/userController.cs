@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using BLL;
 using Entities;
+using Newtonsoft.Json.Linq;
 
 namespace API.Controllers
 {
@@ -22,7 +23,7 @@ namespace API.Controllers
             service = new UserSiteService();
         }
 
-        // GET: api/user
+        // GET: api/getAllUsers
         [HttpGet]
         [Route("getAllUsers")]
         public List<SiteUser> GetAllUsers()
@@ -30,11 +31,7 @@ namespace API.Controllers
             return service.getAllUsers();
         }
 
-        // PUT: api/user/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
+        [HttpDelete]
         // DELETE: api/user/5
         public void Delete(int id)
         {
@@ -43,38 +40,24 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public int Login()
+        //public int Login([FromBody]string userName, [FromBody]string password)
+        public User Login(SiteUser username)
         {
-            string userName = HttpContext.Current.Request.Form["userName"];
-            string password = HttpContext.Current.Request.Form["password"];
-            return service.Login(userName, password);
+            //string userName = HttpContext.Current.Request.Form["userName"];
+            //string password = HttpContext.Current.Request.Form["password"];
+            return service.Login(username.UserName, username.Password);
         }
 
         [HttpPost]
         [Route("register")]
-        public int Register(SiteUser registerUser, int userId)
+        public User Register([FromBody]JObject data)
         {
-            return service.Register(registerUser, userId);
-        }
-        #region old
-        public EmployeeService employeeService = new EmployeeService();
-        
-        //public IEnumerable<string> Get()
-        //{
-        //    return Em;
-        //}
+            string userName = data["userName"].ToString();
+            int userId = data["userId"].ToObject<int>();
+            string password = data["password"].ToString();
+            int authType = data["authType"].ToObject<int>();
 
-        // GET: api/test/5
-        //public AuthenticationType Get(int id)
-        //{
-        //    return employeeService.GetEmployeeById(1);
-        //}
-
-        // POST: api/test
-        public void Post([FromBody]string value)
-        {
+            return service.RegisterUpdateUser(userName, password, authType, userId);
         }
-       
-        #endregion
     }
 }

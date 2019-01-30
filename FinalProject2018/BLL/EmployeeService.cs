@@ -36,9 +36,11 @@ namespace BLL
         {
 
         }
-        public void UpdateEmployeeSiteUserId(int siteUserId)
+        public Employee UpdateEmployeeSiteUserId(int siteUserId, int empId)
         {
-
+            Employee employee = db.Employees.FirstOrDefault(emp => emp.EmployeeId == empId);
+            if (employee != null) { employee.SiteUserId = siteUserId; }
+            return employee;
         }
     }
 }

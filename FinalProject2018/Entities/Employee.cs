@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.ComponentModel;
 
 namespace Entities
 {
@@ -14,7 +14,9 @@ namespace Entities
     {
         [Key]
         public int EmployeeId { get; set; }
+
         [ForeignKey("SiteUser")]
+        [DefaultValue(2)]
         public Nullable<int> SiteUserId { get; set; }
         public virtual SiteUser SiteUser { get; set; }
 

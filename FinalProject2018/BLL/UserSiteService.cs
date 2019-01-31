@@ -38,28 +38,23 @@ namespace BLL
             db.SiteUsers.Remove(siteUser);
         }
 
-        public void EditUser(User user)
+        private User getUserBySiteUserId(SiteUser siteUser)
         {
-         
+            User user = db.Customers.FirstOrDefault(c => c.SiteUserId == siteUser.SiteUserId);
+            return
+               ( (user != null) ?
+                 user :
+             db.Employees.FirstOrDefault(e => e.SiteUserId == siteUser.SiteUserId));
         }
-        private User gerUserBySiteUserId(SiteUser siteUser)
+        public User Login(SiteUser site_user)
         {
-            if (siteUser.AuthenticationTypeId == 1)
-            {
-                return db.Customers.FirstOrDefault(c => c.SiteUserId == siteUser.SiteUserId);
-            }
-            else if (siteUser.AuthenticationTypeId == 2)
-            {
-                return db.Employees.FirstOrDefault(c => c.SiteUserId == siteUser.SiteUserId);
-            }
-            return null;
-        }
-        public User Login(String userName, String password)
-        {
-            SiteUser siteUser = getUserByUserName(userName);
+            SiteUser siteUser = getUserByUserName(site_user.UserName);
             if (siteUser != null)
-                if (siteUser.Password.Equals(password))
-                    return gerUserBySiteUserId(siteUser);
+            {
+                siteUser = getUserByUserNameAndPass(site_user.UserName, site_user.Password);
+                if (siteUser != null)
+                    return getUserBySiteUserId(siteUser);
+            }
             throw new Exception("שם משתמש או סיסמא שגויים");
         }
 
@@ -76,7 +71,7 @@ namespace BLL
             {
                 siteUser.JoiningDate = DateTime.Now;
                 db.SiteUsers.Add(siteUser);
-                db.SaveChanges();
+                // db.SaveChanges();
             }
             catch (Exception e)
             {
@@ -85,16 +80,17 @@ namespace BLL
             SiteUser site_User = getUserByUserNameAndPass(userName, password);
             //update user with siteUserId
             return updateUserWithSiteUserId(site_User, userId);
+
         }
 
         private User updateUserWithSiteUserId(SiteUser site_User, int userId)
         {
             if (site_User != null)
             {
-                if (site_User.AuthenticationType.AuthName == "Customer")
+                if (site_User.AuthenticationTypeId == 1)
                     return (new CustomerService()).UpdateCustomerSiteUserId(site_User.SiteUserId, userId);
                 else
-                 if (site_User.AuthenticationType.AuthName == "Employee")
+                 if (site_User.AuthenticationTypeId == 2)
                     return (new EmployeeService()).UpdateEmployeeSiteUserId(site_User.SiteUserId, userId);
             }
             return null;

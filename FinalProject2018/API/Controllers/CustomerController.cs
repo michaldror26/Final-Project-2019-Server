@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using BLL;
@@ -16,7 +13,7 @@ namespace API.Controllers
     public class CustomerController : ApiController
     {
         private CustomerService service;
-        
+
         public CustomerController()
         {
             service = new CustomerService();
@@ -42,11 +39,14 @@ namespace API.Controllers
         [Route("editCustomer")]
         public Customer EditCustomer([FromBody]Customer customer)
         {
-            //if (ModelState.IsValid)
-            //{
-                return service.EditCustomer(customer);
-           // }
-            //return null;
+            if (!ModelState.IsValid)
+            {
+                var message = string.Join("\n", ModelState.Values
+                                       .SelectMany(v => v.Errors)
+                                       .Select(e => e.ErrorMessage));
+                throw new HttpListenerException(500, message);
+            }
+            return service.EditCustomer(customer);
         }
 
         // DELETE: api/customer/DeleteCustomer/5
@@ -62,11 +62,14 @@ namespace API.Controllers
         [Route("addCustomer")]
         public Customer AddCustomer([FromBody]Customer customer)
         {
-            //if (ModelState.IsValid)
-            //{
-                return service.AddCustomer(customer);
-            //}
-            //return null;
+            if (!ModelState.IsValid)
+            {
+                var message = string.Join("\n", ModelState.Values
+                                       .SelectMany(v => v.Errors)
+                                       .Select(e => e.ErrorMessage));
+                throw new HttpListenerException(500, message);
+            }
+            return service.AddCustomer(customer);
         }
     }
 }

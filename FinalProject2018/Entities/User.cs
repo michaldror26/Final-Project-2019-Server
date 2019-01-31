@@ -26,7 +26,7 @@ namespace Entities
         [Required(ErrorMessage = "מספר נייד הוא שדה חובה!")]
         public string MobilePhone { get; set; }
 
-        [RegularExpression(@"0\d-\d{7}",
+        [RegularExpression(@"0\d\d{7}",
                    ErrorMessage = "מספר טלפון אינו חוקי")]
         public string Telephone { get; set; }
 

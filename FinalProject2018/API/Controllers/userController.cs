@@ -41,11 +41,11 @@ namespace API.Controllers
         [HttpPost]
         [Route("login")]
         //public int Login([FromBody]string userName, [FromBody]string password)
-        public User Login(SiteUser username)
+        public User Login(SiteUser siteUser)
         {
             //string userName = HttpContext.Current.Request.Form["userName"];
             //string password = HttpContext.Current.Request.Form["password"];
-            return service.Login(username.UserName, username.Password);
+            return service.Login(siteUser);
         }
 
         [HttpPost]

@@ -9,16 +9,6 @@
 *.userosscache
 *.sln.docstates
 
-#### OURS
-#/FinalProject2018/DAL
-/FinalProject2018/BLL/bin
-/FinalProject2018/BLL/obj
-/FinalProject2018/API/bin
-/FinalProject2018/API/obj
-/FinalProject2018/Entities/bin
-/FinalProject2018/Entities/obj
-/FinalProject2018/DAL/Migrations
-
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

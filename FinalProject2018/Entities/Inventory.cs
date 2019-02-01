@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 namespace Entities
 {
     [Table("inventory")]
-    class Inventory
+    public class Inventory
     { 
         [Key]
         public int InventoryId { get; set; }
 
         [ForeignKey("Product")]
         public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
 
         public int Amount { get; set; }
     }

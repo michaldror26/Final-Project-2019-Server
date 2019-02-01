@@ -36,14 +36,14 @@ namespace DAL
 
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<EmployeeSchedule> EmployeeSchedules { get; set; }
-        //!!!!!!!!!!!!!!!!?????????????????
-       // public virtual DbSet<Inventory> Inventory { get; set; }
+        public virtual DbSet<Inventory> Inventory { get; set; }
 
         public virtual DbSet<MailboxMessage> MailboxMessages { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Provider> Providers { get; set; }
 
+       // public virtual DbSet<OrderProduct> OrderProducts { get; set; }
         public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual DbSet<PurchaseOrderProduct> PurchaseOrderProducts { get; set; }
 

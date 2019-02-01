@@ -12,6 +12,13 @@ namespace Entities
     [Table("purchase_order")]
     public class PurchaseOrder
     {
+        public PurchaseOrder() { }
+        public PurchaseOrder(int providerId, List<PurchaseOrderProduct> products, string remark)
+        {
+            this.ProviderId = providerId;
+            this.PurchaseOrderProducts = products;
+            this.Remark = remark;
+        }
         [Key]
         public int PurchaseOrderId { get; set; }
         public DateTime Date { get; set; }
@@ -22,7 +29,8 @@ namespace Entities
 
         public string Remark { get; set; }
         public string isOrdered { get; set; }
-        public virtual List<PurchaseOrderProduct> PurchaseOrderProducts { get; set; }
+          public virtual List<PurchaseOrderProduct> PurchaseOrderProducts { get; set; }
+        //public virtual List<OrderProduct> PurchaseOrderProducts { get; set; }
 
     }
 }

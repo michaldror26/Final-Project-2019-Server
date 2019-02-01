@@ -56,7 +56,6 @@
     <Compile Include="CustomerPayment.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="MailboxMessage.cs" />
-    <Compile Include="OrderProduct.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider.cs" />
@@ -74,6 +73,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

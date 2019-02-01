@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,24 +21,82 @@ namespace BLL
             return db.Customers.FirstOrDefault(u => u.CustomerId == id);
         }
 
-        public void AddCustomer(Customer customer)
+        public Customer AddCustomer(Customer customer)
         {
-            db.Customers.Add(customer);
-            db.SaveChanges();
+            try
+            {
+                customer.RegisteredDate = DateTime.Now;
+                db.Customers.Add(customer);
+                db.SaveChanges();
+                return customer;//TODO return real from db
+            }
+            catch (DbEntityValidationException e)
+            {
+                var errorMessage = new StringBuilder();
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        //errorMessage.Append(string.Format("Property: {0}, Error: {1}",
+                        //    ve.PropertyName, ve.ErrorMessage));
+                        errorMessage.Append(string.Format("{0} \n",  ve.ErrorMessage));
+                    }
+                }
+                throw new DbEntityValidationException(errorMessage.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public void DeleteCustomer(int id)
+        public Customer DeleteCustomer(int id)
         {
-            Customer customer = db.Customers.FirstOrDefault(c => c.CustomerId == id);
-            db.Customers.Remove(customer);
-            db.SaveChanges();
+            try
+            {
+                Customer customer = db.Customers.FirstOrDefault(c => c.CustomerId == id);
+                db.Customers.Remove(customer);
+                db.SaveChanges();
+                return customer;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
-        public void EditCustomer(Customer customer)
+        public Customer EditCustomer(Customer customer)
         {
-            db.Customers.Attach(customer);
-            db.Entry(customer).State = EntityState.Modified;
-            db.SaveChanges();
+           
+            try
+            { 
+                var entity = db.Customers.Find(customer.CustomerId);
+                if (entity == null)
+                {
+                    return null;
+                }
+                db.Entry(entity).CurrentValues.SetValues(customer);
+                db.SaveChanges();
+                return customer;
+            }
+            catch (DbEntityValidationException e)
+            {
+                var errorMessage = new StringBuilder();
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        //errorMessage.Append(string.Format("Property: {0}, Error: {1}",
+                        //    ve.PropertyName, ve.ErrorMessage));
+                        errorMessage.Append(string.Format("{0} \n", ve.ErrorMessage));
+                    }
+                }
+                throw new DbEntityValidationException(errorMessage.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void UpdateCustomerSiteUserId(int siteUserId)

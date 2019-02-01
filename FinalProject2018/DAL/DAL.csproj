@@ -51,13 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201901291057544_Initial.cs" />
-    <Compile Include="Migrations\201901291057544_Initial.Designer.cs">
-      <DependentUpon>201901291057544_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901291144258_Initial1.cs" />
-    <Compile Include="Migrations\201901291144258_Initial1.Designer.cs">
-      <DependentUpon>201901291144258_Initial1.cs</DependentUpon>
+    <Compile Include="Migrations\201901311326201_Initial.cs" />
+    <Compile Include="Migrations\201901311326201_Initial.Designer.cs">
+      <DependentUpon>201901311326201_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
@@ -65,21 +61,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901291057544_Initial.resx">
-      <DependentUpon>201901291057544_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901291144258_Initial1.resx">
-      <DependentUpon>201901291144258_Initial1.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{b44ad90f-750e-43cc-bd40-490039c3ca82}</Project>
       <Name>Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901311326201_Initial.resx">
+      <DependentUpon>201901311326201_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

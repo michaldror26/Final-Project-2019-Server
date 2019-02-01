@@ -29,10 +29,9 @@ namespace BLL
         }
 
         public void AddSaleOrder(SaleOrder saleOrder)
-        {
-            db.SaleOrders.Add(saleOrder);
-            //לבדוק אם מכניס גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
-            db.SaveChanges();
+        { 
+                db.SaleOrders.Add(saleOrder);             
+                db.SaveChanges();
         }
 
         public void DeleteSaleOrder(int id)
@@ -40,7 +39,12 @@ namespace BLL
             SaleOrder saleOrder = db.SaleOrders.FirstOrDefault(c => c.SaleOrderId == id);
             db.SaleOrders.Remove(saleOrder);
             //לבדוק אם מוחק גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
-            db.SaveChanges();
+
+            if (System.Diagnostics.Debugger.IsAttached == false)
+            {
+                db.SaveChanges();
+                System.Diagnostics.Debugger.Launch();
+            }
         }
 
         public void EditSaleOrder(SaleOrder saleOrder)

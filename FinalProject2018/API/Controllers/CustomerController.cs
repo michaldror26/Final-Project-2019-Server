@@ -16,7 +16,7 @@ namespace API.Controllers
     public class CustomerController : ApiController
     {
         private CustomerService service;
-
+        
         public CustomerController()
         {
             service = new CustomerService();
@@ -31,43 +31,42 @@ namespace API.Controllers
         }
 
         // GET: api/customer/getCustomerById/5
+        [HttpGet]
         public Customer getCustomerById(int id)
         {
             return service.getCustomerById(id);
         }
 
-        // POST: api/customer
+        // POST: api/customer/editCustomer
         [HttpPost]
         [Route("editCustomer")]
-        public bool EditCustomer([FromBody]Customer customer)
+        public Customer EditCustomer([FromBody]Customer customer)
         {
-            if (ModelState.IsValid)
-            {
-                service.AddCustomer(customer);
-                return true;
-            }
-            return false;
+            //if (ModelState.IsValid)
+            //{
+                return service.EditCustomer(customer);
+           // }
+            //return null;
         }
 
         // DELETE: api/user/DeleteCustomer/5
-        [HttpGet]
+        [HttpDelete]
         [Route("deleteCustomer")]
-        public bool DeleteCustomer(int id)
+        public Customer DeleteCustomer(int id)
         {
-            service.DeleteCustomer(id);
-            return true;
+            return service.DeleteCustomer(id);
         }
 
         // ADD: api/user/AddCustomer
-        [HttpPost]
-        public bool AddCustomer([FromBody]Customer customer)
+        [HttpPut]
+        [Route("addCustomer")]
+        public Customer AddCustomer([FromBody]Customer customer)
         {
-            if (ModelState.IsValid)
-            {
-                service.AddCustomer(customer);
-                return true;
-            }
-            return false;
+            //if (ModelState.IsValid)
+            //{
+                return service.AddCustomer(customer);
+            //}
+            //return null;
         }
     }
 }

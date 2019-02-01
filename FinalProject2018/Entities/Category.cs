@@ -13,10 +13,8 @@ namespace Entities
     public class Category
     {
 
-        public Category()
-        {
-          this.Products= new List<Product> ();
-        }
+       
+        
         [Key]
         public int CategoryId { get; set; }
 
@@ -26,9 +24,9 @@ namespace Entities
         [ForeignKey("ParentCategory")]
         public Nullable<int> ParentCategoryId { get; set; }
 
-        public virtual Category ParentCategory { get; set; }
+        public Category ParentCategory { get; set; }
 
-        public virtual List<Product> Products { get; set; }
+        //public virtual List<Product> Products { get; set; }
 
     }
 }

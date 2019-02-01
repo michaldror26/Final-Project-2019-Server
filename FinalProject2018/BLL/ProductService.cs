@@ -23,7 +23,7 @@ namespace BLL
         {
             //Product p = db.Products.FirstOrDefault(p1 => p1.ProductId == id);
             //if (p != null)
-            //    return p.Amount;
+            //   return p.Amount;
             return 0;
         }
 
@@ -43,7 +43,14 @@ namespace BLL
             //    lstp.AddRange(c.Products);
             //}
             //return lstp;
-            return db.Products.ToList();
+            List<Category>lstc=cService.GetSubCategories(categoryId);
+            List<Product>lstp= db.Products.ToList();
+            List<Product> ret = new List<Product>();
+            foreach (Category c in lstc)
+            {
+               ret.AddRange(lstp.Where(p => p.CategoryId == c.CategoryId).ToList());
+            }
+            return ret;
         }
 
         public List<Product> getAllProduct(Category category)

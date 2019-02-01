@@ -12,6 +12,13 @@ namespace Entities
     [Table("sale_order")]
     public class SaleOrder
     {
+        public SaleOrder() { }
+        public SaleOrder(int customerId, List<SaleOrderProduct> products,string remark) {
+            this.Date = DateTime.Now;
+            this.CustomerId = customerId;
+            this.SaleOrderProducts = products;
+            this.Remark = remark;
+        }
         [Key]
         public int SaleOrderId { get; set; }
         public DateTime Date { get; set; }
@@ -22,5 +29,7 @@ namespace Entities
 
         public string Remark { get; set; }
         public virtual List<SaleOrderProduct> SaleOrderProducts { get; set; }
+       // public virtual List<OrderProduct> orderProducts { get; set; }
+
     }
 }

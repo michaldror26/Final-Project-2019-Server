@@ -5,6 +5,10 @@ namespace DAL.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
+
+    //Add-Migration
+    //Update-Database
+
     internal sealed class Configuration : DbMigrationsConfiguration<DAL.ModelStorManagment>
     {
         public Configuration()

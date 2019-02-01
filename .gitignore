@@ -10,14 +10,73 @@
 *.sln.docstates
 
 #### OURS
+#/FinalProject2018/DAL/
 #/FinalProject2018/DAL
-/FinalProject2018/BLL/bin
-/FinalProject2018/BLL/obj
-/FinalProject2018/API/bin
-/FinalProject2018/API/obj
-/FinalProject2018/Entities/bin
-/FinalProject2018/Entities/obj
+#FinalProject2018/DAL/
+#FinalProject2018/DAL
+
+#BLL
+/FinalProject2018/BLL/bin/
+/FinalProject2018/BLL/bin\Debug
+/FinalProject2018/BLL/bin\Debug/
+
+/FinalProject2018/BLL/obj/
+/FinalProject2018/BLL/obj\Debug
+/FinalProject2018/BLL/obj\Debug/
+
+#API
+/FinalProject2018/API/bin/
+/FinalProject2018/API/bin\Debug
+/FinalProject2018/API/bin\Debug/
+
+/FinalProject2018/API/obj/
+/FinalProject2018/API/obj\Debug
+/FinalProject2018/API/obj\Debug/
+
+#Entities
+/FinalProject2018/Entities/bin/
+/FinalProject2018/Entities/bin\Debug
+/FinalProject2018/Entities/bin\Debug/
+
+/FinalProject2018/Entities/obj/
+/FinalProject2018/Entities/obj\Debug
+/FinalProject2018/Entities/obj\Debug/
+
+#DAL
+#FinalProject2018/DAL/Migrations
+#FinalProject2018/DAL/Migrations/
+#/FinalProject2018/DAL/Migrations
+#/FinalProject2018/DAL/Migrations/
+
+*.cache
+.cache
+*.csproj.CoreCompileInputs.cache
+*/.suo
+*.suo
+/FinalProject2018/.vs/FinalProject2018/v15/.suo
+FinalProject2018/.vs/FinalProject2018/v15/.suo
+FinalProject2018/API/obj/Debug/
+/FinalProject2018/API/obj/Debug/
+./FinalProject2018/API/obj/Debug/
+./obj/
+/obj/Debug/
+/bin/Debug/
+/[Bb]in/
+/[Oo]bj/
+/[Ll]og/
+/.vs
+/.vs/
+/.vs
+
+#/FinalProject2018/BLL/bin
+#/FinalProject2018/BLL/obj
+#/FinalProject2018/API/bin
+#/FinalProject2018/API/obj
+#/FinalProject2018/Entities/bin
+#/FinalProject2018/Entities/obj
 /FinalProject2018/DAL/Migrations
+
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -231,7 +290,7 @@ ClientBin/
 *.publishsettings
 orleans.codegen.cs
 
-# Including strong name files can present a security risk 
+# Including strong name files can present a security risk
 # (https://github.com/github/gitignore/pull/2483#issue-259490424)
 #*.snk
 
@@ -327,7 +386,7 @@ __pycache__/
 # OpenCover UI analysis results
 OpenCover/
 
-# Azure Stream Analytics local run output 
+# Azure Stream Analytics local run output
 ASALocalRun/
 
 # MSBuild Binary and Structured Log
@@ -336,5 +395,5 @@ ASALocalRun/
 # NVidia Nsight GPU debugger configuration file
 *.nvuser
 
-# MFractors (Xamarin productivity tool) working folder 
+# MFractors (Xamarin productivity tool) working folder
 .mfractor/

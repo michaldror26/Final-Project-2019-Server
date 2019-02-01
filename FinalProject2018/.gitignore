@@ -10,7 +10,14 @@
 *.sln.docstates
 
 # User-specific files (MonoDevelop/Xamarin Studio)
-*.userprefs
+
+######################################################################OURS
+*.cache
+*/.suo
+*.suo
+/.vs
+    /.vs/
+    /.vs
 
 # Build results
 [Dd]ebug/

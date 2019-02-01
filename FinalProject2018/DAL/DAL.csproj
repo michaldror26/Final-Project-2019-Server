@@ -51,53 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201811191653186_Initial.cs" />
-    <Compile Include="Migrations\201811191653186_Initial.Designer.cs">
-      <DependentUpon>201811191653186_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811191754476_Initial1.cs" />
-    <Compile Include="Migrations\201811191754476_Initial1.Designer.cs">
-      <DependentUpon>201811191754476_Initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811191757018_Initial2.cs" />
-    <Compile Include="Migrations\201811191757018_Initial2.Designer.cs">
-      <DependentUpon>201811191757018_Initial2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901271955467_8520.cs" />
-    <Compile Include="Migrations\201901271955467_8520.Designer.cs">
-      <DependentUpon>201901271955467_8520.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901282049134_852369.cs" />
-    <Compile Include="Migrations\201901282049134_852369.Designer.cs">
-      <DependentUpon>201901282049134_852369.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901282118381_9874.cs" />
-    <Compile Include="Migrations\201901282118381_9874.Designer.cs">
-      <DependentUpon>201901282118381_9874.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901282134456_remove user from custome.cs" />
-    <Compile Include="Migrations\201901282134456_remove user from custome.Designer.cs">
-      <DependentUpon>201901282134456_remove user from custome.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901291846103_789.cs" />
-    <Compile Include="Migrations\201901291846103_789.Designer.cs">
-      <DependentUpon>201901291846103_789.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901291922217_customer validation.cs" />
-    <Compile Include="Migrations\201901291922217_customer validation.Designer.cs">
-      <DependentUpon>201901291922217_customer validation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901292020307_spaces to name customer.cs" />
-    <Compile Include="Migrations\201901292020307_spaces to name customer.Designer.cs">
-      <DependentUpon>201901292020307_spaces to name customer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901292043078_validation and error message.cs" />
-    <Compile Include="Migrations\201901292043078_validation and error message.Designer.cs">
-      <DependentUpon>201901292043078_validation and error message.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901292048231_valitadion tel.cs" />
-    <Compile Include="Migrations\201901292048231_valitadion tel.Designer.cs">
-      <DependentUpon>201901292048231_valitadion tel.cs</DependentUpon>
+    <Compile Include="Migrations\201901311326201_Initial.cs" />
+    <Compile Include="Migrations\201901311326201_Initial.Designer.cs">
+      <DependentUpon>201901311326201_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201901301947374_usersite.cs" />
     <Compile Include="Migrations\201901301947374_usersite.Designer.cs">
@@ -112,51 +68,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{b44ad90f-750e-43cc-bd40-490039c3ca82}</Project>
       <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811191653186_Initial.resx">
-      <DependentUpon>201811191653186_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811191754476_Initial1.resx">
-      <DependentUpon>201811191754476_Initial1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811191757018_Initial2.resx">
-      <DependentUpon>201811191757018_Initial2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901271955467_8520.resx">
-      <DependentUpon>201901271955467_8520.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901282049134_852369.resx">
-      <DependentUpon>201901282049134_852369.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901282118381_9874.resx">
-      <DependentUpon>201901282118381_9874.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901282134456_remove user from custome.resx">
-      <DependentUpon>201901282134456_remove user from custome.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901291846103_789.resx">
-      <DependentUpon>201901291846103_789.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901291922217_customer validation.resx">
-      <DependentUpon>201901291922217_customer validation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901292020307_spaces to name customer.resx">
-      <DependentUpon>201901292020307_spaces to name customer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901292043078_validation and error message.resx">
-      <DependentUpon>201901292043078_validation and error message.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901292048231_valitadion tel.resx">
-      <DependentUpon>201901292048231_valitadion tel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901311326201_Initial.resx">
+      <DependentUpon>201901311326201_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901301947374_usersite.resx">
       <DependentUpon>201901301947374_usersite.cs</DependentUpon>

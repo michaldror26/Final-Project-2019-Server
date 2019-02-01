@@ -12,6 +12,9 @@ namespace Entities
     [Table("category")]
     public class Category
     {
+
+       
+        
         [Key]
         public int CategoryId { get; set; }
 
@@ -21,9 +24,9 @@ namespace Entities
         [ForeignKey("ParentCategory")]
         public Nullable<int> ParentCategoryId { get; set; }
 
-        public virtual Category ParentCategory { get; set; }
+        public Category ParentCategory { get; set; }
 
-        public virtual List<Product> Products { get; set; }
+        //public virtual List<Product> Products { get; set; }
 
     }
 }

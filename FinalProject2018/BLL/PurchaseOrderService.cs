@@ -34,7 +34,7 @@ namespace BLL
         {
             db.PurchaseOrders.Add(purchaseOrder);
             //לבדוק אם מכניס גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
-            db.SaveChanges();
+           // db.SaveChanges();
         }
 
         public void DeletePurchaseOrder(int id)

@@ -20,4 +20,13 @@ E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProjec
 E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
 E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\Entities\obj\Debug\Entities.dll
 E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\Entities\obj\Debug\Entities.pdb
-C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\Entities\obj\Debug\Entities.csprojAssemblyReference.cache
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\Entities\bin\Debug\Entities.dll.config
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\Entities\bin\Debug\Entities.dll
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\Entities\bin\Debug\Entities.pdb
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\Entities\bin\Debug\EntityFramework.dll
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\Entities\bin\Debug\EntityFramework.SqlServer.dll
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\Entities\bin\Debug\EntityFramework.xml
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\Entities\bin\Debug\EntityFramework.SqlServer.xml
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\Entities\obj\Debug\Entities.dll
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\Entities\obj\Debug\Entities.pdb
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache

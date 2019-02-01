@@ -5,16 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.ComponentModel;
 
 namespace Entities
 {
-    [Table("user")]
     public abstract class User
     {
-        [Key]
-        public int UserId { get; set; }
-
         [RegularExpression(@"[A-Za-zא-ת1-9 ]+",
         ErrorMessage = "שם פרטי יכול להכיל רק אותיות אנגלית ועברית או מספרים")]
         [Required(ErrorMessage = "שם פרטי הוא שדה חובה")]
@@ -30,7 +26,7 @@ namespace Entities
         [Required(ErrorMessage = "מספר נייד הוא שדה חובה!")]
         public string MobilePhone { get; set; }
 
-        [RegularExpression(@"0\d-\d{7}",
+        [RegularExpression(@"0\d\d{7}",
                    ErrorMessage = "מספר טלפון אינו חוקי")]
         public string Telephone { get; set; }
 
@@ -49,11 +45,7 @@ namespace Entities
     {
         [Key]
         public int SiteUserId { get; set; }
-
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
-        
+    
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Required field!")]
@@ -66,6 +58,7 @@ namespace Entities
         public DateTime JoiningDate { get; set; }
 
         [ForeignKey("AuthenticationType")]
+        [DefaultValue(1)]
         public int AuthenticationTypeId { get; set; }
         public virtual AuthenticationType AuthenticationType { get; set; }
     }

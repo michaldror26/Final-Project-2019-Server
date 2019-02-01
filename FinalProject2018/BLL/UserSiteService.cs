@@ -1,64 +1,99 @@
 ﻿using System;
-using System.Net;
-using System.Net.Mail;
-using System.Net.Mime;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using Entities;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+
 
 namespace BLL
 {
     public class UserSiteService : BaseService
     {
-        private SiteUser getSiteUser(string userName)
+        public SiteUser getUserByUserName(string userName)
         {
-            SiteUser siteUser = db.SiteUsers.FirstOrDefault(u => u.UserName.Equals(userName));
-            if (siteUser == null)
-                throw new Exception("888");
-            return siteUser;
+            return db.SiteUsers.FirstOrDefault(u => u.UserName.Equals(userName));
         }
 
-        public User getUser(string userName, string password)
+        public SiteUser getUserByUserNameAndPass(string userName, string userPassword)
         {
-            SiteUser siteUser = db.SiteUsers.Include("user")
-                .FirstOrDefault(u => u.UserName.Equals(userName));
-            if (siteUser == null)
-                throw new Exception("888");
-            if (!siteUser.Password.Equals(password))
-                throw new Exception("999");
-
-            if (siteUser.AuthenticationTypeId == 2)
-                return siteUser.User as Customer;
-
-            return siteUser.User;
-        }
-        
-
-        //  public List<User> getAllUsers() { }
-
-
-        //  public User getUser(int id) {}
-
-        private void AddSiteUser(SiteUser user)
-        {
-
-            db.SiteUsers.Add(user);
-
+            return db.SiteUsers.FirstOrDefault(u => u.UserName.Equals(userName) && u.Password.Equals(userPassword));
         }
 
-        public void DeleteSiteUser(int id)
+        public List<SiteUser> getAllUsers()
+        {
+            return db.SiteUsers.ToList();
+        }
+
+        public SiteUser getUserById(int id)
+        {
+            return db.SiteUsers.FirstOrDefault(u => u.SiteUserId == id);
+        }
+
+
+        public void DeleteUser(int id)
         {
             SiteUser siteUser = db.SiteUsers.FirstOrDefault(c => c.SiteUserId == id);
             db.SiteUsers.Remove(siteUser);
         }
 
-        public void EditUser(User user)
+        private User getUserBySiteUserId(SiteUser siteUser)
         {
+            User user = db.Customers.FirstOrDefault(c => c.SiteUserId == siteUser.SiteUserId);
+            return
+               ( (user != null) ?
+                 user :
+             db.Employees.FirstOrDefault(e => e.SiteUserId == siteUser.SiteUserId));
+        }
+        public User Login(SiteUser site_user)
+        {
+            SiteUser siteUser = getUserByUserName(site_user.UserName);
+            if (siteUser != null)
+            {
+                siteUser = getUserByUserNameAndPass(site_user.UserName, site_user.Password);
+                if (siteUser != null)
+                    return getUserBySiteUserId(siteUser);
+            }
+            throw new Exception("שם משתמש או סיסמא שגויים");
+        }
+
+        public User RegisterUpdateUser(String userName, String password, int authType, int userId)//userId = id of customer or employee
+        {
+            SiteUser site_user = getUserByUserNameAndPass(userName, password);
+            if (site_user != null)
+            {
+                throw new Exception("קיים כבר שם משתמש וסיסמא זהים");
+            }
+
+            SiteUser siteUser = new SiteUser() { UserName = userName, Password = password, AuthenticationTypeId = authType };
+            try
+            {
+                siteUser.JoiningDate = DateTime.Now;
+                db.SiteUsers.Add(siteUser);
+                // db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("לא הצלחנו לרשום אותך למערכת");
+            }
+            SiteUser site_User = getUserByUserNameAndPass(userName, password);
+            //update user with siteUserId
+            return updateUserWithSiteUserId(site_User, userId);
+
+        }
+
+        private User updateUserWithSiteUserId(SiteUser site_User, int userId)
+        {
+            if (site_User != null)
+            {
+                if (site_User.AuthenticationTypeId == 1)
+                    return (new CustomerService()).UpdateCustomerSiteUserId(site_User.SiteUserId, userId);
+                else
+                 if (site_User.AuthenticationTypeId == 2)
+                    return (new EmployeeService()).UpdateEmployeeSiteUserId(site_User.SiteUserId, userId);
+            }
+            return null;
 
         }
 
@@ -68,30 +103,12 @@ namespace BLL
 
         }
 
-        //change to voig and send email;
-        public string ChangePassword(string userName)
+        public void ForgetPassword(string userName)
         {
-
-            string newPass = randStr(8);
-            SiteUser siteUser = null;
-            //  db.Entry(siteUser).State = EntityState.Modified;
-            try
-            {
-                siteUser = getSiteUser(userName);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            siteUser.Password = newPass;
-            db.SaveChanges();
-
-            new SmtpClient("smtp.server.com", 25).Send("yehuditravina@gmail.com",
-                                           "yr0548494662@gmail.com",
-                                           "subject",
-                                           "body");
-            return siteUser.Password;
+            SiteUser user = getUserByUserName(userName);
+            string newPass = randStr(5); ;
+            //user.SiteUser.Password = newPass;קיווקו 
+            //send an email
         }
 
         private string randStr(int n)

@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using BLL;
 using Entities;
+using Newtonsoft.Json.Linq;
 
 namespace API.Controllers
 {
@@ -17,118 +18,46 @@ namespace API.Controllers
     {
         private UserSiteService service;
 
-        public static User CurrentUser
-        {
-            get
-            {
-                var session = HttpContext.Current.Session;
-                if (session != null)
-                {
-                    if (session["User"] == null)
-                        throw new Exception("required login");//session["User"] = getUserFromDB(userName, password);//redirect To Login
-                    return session["User"] as User;
-                }
-                return null;
-            }
-        }
-
         public UserController()
         {
             service = new UserSiteService();
         }
 
-
-        // GET: api/user
-        //  [HttpGet]
-        //  [Route("getAllUsers")]
-        // public List<SiteUser> GetAllUsers()
-        // {
-        //      return service.getAllUsers();
-        //  }
-
-
-        // PUT: api/user/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        // DELETE: api/user/5
-        //  public void Delete(int id)
-        //  {
-        //     service.DeleteUser(id);
-        //  }
-
+        // GET: api/getAllUsers
         [HttpGet]
-        [Route("login")]
-        public User Login(string userName, string password)
-
+        [Route("getAllUsers")]
+        public List<SiteUser> GetAllUsers()
         {
-            var session = HttpContext.Current.Session;
-            if (session != null)
-            {
-                try
-                {
-                    User user = service.getUser(userName, password);
-                    session["User"] = user;
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+            return service.getAllUsers();
+        }
 
-                return CurrentUser;
-                // return service.getUser(userName, password);
-            }
-            return null;
+        [HttpDelete]
+        // DELETE: api/user/5
+        public void Delete(int id)
+        {
+            service.DeleteUser(id);
         }
 
         [HttpPost]
-        [Route("logout")]
-        public void Logout()
-
+        [Route("login")]
+        //public int Login([FromBody]string userName, [FromBody]string password)
+        public User Login(SiteUser siteUser)
         {
-            var session = HttpContext.Current.Session;
-            if (session != null)
-            {
-                session.Remove("user");
-            }
+            //string userName = HttpContext.Current.Request.Form["userName"];
+            //string password = HttpContext.Current.Request.Form["password"];
+            return service.Login(siteUser);
         }
-
-
-        [HttpGet]
-        [Route("changePassword")]
-        public string CangePassword(string userName)
-        {
-            return service.ChangePassword(userName);
-        }
-
 
         [HttpPost]
         [Route("register")]
-        public int Register(SiteUser registerUser, int userId)
+        public User Register([FromBody]JObject data)
         {
-            //return service.Register(registerUser, userId);
-            return 0;
+            string userName = data["userName"].ToString();
+            int userId = data["userId"].ToObject<int>();
+            string password = data["password"].ToString();
+            int authType = data["authType"].ToObject<int>();
+
+            return service.RegisterUpdateUser(userName, password, authType, userId);
         }
-        #region old
-        public EmployeeService employeeService = new EmployeeService();
-
-        //public IEnumerable<string> Get()
-        //{
-        //    return Em;
-        //}
-
-        // GET: api/test/5
-        //public AuthenticationType Get(int id)
-        //{
-        //    return employeeService.GetEmployeeById(1);
-        //}
-
-        // POST: api/test
-        public void Post([FromBody]string value)
-        {
-        }
-
-        #endregion
     }
 }

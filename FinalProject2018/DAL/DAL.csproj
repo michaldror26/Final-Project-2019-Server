@@ -55,6 +55,14 @@
     <Compile Include="Migrations\201901311326201_Initial.Designer.cs">
       <DependentUpon>201901311326201_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901301947374_usersite.cs" />
+    <Compile Include="Migrations\201901301947374_usersite.Designer.cs">
+      <DependentUpon>201901301947374_usersite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901311603054_tel.cs" />
+    <Compile Include="Migrations\201901311603054_tel.Designer.cs">
+      <DependentUpon>201901311603054_tel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +82,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901311326201_Initial.resx">
       <DependentUpon>201901311326201_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901301947374_usersite.resx">
+      <DependentUpon>201901301947374_usersite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901311603054_tel.resx">
+      <DependentUpon>201901311603054_tel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

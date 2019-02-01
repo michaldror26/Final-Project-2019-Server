@@ -18,69 +18,39 @@ namespace BLL
 
         public Customer getCustomerById(int id)
         {
-            return db.Customers.FirstOrDefault(u => u.CustomerId == id);
+            return db.Customers.Find(id);
         }
+
 
         public Customer AddCustomer(Customer customer)
         {
             try
             {
-                customer.RegisteredDate = DateTime.Now;
-                db.Customers.Add(customer);
-                db.SaveChanges();
-                return customer;//TODO return real from db
-            }
-            catch (DbEntityValidationException e)
-            {
-                var errorMessage = new StringBuilder();
-                foreach (var eve in e.EntityValidationErrors)
+                if (customer.SiteUser != null)
                 {
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        //errorMessage.Append(string.Format("Property: {0}, Error: {1}",
-                        //    ve.PropertyName, ve.ErrorMessage));
-                        errorMessage.Append(string.Format("{0} \n",  ve.ErrorMessage));
-                    }
+                    customer.SiteUser.JoiningDate = DateTime.Now;
+                    customer.SiteUser.AuthenticationTypeId = 1;
                 }
-                throw new DbEntityValidationException(errorMessage.ToString());
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
-        public Customer DeleteCustomer(int id)
-        {
-            try
-            {
-                Customer customer = db.Customers.FirstOrDefault(c => c.CustomerId == id);
-                db.Customers.Remove(customer);
-                db.SaveChanges();
-                return customer;
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-
-        public Customer EditCustomer(Customer customer)
-        {
-           
-            try
-            { 
-                var entity = db.Customers.Find(customer.CustomerId);
-                if (entity == null)
+                customer = db.Customers.Add(new Customer
                 {
-                    return null;
-                }
-                db.Entry(entity).CurrentValues.SetValues(customer);
+                    City = customer.City,
+                    Email = customer.Email,
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    DiscountPercentage = customer.DiscountPercentage,
+                    RegisteredDate = DateTime.Now,
+                    MobilePhone = customer.MobilePhone,
+                    Telephone = customer.Telephone,
+                    SiteUser = customer.SiteUser
+                });
+               
                 db.SaveChanges();
                 return customer;
             }
             catch (DbEntityValidationException e)
             {
+
                 var errorMessage = new StringBuilder();
                 foreach (var eve in e.EntityValidationErrors)
                 {
@@ -99,9 +69,59 @@ namespace BLL
             }
         }
 
-        public void UpdateCustomerSiteUserId(int siteUserId)
+        public Customer DeleteCustomer(int id)
         {
+            try
+            {
+                Customer customer = db.Customers.Find(id);
+                db.Customers.Remove(customer);
+                db.SaveChanges();
+                return customer;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
 
+        public Customer EditCustomer(Customer customer)
+        {
+            try
+            {
+                var entity = db.Customers.Find(customer.CustomerId);
+                if (entity == null)
+                {
+                    return null;
+                }
+
+                db.Entry(entity).CurrentValues.SetValues(customer);
+                if (entity.SiteUserId == null && customer.SiteUser != null)
+                {
+                    customer = (new UserSiteService()).RegisterUpdateUser(customer.SiteUser.UserName, customer.SiteUser.Password, 1, customer.CustomerId) as Customer;
+                }
+
+                db.SaveChanges();
+                return customer;
+            }
+            catch (DbEntityValidationException e)
+            {
+                var errorMessage = new StringBuilder();
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        errorMessage.Append(string.Format("{0} \n", ve.ErrorMessage));
+                    }
+                }
+                throw new DbEntityValidationException(errorMessage.ToString());
+            }
+        }
+
+        public Customer UpdateCustomerSiteUserId(int siteUserId, int cusId)
+        {
+            Customer c = db.Customers.Find(cusId);
+            if (c != null) { c.SiteUserId = siteUserId; }
+            return c;
         }
         //public List<string> func(User user)
         //{

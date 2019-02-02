@@ -29,13 +29,15 @@ namespace API.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Order/5
-        public string Get(int id)
+        // GET: api/Order/customer:id
+        [HttpGet()]
+        [Route("customer/{id:int}")]
+        public List<SaleOrder> Get(int id)
         {
-            return "value";
+            return soService.GetAllSaleOrdersOfCustomer(id);
         }
 
-        // POST: api/Order
+        // POST: api/Order/customer:id
         [HttpPost()]
         [Route("customer/{id:int}")]
         public void Post([FromUri()] int id, [FromBody()]List<SaleOrderProduct> products)
@@ -43,14 +45,13 @@ namespace API.Controllers
             SaleOrder so = new SaleOrder(id, products, "");
             soService.AddSaleOrder(so);
         }
-
-        [HttpPost()]
-        [Route("customer")]
-        public void Post([FromBody()]List<SaleOrderProduct> products)
-        {
-            SaleOrder so = new SaleOrder((UserController.CurrentUser as Customer).CustomerId, products, "");
-            soService.AddSaleOrder(so);
-        }
+        //[HttpPost()]
+        //[Route("customer")]
+        //public void Post([FromBody()]List<SaleOrderProduct> products)
+        //{
+        //    SaleOrder so = new SaleOrder((UserController.CurrentUser as Customer).CustomerId, products, "");
+        //    soService.AddSaleOrder(so);
+        //}
 
         [HttpPost()]
         [Route("provider/{id:int}")]

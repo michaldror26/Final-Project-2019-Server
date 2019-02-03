@@ -36,7 +36,13 @@ namespace API.Controllers
         {
             return soService.GetAllSaleOrdersOfCustomer(id);
         }
-
+        // GET: api/Order/:id
+        [HttpGet()]
+        [Route("GetOrder/{id:int}")]
+        public SaleOrder GetOrder(int id)
+        {
+            return soService.GetSaleOrder(id);
+        }
         // POST: api/Order/customer:id
         [HttpPost()]
         [Route("customer/{id:int}")]

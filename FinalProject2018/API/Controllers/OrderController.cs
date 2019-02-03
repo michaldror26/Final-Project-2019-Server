@@ -16,9 +16,11 @@ namespace API.Controllers
     {
         SaleOrderService soService;
         PurchaseOrderService poService;
+        
 
         public OrderController()
         {
+            
             soService = new SaleOrderService();
             poService = new PurchaseOrderService();
         }

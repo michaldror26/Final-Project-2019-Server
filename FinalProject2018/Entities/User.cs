@@ -9,6 +9,7 @@ using System.ComponentModel;
 
 namespace Entities
 {
+
     public abstract class User
     {
         [RegularExpression(@"[A-Za-zא-ת1-9 ]+",
@@ -38,6 +39,10 @@ namespace Entities
             ErrorMessage = "מייל אינו חוקי")]
         [Required(ErrorMessage = "שדה מייל הוא שדה חובה!")]
         public string Email { get; set; }
+
+        [ForeignKey("SiteUser")]
+        public Nullable<int> SiteUserId { get; set; }
+        public virtual SiteUser SiteUser { get; set; }
     }
 
     [Table("site_user")]
@@ -52,13 +57,14 @@ namespace Entities
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        //[NotMapped]
-        //public string ConfirmPassword { get; set; }
+        //[foreignkey("user")]
+        //public int userid { get; set; }
+        //public virtual user user { get; set; }
 
         public DateTime JoiningDate { get; set; }
 
         [ForeignKey("AuthenticationType")]
-        [DefaultValue(1)]
+        [DefaultValue(2)]
         public int AuthenticationTypeId { get; set; }
         public virtual AuthenticationType AuthenticationType { get; set; }
     }

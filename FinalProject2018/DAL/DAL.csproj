@@ -51,9 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201901301947374_usersite.cs" />
-    <Compile Include="Migrations\201901301947374_usersite.Designer.cs">
-      <DependentUpon>201901301947374_usersite.cs</DependentUpon>
+    <Compile Include="Migrations\201902030120129_innitial.cs" />
+    <Compile Include="Migrations\201902030120129_innitial.Designer.cs">
+      <DependentUpon>201902030120129_innitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902031021463_Intial.cs" />
+    <Compile Include="Migrations\201902031021463_Intial.Designer.cs">
+      <DependentUpon>201902031021463_Intial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902032236313_update-users.cs" />
+    <Compile Include="Migrations\201902032236313_update-users.Designer.cs">
+      <DependentUpon>201902032236313_update-users.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
@@ -72,8 +80,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901301947374_usersite.resx">
-      <DependentUpon>201901301947374_usersite.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902030120129_innitial.resx">
+      <DependentUpon>201902030120129_innitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902031021463_Intial.resx">
+      <DependentUpon>201902031021463_Intial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902032236313_update-users.resx">
+      <DependentUpon>201902032236313_update-users.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

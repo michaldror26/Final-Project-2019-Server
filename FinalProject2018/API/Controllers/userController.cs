@@ -9,6 +9,7 @@ using System.Web.Http.Cors;
 using BLL;
 using Entities;
 using Newtonsoft.Json.Linq;
+using API.Models;
 
 namespace API.Controllers
 {
@@ -23,41 +24,63 @@ namespace API.Controllers
             service = new UserSiteService();
         }
 
-        // GET: api/getAllUsers
-        [HttpGet]
-        [Route("getAllUsers")]
-        public List<SiteUser> GetAllUsers()
-        {
-            return service.getAllUsers();
-        }
-
         [HttpDelete]
         // DELETE: api/user/5
         public void Delete(int id)
         {
-            service.DeleteUser(id);
+            service.DeleteSiteUser(id);
         }
 
         [HttpPost]
         [Route("login")]
-        //public int Login([FromBody]string userName, [FromBody]string password)
         public User Login(SiteUser siteUser)
+
         {
-            //string userName = HttpContext.Current.Request.Form["userName"];
-            //string password = HttpContext.Current.Request.Form["password"];
-            return service.Login(siteUser);
+            var session = HttpContext.Current.Session;
+            if (session != null)
+            {
+                try
+                {
+                    User user = service.getUser(siteUser.UserName, siteUser.Password);
+                    session["User"] = user;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return CurrentUser.currentUser;
+
+            }
+            return null;
         }
+
+
 
         [HttpPost]
-        [Route("register")]
-        public User Register([FromBody]JObject data)
-        {
-            string userName = data["userName"].ToString();
-            int userId = data["userId"].ToObject<int>();
-            string password = data["password"].ToString();
-            int authType = data["authType"].ToObject<int>();
+        [Route("logout")]
+        public void Logout()
 
-            return service.RegisterUpdateUser(userName, password, authType, userId);
+        {
+            var session = HttpContext.Current.Session;
+            if (session != null)
+            {
+                session.Remove("user");
+            }
         }
+
+
+        //[HttpPost]
+        //[Route("register")]
+        //public User Register([FromBody]JObject data)
+        //{
+        //    string userName = data["userName"].ToString();
+        //    int userId = data["userId"].ToObject<int>();
+        //    string password = data["password"].ToString();
+        //    int authType = data["authType"].ToObject<int>();
+
+        //    //return service.RegisterUpdateUser(userName, password, authType, userId);
+        //    return new Customer();
+        //}
     }
 }

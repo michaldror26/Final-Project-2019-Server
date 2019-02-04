@@ -15,9 +15,9 @@ namespace Entities
         [Key]
         public int EmployeeId { get; set; }
 
-        [ForeignKey("SiteUser")]
-        public Nullable<int> SiteUserId { get; set; }
-        public virtual SiteUser SiteUser { get; set; }
+        //[ForeignKey("SiteUser")]
+        //public Nullable<int> SiteUserId { get; set; }
+        //public virtual SiteUser SiteUser { get; set; }
 
         public string Role { get; set; }
         public float Salary { get; set; }

@@ -34,6 +34,13 @@ namespace API.Controllers
             return service.getCustomerById(id);
         }
 
+        [HttpGet]
+        [Route("includeSiteUser/{customerId}")]
+        public Customer getCustomerIncludeiteUserById(int customerId)
+        {
+            return service.getCustomerIncludeSiteUserById(customerId);
+        }
+
         // POST: api/customer/editCustomer
         [HttpPost]
         [Route("editCustomer")]

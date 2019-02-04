@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201901301947374_usersite.Designer.cs">
       <DependentUpon>201901301947374_usersite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902021844215_conflicts.cs" />
+    <Compile Include="Migrations\201902021844215_conflicts.Designer.cs">
+      <DependentUpon>201902021844215_conflicts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +78,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901301947374_usersite.resx">
       <DependentUpon>201901301947374_usersite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902021844215_conflicts.resx">
+      <DependentUpon>201902021844215_conflicts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

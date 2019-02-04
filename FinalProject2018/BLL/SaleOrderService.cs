@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using System.Data.Entity;
 
 namespace BLL
 {
@@ -16,11 +17,22 @@ namespace BLL
 
         public List<SaleOrder> GetAllSaleOrdersOfCustomer(int customerId)
         {
-            return db.SaleOrders
+            List<SaleOrder> list = db.SaleOrders
                 .Where(saleOrders => saleOrders.CustomerId == customerId)
+                .Include(x => x.Customer)
                 .ToList();
-            //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
+            return list;
+        }
 
+        public SaleOrder GetSaleOrder(int orderId)
+        {
+            SaleOrder saleOrder = db.SaleOrders
+          .Include(x => x.Customer)
+          .Include(y => y.SaleOrderProducts.Select(x => x.Product))
+          .ToList()
+           .FirstOrDefault(o => o.SaleOrderId == orderId);
+
+            return saleOrder;
         }
         public SaleOrder GetSaleOrderById(int id)
         {
@@ -29,9 +41,9 @@ namespace BLL
         }
 
         public void AddSaleOrder(SaleOrder saleOrder)
-        { 
-                db.SaleOrders.Add(saleOrder);             
-                db.SaveChanges();
+        {
+            db.SaleOrders.Add(saleOrder);
+            db.SaveChanges();
         }
 
         public void DeleteSaleOrder(int id)

@@ -7,7 +7,6 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using BLL;
-using API.Models;
 
 namespace API.Controllers
 {
@@ -17,9 +16,11 @@ namespace API.Controllers
     {
         SaleOrderService soService;
         PurchaseOrderService poService;
+        
 
         public OrderController()
         {
+            
             soService = new SaleOrderService();
             poService = new PurchaseOrderService();
         }
@@ -30,13 +31,21 @@ namespace API.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Order/5
-        public string Get(int id)
+        // GET: api/Order/customer:id
+        [HttpGet()]
+        [Route("customer/{id:int}")]
+        public List<SaleOrder> Get(int id)
         {
-            return "value";
+            return soService.GetAllSaleOrdersOfCustomer(id);
         }
-
-        // POST: api/Order
+        // GET: api/Order/:id
+        [HttpGet()]
+        [Route("GetOrder/{id:int}")]
+        public SaleOrder GetOrder(int id)
+        {
+            return soService.GetSaleOrder(id);
+        }
+        // POST: api/Order/customer:id
         [HttpPost()]
         [Route("customer/{id:int}")]
         public void Post([FromUri()] int id, [FromBody()]List<SaleOrderProduct> products)
@@ -44,14 +53,13 @@ namespace API.Controllers
             SaleOrder so = new SaleOrder(id, products, "");
             soService.AddSaleOrder(so);
         }
-
-        [HttpPost()]
-        [Route("customer")]
-        public void Post([FromBody()]List<SaleOrderProduct> products)
-        {
-            SaleOrder so = new SaleOrder((CurrentUser.currentUser as Customer).CustomerId, products, "");
-            soService.AddSaleOrder(so);
-        }
+        //[HttpPost()]
+        //[Route("customer")]
+        //public void Post([FromBody()]List<SaleOrderProduct> products)
+        //{
+        //    SaleOrder so = new SaleOrder((UserController.CurrentUser as Customer).CustomerId, products, "");
+        //    soService.AddSaleOrder(so);
+        //}
 
         [HttpPost()]
         [Route("provider/{id:int}")]

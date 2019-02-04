@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using System.Data.Entity;
 
 namespace BLL
 {
-    public class BaseService
+    public abstract class BaseService
     {
-      public static  ModelStorManagment db = new ModelStorManagment();
+        public static ModelStorManagment db = new ModelStorManagment();
+       // abstract public DbSet<T> tabel { get;  }
     }
 }

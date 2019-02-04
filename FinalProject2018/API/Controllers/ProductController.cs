@@ -21,13 +21,6 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [Route("amount/{id}")]
-        public int getAmount(int id)
-        {
-          return  service.getAmountProduct(id);
-        }
-
-        [HttpGet]
         [Route("category/{categoryId}")]
         public List<Product> getProductsByCategory(int categoryId)
         {

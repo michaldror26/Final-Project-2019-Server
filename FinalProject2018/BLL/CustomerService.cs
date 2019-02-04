@@ -21,15 +21,19 @@ namespace BLL
             return db.Customers.Find(id);
         }
 
+        public Customer getCustomerIncludeSiteUserById(int userId)
+        {
+          return  db.Customers.Include("SiteUser").FirstOrDefault(u=>u.CustomerId==userId);
+        }
 
         public Customer AddCustomer(Customer customer)
         {
             try
             {
-                if (customer.SiteUser != null)
+                 if (customer.SiteUser != null)
                 {
                     customer.SiteUser.JoiningDate = DateTime.Now;
-                    customer.SiteUser.AuthenticationTypeId = 1;
+                    customer.SiteUser.AuthenticationTypeId = 2;
                 }
 
                 customer = db.Customers.Add(new Customer
@@ -73,8 +77,12 @@ namespace BLL
         {
             try
             {
-                Customer customer = db.Customers.Find(id);
+                Customer customer = db.Customers.Include("SiteUser").FirstOrDefault(c=>c.CustomerId==id);
+           
                 db.Customers.Remove(customer);
+                if (customer.SiteUser != null)
+                    db.SiteUsers.Remove(customer.SiteUser);
+
                 db.SaveChanges();
                 return customer;
             }
@@ -88,20 +96,35 @@ namespace BLL
         {
             try
             {
-                var entity = db.Customers.Find(customer.CustomerId);
+                Customer entity = db.Customers.Include("SiteUser").FirstOrDefault(c => c.CustomerId == customer.CustomerId);
                 if (entity == null)
                 {
                     return null;
                 }
 
                 db.Entry(entity).CurrentValues.SetValues(customer);
-                if (entity.SiteUserId == null && customer.SiteUser != null)
-                {
-                    customer = (new UserSiteService()).RegisterUpdateUser(customer.SiteUser.UserName, customer.SiteUser.Password, 1, customer.CustomerId) as Customer;
-                }
 
-                db.SaveChanges();
-                return customer;
+                //לקוח רשום
+                if(entity.SiteUser!=null)
+                {
+                    //עדכון פרטי רישום
+                    if(customer.SiteUser!=null)
+                      db.Entry(entity.SiteUser).CurrentValues.SetValues(customer.SiteUser);
+                    //מחיקת רישום
+                    else
+                        db.SiteUsers.Remove(entity.SiteUser);
+                }
+                else
+                //לקוח שאינו רשום
+                //מעונין להרשם
+                    if (customer.SiteUser != null)
+                    {
+                          entity = (new UserSiteService()).RegisterUpdateUser(customer.SiteUser.UserName, customer.SiteUser.Password, 2, entity) as Customer;
+                    }
+
+                    db.SaveChanges();
+                return entity;
+             
             }
             catch (DbEntityValidationException e)
             {

@@ -23,7 +23,7 @@ namespace BLL
 
         public Customer getCustomerIncludeSiteUserById(int userId)
         {
-          return  db.Customers.Include("SiteUser").FirstOrDefault(u=>u.CustomerId==userId);
+          return  db.Customers.Include("SiteUser").FirstOrDefault(c=>c.Id==userId);
         }
 
         public Customer AddCustomer(Customer customer)
@@ -77,7 +77,7 @@ namespace BLL
         {
             try
             {
-                Customer customer = db.Customers.Include("SiteUser").FirstOrDefault(c=>c.CustomerId==id);
+                Customer customer = db.Customers.Include("SiteUser").FirstOrDefault(c=>c.Id==id);
            
                 db.Customers.Remove(customer);
                 if (customer.SiteUser != null)
@@ -96,7 +96,7 @@ namespace BLL
         {
             try
             {
-                Customer entity = db.Customers.Include("SiteUser").FirstOrDefault(c => c.CustomerId == customer.CustomerId);
+                Customer entity = db.Customers.Include("SiteUser").FirstOrDefault(c => c.Id == customer.Id);
                 if (entity == null)
                 {
                     return null;

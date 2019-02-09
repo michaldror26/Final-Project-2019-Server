@@ -12,13 +12,11 @@ namespace Entities
     [Table("customer")]
     public class Customer : User
     {
-        [Key]
-        public int CustomerId { get; set; }
-        //[ForeignKey("SiteUser")]
-        //public Nullable<int> SiteUserId { get; set; }
-        //public virtual SiteUser SiteUser { get; set; }
+        //[Key]
+        //public int CustomerId { get; set; }
+        //public int SiteUserId { get; set; }
+        //public virtual SiteUser siteUser { get; set; }
 
-    
         public DateTime RegisteredDate { get; set; }
 
         [DefaultValue(0)]

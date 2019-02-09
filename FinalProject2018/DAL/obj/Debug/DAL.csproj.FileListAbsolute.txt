@@ -44,7 +44,5 @@ Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csp
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.dll
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.pdb
 C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.usersite.resources
-Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.innitial.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.create_bezrat_hashem.resources
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
-Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Intial.resources
-Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.updateusers.resources

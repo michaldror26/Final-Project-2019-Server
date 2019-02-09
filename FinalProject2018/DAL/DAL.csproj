@@ -51,17 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201902030120129_innitial.cs" />
-    <Compile Include="Migrations\201902030120129_innitial.Designer.cs">
-      <DependentUpon>201902030120129_innitial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902031021463_Intial.cs" />
-    <Compile Include="Migrations\201902031021463_Intial.Designer.cs">
-      <DependentUpon>201902031021463_Intial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902032236313_update-users.cs" />
-    <Compile Include="Migrations\201902032236313_update-users.Designer.cs">
-      <DependentUpon>201902032236313_update-users.cs</DependentUpon>
+    <Compile Include="Migrations\201902061221407_create_bezrat_hashem.cs" />
+    <Compile Include="Migrations\201902061221407_create_bezrat_hashem.Designer.cs">
+      <DependentUpon>201902061221407_create_bezrat_hashem.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
@@ -80,14 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902030120129_innitial.resx">
-      <DependentUpon>201902030120129_innitial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902031021463_Intial.resx">
-      <DependentUpon>201902031021463_Intial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902032236313_update-users.resx">
-      <DependentUpon>201902032236313_update-users.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902061221407_create_bezrat_hashem.resx">
+      <DependentUpon>201902061221407_create_bezrat_hashem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

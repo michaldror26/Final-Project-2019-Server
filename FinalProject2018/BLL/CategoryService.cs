@@ -11,7 +11,7 @@ namespace BLL
     {
         public List<Category> GetAllCategories()
         {
-            return db.Categories.ToList();
+              return db.Categories.ToList();
         }
 
        // private List<Category> lstc=new List<Category>();

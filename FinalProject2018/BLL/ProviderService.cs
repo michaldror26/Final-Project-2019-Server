@@ -18,7 +18,7 @@ namespace BLL
 
         public Provider GetProviderById(int id)
         {
-            return db.Providers.FirstOrDefault(e => e.ProviderId == id);
+            return db.Providers.FirstOrDefault(p => p.Id == id);
         }
 
         public void AddProvider(Provider provider)
@@ -29,7 +29,7 @@ namespace BLL
 
         public void DeleteProvider(int id)
         {
-            Provider provider = db.Providers.FirstOrDefault(c => c.ProviderId == id);
+            Provider provider = db.Providers.FirstOrDefault(p => p.Id == id);
             db.Providers.Remove(provider);
             db.SaveChanges();
         }

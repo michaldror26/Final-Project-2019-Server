@@ -56,11 +56,7 @@ namespace Entities
         [Required(ErrorMessage = "Required field!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
-        //[foreignkey("user")]
-        //public int userid { get; set; }
-        //public virtual user user { get; set; }
-
+       
         public DateTime JoiningDate { get; set; }
 
         [ForeignKey("AuthenticationType")]

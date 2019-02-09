@@ -30,7 +30,6 @@ E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProjec
 E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\bin\Debug\EntityFramework.SqlServer.xml
 E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Initial1.resources
 C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\bin\Debug\DAL.dll.config
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\bin\Debug\DAL.dll
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\bin\Debug\DAL.pdb
@@ -45,5 +44,5 @@ Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.dll
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.pdb
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Initial.resources
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
-C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.usersite.resources
-C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.conflicts.resources
+C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations._4_2_19.resources
+C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csproj.GenerateResource.cache

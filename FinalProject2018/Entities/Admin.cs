@@ -9,13 +9,9 @@ using System.Threading.Tasks;
 namespace Entities
 {
     [Table("admin")]
-    public class Admin:User
+    public class Admin : User
     {
         [Key]
         public int AdminId { get; set; }
-        //[ForeignKey("SiteUser")]
-        //public Nullable<int> SiteUserId { get; set; }
-        //public virtual SiteUser SiteUser { get; set; }
-
     }
 }

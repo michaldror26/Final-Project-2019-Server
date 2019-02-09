@@ -27,7 +27,7 @@ namespace BLL
             return 0;
         }
 
-        public List<Product> getAllProduct()
+        public List<Product> getAllProducts()
         {
             return db.Products.ToList();
         }
@@ -57,10 +57,6 @@ namespace BLL
         {
             return getAllProduct(category.CategoryId);
         }
-
-
-
-
 
         //public Product getProductById(int id)
         //{
@@ -117,7 +113,5 @@ namespace BLL
         //    lst.Add(c);
         //    return lst;
         //}
-
-
     }
 }

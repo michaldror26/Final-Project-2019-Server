@@ -26,5 +26,12 @@ namespace API.Controllers
         {
             return service.getAllProduct(categoryId);
         }
+
+        [HttpGet]
+        [Route("getAllProducts")]
+        public List<Product> getAllProducts()
+        {
+            return service.getAllProducts();
+        }
     }
 }

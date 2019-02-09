@@ -21,7 +21,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [Route()]
+        [Route("getCategories")]
         public List<Category> getCategores()
         {
              return service.GetAllCategories();
@@ -32,6 +32,12 @@ namespace API.Controllers
         public List<Category> getCategores(int id)
         {
             return service.GetSubCategories(id);
+        }
+        [HttpGet]
+        [Route("GetAllCategoriesAndSubCategory")]
+        public List<Category> GetAllCategoriesAndSubCategory()
+        {
+            return service.GetAllCategoriesAndSubCategory();
         }
     }
 }

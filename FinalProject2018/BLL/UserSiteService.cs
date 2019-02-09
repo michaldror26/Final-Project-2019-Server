@@ -29,7 +29,7 @@ namespace BLL
 
         public User getUser(int siteUserId)
         {
-            SiteUser siteUser = db.SiteUsers.FirstOrDefault(su => su.SiteUserId==siteUserId);
+            SiteUser siteUser = db.SiteUsers.FirstOrDefault(su => su.Id==siteUserId);
             User user = getUser(siteUser);
             if (user != null)
                 return user;
@@ -42,19 +42,19 @@ namespace BLL
         {
             if (siteUser.AuthenticationTypeId == 1)
             {
-                Admin admin = db.Admins.FirstOrDefault(a => a.SiteUserId == siteUser.SiteUserId);
+                Admin admin = db.Admins.FirstOrDefault(a => a.SiteUserId == siteUser.Id);
                 if (admin != null)
                     return admin;
             }
             if (siteUser.AuthenticationTypeId == 2)
             {
-                Customer customer = db.Customers.FirstOrDefault(c => c.SiteUserId == siteUser.SiteUserId);
+                Customer customer = db.Customers.FirstOrDefault(c => c.SiteUserId == siteUser.Id);
                 if (customer != null)
                     return customer;
             }
             else if (siteUser.AuthenticationTypeId == 3)
             {
-                Employee employee = db.Employees.FirstOrDefault(e => e.SiteUserId == siteUser.SiteUserId);
+                Employee employee = db.Employees.FirstOrDefault(e => e.SiteUserId == siteUser.Id);
                 if (employee != null)
                     return employee;
             }
@@ -91,7 +91,7 @@ namespace BLL
 
         public void DeleteSiteUser(int id)
         {
-            SiteUser siteUser = db.SiteUsers.FirstOrDefault(c => c.SiteUserId == id);
+            SiteUser siteUser = db.SiteUsers.FirstOrDefault(su => su.Id == id);
             db.SiteUsers.Remove(siteUser);
         }
 
@@ -117,7 +117,7 @@ namespace BLL
             {
                 user.SiteUser = siteUser;              
                 db.SiteUsers.Add(siteUser);
-               // customer.SiteUserId = siteUser.SiteUserId;
+               // customer.SiteUserId = siteUser.Id;
                 db.SaveChanges();
             }
 
@@ -137,10 +137,10 @@ namespace BLL
             if (site_User != null)
             {
                 if (site_User.AuthenticationTypeId == 1)
-                    return (new CustomerService()).UpdateCustomerSiteUserId(site_User.SiteUserId, userId);
+                    return (new CustomerService()).UpdateCustomerSiteUserId(site_User.Id, userId);
                 else
                  if (site_User.AuthenticationTypeId == 2)
-                    return (new EmployeeService()).UpdateEmployeeSiteUserId(site_User.SiteUserId, userId);
+                    return (new EmployeeService()).UpdateEmployeeSiteUserId(site_User.Id, userId);
             }
             return null;
 

@@ -12,6 +12,8 @@ namespace Entities
 
     public abstract class User
     {
+        [Key]
+        public int Id { get; set; }
         [RegularExpression(@"[A-Za-zא-ת1-9 ]+",
         ErrorMessage = "שם פרטי יכול להכיל רק אותיות אנגלית ועברית או מספרים")]
         [Required(ErrorMessage = "שם פרטי הוא שדה חובה")]
@@ -40,23 +42,26 @@ namespace Entities
         [Required(ErrorMessage = "שדה מייל הוא שדה חובה!")]
         public string Email { get; set; }
 
-        [ForeignKey("SiteUser")]
-        public Nullable<int> SiteUserId { get; set; }
+        //[ForeignKey("SiteUser")]
+        //public Nullable<int> SiteUserId { get; set; }
+        //public virtual SiteUser SiteUser { get; set; }
+
+        public int SiteUserId { get; set; }
         public virtual SiteUser SiteUser { get; set; }
     }
 
     [Table("site_user")]
     public class SiteUser 
     {
-        [Key]
-        public int SiteUserId { get; set; }
+       // [Key]
+        public int Id { get; set; }
     
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Required field!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-       
+
         public DateTime JoiningDate { get; set; }
 
         [ForeignKey("AuthenticationType")]

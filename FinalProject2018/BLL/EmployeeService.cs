@@ -16,7 +16,7 @@ namespace BLL
 
         public Employee GetEmployeeById(int id)
         {
-            return db.Employees.FirstOrDefault(e => e.EmployeeId == id);
+            return db.Employees.FirstOrDefault(e => e.Id == id);
         }
 
         public void AddEmployee(Employee employee)
@@ -27,7 +27,7 @@ namespace BLL
 
         public void DeleteEmployee(int id)
         {
-            Employee employee = db.Employees.FirstOrDefault(c => c.EmployeeId == id);
+            Employee employee = db.Employees.FirstOrDefault(e => e.Id == id);
             db.Employees.Remove(employee);
             db.SaveChanges();
         }
@@ -38,7 +38,7 @@ namespace BLL
         }
         public Employee UpdateEmployeeSiteUserId(int siteUserId, int empId)
         {
-            Employee employee = db.Employees.FirstOrDefault(emp => emp.EmployeeId == empId);
+            Employee employee = db.Employees.FirstOrDefault(emp => emp.Id == empId);
            //yyy if (employee != null) { employee.SiteUserId = siteUserId; }
             return employee;
         }

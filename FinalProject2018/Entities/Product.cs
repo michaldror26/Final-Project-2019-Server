@@ -22,11 +22,10 @@ namespace Entities
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
-
         [Required(ErrorMessage = "Required field!")]
         public float SellingPrice { get; set; }
 
-        public string Image { get; set; }
-
+        public  string Image { get; set; }
+       
     }
 }

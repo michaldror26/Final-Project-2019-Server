@@ -12,12 +12,9 @@ namespace Entities
     [Table("provider")]
     public class Provider: User
     {
-        [Key]
-        public int ProviderId { get; set; }
-        //[ForeignKey("SiteUser")]
-        //public Nullable<int> SiteUserId { get; set; }
-        //public virtual SiteUser SiteUser { get; set; }
-
+        //[Key]
+        //public int ProviderId { get; set; }
+        
         public virtual List<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual List<PurchaseShippingCertificate> PurchaseShippingCertificates { get; set; }
     }

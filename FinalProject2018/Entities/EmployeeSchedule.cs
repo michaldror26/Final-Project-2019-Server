@@ -15,7 +15,7 @@ namespace Entities
         [Key]
         public int EmployeeScheduleId { get; set; }
 
-        [ForeignKey("Employee")]
+       // [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
 
         public virtual Employee Employee { get; set; }

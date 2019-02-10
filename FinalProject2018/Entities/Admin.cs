@@ -11,9 +11,9 @@ namespace Entities
     [Table("admin")]
     public class Admin:User
     {
-        //[Key]
-        //public int AdminId { get; set; }
-   
+        [Key]
+        public int AdminId { get; set; }
+
 
     }
 }

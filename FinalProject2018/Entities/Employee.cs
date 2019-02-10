@@ -12,10 +12,10 @@ namespace Entities
     [Table("employee")]
     public class Employee: User
     {
-        //[Key]
-        //public int EmployeeId { get; set; }
+        [Key]
+        public int EmployeeId { get; set; }
 
-        
+
 
         public string Role { get; set; }
         public float Salary { get; set; }

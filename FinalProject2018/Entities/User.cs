@@ -12,8 +12,7 @@ namespace Entities
 
     public abstract class User
     {
-        [Key]
-        public int Id { get; set; }
+      
         [RegularExpression(@"[A-Za-zא-ת1-9 ]+",
         ErrorMessage = "שם פרטי יכול להכיל רק אותיות אנגלית ועברית או מספרים")]
         [Required(ErrorMessage = "שם פרטי הוא שדה חובה")]

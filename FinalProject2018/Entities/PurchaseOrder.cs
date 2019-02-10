@@ -23,7 +23,7 @@ namespace Entities
         public int PurchaseOrderId { get; set; }
         public DateTime Date { get; set; }
 
-       // [ForeignKey("Provider")]
+       [ForeignKey("Provider")]
         public int ProviderId { get; set; }
         public virtual Provider Provider { get; set; }
 

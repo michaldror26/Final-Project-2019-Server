@@ -41,11 +41,8 @@ namespace Entities
         [Required(ErrorMessage = "שדה מייל הוא שדה חובה!")]
         public string Email { get; set; }
 
-        //[ForeignKey("SiteUser")]
-        //public Nullable<int> SiteUserId { get; set; }
-        //public virtual SiteUser SiteUser { get; set; }
-
-        public int SiteUserId { get; set; }
+        [ForeignKey("SiteUser")]
+        public Nullable<int> SiteUserId { get; set; }
         public virtual SiteUser SiteUser { get; set; }
     }
 
@@ -60,10 +57,6 @@ namespace Entities
         [Required(ErrorMessage = "Required field!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
-       // [foreignkey("user")]
-        //public int UserId { get; set; }
-        //public virtual User user { get; set; }
 
         public DateTime JoiningDate { get; set; }
 

@@ -68,19 +68,6 @@ namespace API.Controllers
                 session.Remove("user");
             }
         }
-
-
-        //[HttpPost]
-        //[Route("register")]
-        //public User Register([FromBody]JObject data)
-        //{
-        //    string userName = data["userName"].ToString();
-        //    int userId = data["userId"].ToObject<int>();
-        //    string password = data["password"].ToString();
-        //    int authType = data["authType"].ToObject<int>();
-
-        //    //return service.RegisterUpdateUser(userName, password, authType, userId);
-        //    return new Customer();
-        //}
+        
     }
 }

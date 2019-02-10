@@ -51,10 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201902061221407_create_bezrat_hashem.cs" />
-    <Compile Include="Migrations\201902061221407_create_bezrat_hashem.Designer.cs">
-      <DependentUpon>201902061221407_create_bezrat_hashem.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,11 +66,6 @@
       <Project>{b44ad90f-750e-43cc-bd40-490039c3ca82}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902061221407_create_bezrat_hashem.resx">
-      <DependentUpon>201902061221407_create_bezrat_hashem.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

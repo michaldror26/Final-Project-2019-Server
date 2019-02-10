@@ -10,24 +10,13 @@ namespace DAL
 {
     public class ModelStorManagment : DbContext
     {
-        // Your context has been configured to use a 'Model2' connection string from your application's 
-        // configuration file (App.config or Web.config). By default, this connection string targets the 
-        // 'DAL.Model2' database on your LocalDb finstance. 
-        // 
-        // If you wish to target a different database and/or database provider, modify the 'Model2' 
-        // connection string in the application configuration file.
         public ModelStorManagment() : base()
-            //https://www.codeproject.com/Articles/821439/Getting-started-with-ASP-Net-Web-API-using-CodeF
-           // : base("Data Source=DESKTOP-V2MV35R/SQLEXPRESS;Initial Catalog=CleverManager;Integrated Security=True")
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.AutoDetectChangesEnabled = false;
             Configuration.LazyLoadingEnabled = false;
         }
-
-        // Add a DbSet for each entity type that you want to include in your model. For more information 
-        // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
-
+        
         public virtual DbSet<AuthenticationType> AuthenticationTypes { get; set; }
         public virtual DbSet<SiteUser> SiteUsers { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
@@ -42,8 +31,7 @@ namespace DAL
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Provider> Providers { get; set; }
-
-       // public virtual DbSet<OrderProduct> OrderProducts { get; set; }
+        
         public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual DbSet<PurchaseOrderProduct> PurchaseOrderProducts { get; set; }
 
@@ -55,6 +43,5 @@ namespace DAL
 
         public virtual DbSet<SaleShippingCertificate> SaleShippingCertificates { get; set; }
         public virtual DbSet<SaleShippingCertificateProduct> SaleShippingCertificateProducts { get; set; }
-
     }
 }

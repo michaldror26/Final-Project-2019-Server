@@ -16,7 +16,7 @@ namespace Entities
         public int SaleShippingCertificateId { get; set; }
         public DateTime Date { get; set; }
 
-      //  [ForeignKey("Customer")]
+        [ForeignKey("Customer")]
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
 

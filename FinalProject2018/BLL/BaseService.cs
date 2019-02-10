@@ -11,6 +11,5 @@ namespace BLL
     public abstract class BaseService
     {
         public static ModelStorManagment db = new ModelStorManagment();
-       // abstract public DbSet<T> tabel { get;  }
     }
 }

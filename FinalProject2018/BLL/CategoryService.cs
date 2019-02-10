@@ -13,7 +13,10 @@ namespace BLL
         {
               return db.Categories.ToList();
         }
-
+public List<Category> GetAllCategoriesAndSubCategory()
+        {
+            return db.Categories.ToList();
+        }
        // private List<Category> lstc=new List<Category>();
         //public List<Category> GetSubCategories(Category category)
         //{

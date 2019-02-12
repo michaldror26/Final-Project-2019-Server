@@ -39,9 +39,9 @@ namespace API.Controllers
             return soService.GetSaleOrder(id);
         }
 
-        // POST: api/Order/customer:id
+        // POST: api/Order/customer/id
         [HttpPost()]
-        [Route("customer/{id:int}")]
+        [Route("customer/{id}")]
         public void Post([FromUri()] int id, [FromBody()]List<SaleOrderProduct> products)
         {
             SaleOrder so = new SaleOrder(id, products, "");

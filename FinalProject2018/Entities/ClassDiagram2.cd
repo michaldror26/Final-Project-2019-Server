@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical">
+  <Class Name="Entities.Admin">
+    <Position X="1.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.PurchaseOrderProduct">
+    <Position X="9" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAAAAAAABAAAAACAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>PurchaseOrderProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Customer">
+    <Position X="4.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAQAAAAAAAAAAgAAAAAAAAABAABAAAAAACAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.CustomerPayment">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAQAAIAAAAAAAAAAAAAAAgBABAAAAAAAAAAA=</HashCode>
+      <FileName>CustomerPayment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Employee">
+    <Position X="6.25" Y="7.25" Width="1.5" />
+    <InheritanceLine Type="Entities.User" ManuallyRouted="true">
+      <Path>
+        <Point X="5" Y="4.45" />
+        <Point X="5" Y="4.851" />
+        <Point X="6.906" Y="4.851" />
+        <Point X="6.906" Y="6.875" />
+        <Point X="7" Y="6.875" />
+        <Point X="7" Y="7.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAEAAAAAAAAAAAAAACAAAAAAACAAA=</HashCode>
+      <FileName>Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.EmployeeSchedule">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAgAAAAAAQBAACAIAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>EmployeeSchedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Inventory">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAAAAAAAAAAAAACAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Inventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.MailboxMessage">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAgAAgAAAAAAAAAAAAAAAAAAAIABAAAAQCAAAAA=</HashCode>
+      <FileName>MailboxMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Product">
+    <Position X="14.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAgAAAAAAAAQEAAAAABAAAAAAAAAACAA=</HashCode>
+      <FileName>Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Provider">
+    <Position X="8.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAABAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Provider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.PurchaseOrder">
+    <Position X="16.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAEAAAABAAAAAAAAAAAACABAAAAgAAAAQA=</HashCode>
+      <FileName>PurchaseOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.PurchaseShippingCertificate">
+    <Position X="14.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAkAAAABAAAAAAAAEAAAAABAAAAAAAAAQA=</HashCode>
+      <FileName>PurchaseShippingCertificate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.PurchaseShippingCertificateProduct">
+    <Position X="16.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAAgAAEAAAAAAAAAAAAAAABAAAAAgAAAAAA=</HashCode>
+      <FileName>PurchaseShippingCertificateProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.SaleOrder">
+    <Position X="11" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAQAAABABgAAAAAAAAQA=</HashCode>
+      <FileName>SaleOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.SaleOrderProduct">
+    <Position X="12.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAAAAAAAAAAAAACAAQAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>SaleOrderProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.SaleShippingCertificate">
+    <Position X="11" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAQAAAAAAABABABAAAAAAAQA=</HashCode>
+      <FileName>SaleShippingCertificate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.SaleShippingCertificateProduct">
+    <Position X="12.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAECAAAAAAAAAAEAAAAAAAAAAAAAAAAAABAAgAAAAAA=</HashCode>
+      <FileName>SaleShippingCertificateProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.User">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAEAAACAAAAAIAAAAAAAAAAAAAEAAAIAAAAAAAAg=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.SiteUser">
+    <Position X="6.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAAABAAAACAAAAAAAAAAAAAACAQAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.AuthenticationType">
+    <Position X="9.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>AuthenticationType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Category">
+    <Position X="7" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAQAAAAAAIAAAAAAAAAgAAA=</HashCode>
+      <FileName>Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

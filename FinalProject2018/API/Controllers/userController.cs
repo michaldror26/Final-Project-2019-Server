@@ -43,6 +43,7 @@ namespace API.Controllers
                 {
                     User user = service.getUser(siteUser.UserName, siteUser.Password);
                     session["User"] = user;
+                    session.Timeout = 60;
                 }
                 catch (Exception ex)
                 {

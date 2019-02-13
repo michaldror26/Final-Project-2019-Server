@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using BLL;
+using API.Models;
 
 namespace API.Controllers
 {
@@ -37,6 +38,16 @@ namespace API.Controllers
         public SaleOrder GetOrder(int id)
         {
             return soService.GetSaleOrder(id);
+        }
+
+        // POST: api/Order/customer
+        [HttpPost()]
+        [Route("customer")]
+        public void Post([FromBody()]List<SaleOrderProduct> products)
+        {
+            //ישתנה כשנשנה ל ID
+            SaleOrder so = new SaleOrder((CurrentUser.currentUser as Customer).CustomerId, products, "");
+            soService.AddSaleOrder(so);
         }
 
         // POST: api/Order/customer/id

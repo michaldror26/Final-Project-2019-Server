@@ -42,5 +42,8 @@ Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\bin\Debug\EntityF
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.dll
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.pdb
-C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations._5454.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.start.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.sale_product.resources
+C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations._1111.resources
 C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csproj.GenerateResource.cache

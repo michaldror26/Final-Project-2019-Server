@@ -22,6 +22,6 @@ namespace Entities
         public virtual Product Product { get; set; }
 
         [DefaultValue(0)]
-        public int Quantity { get; set; }
+        public int Amount { get; set; }
     }
 }

@@ -51,9 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201902102040424_5454.cs" />
-    <Compile Include="Migrations\201902102040424_5454.Designer.cs">
-      <DependentUpon>201902102040424_5454.cs</DependentUpon>
+    <Compile Include="Migrations\201902121901094_1111.cs" />
+    <Compile Include="Migrations\201902121901094_1111.Designer.cs">
+      <DependentUpon>201902121901094_1111.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
@@ -72,8 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902102040424_5454.resx">
-      <DependentUpon>201902102040424_5454.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902121901094_1111.resx">
+      <DependentUpon>201902121901094_1111.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

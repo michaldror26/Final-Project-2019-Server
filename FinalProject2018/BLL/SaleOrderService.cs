@@ -44,6 +44,8 @@ namespace BLL
         {
             db.SaleOrders.Add(saleOrder);
             db.SaveChanges();
+            MailViaGmailService ms = new MailViaGmailService();
+            ms.sendOrderMessenge(saleOrder);
         }
 
         public void DeleteSaleOrder(int id)

@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EASendMail45, Version=7.3.1.9, Culture=neutral, PublicKeyToken=88adb80ecd66540b, processorArchitecture=MSIL">
+      <HintPath>..\packages\EASendMail.7.3.1.9\lib\net45\EASendMail45.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -53,6 +57,7 @@
     <Compile Include="CategoryService.cs" />
     <Compile Include="CustomerPaymentService.cs" />
     <Compile Include="EmployeeScheduleService.cs" />
+    <Compile Include="MailViaGmailService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="ProviderService.cs" />
     <Compile Include="PurchaseOrderService.cs" />

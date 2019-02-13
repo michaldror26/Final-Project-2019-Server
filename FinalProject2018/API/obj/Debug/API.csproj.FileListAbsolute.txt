@@ -97,3 +97,4 @@ Y:\יהודית\Final-Project-2019-Server\FinalProject2018\API\bin\DAL.pdb
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\API\obj\Debug\API.csprojResolveAssemblyReference.cache
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\API\obj\Debug\API.dll
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\API\obj\Debug\API.pdb
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\API\bin\EASendMail45.dll

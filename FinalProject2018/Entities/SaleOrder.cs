@@ -19,6 +19,7 @@ namespace Entities
             this.SaleOrderProducts = products;
             this.Remark = remark;
         }
+      
         [Key]
         public int SaleOrderId { get; set; }
         public DateTime Date { get; set; }

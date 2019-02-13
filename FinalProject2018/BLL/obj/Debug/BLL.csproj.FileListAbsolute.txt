@@ -47,3 +47,4 @@ Y:\יהודית\Final-Project-2019-Server\FinalProject2018\BLL\bin\Debug\DAL.pdb
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\BLL\bin\Debug\Entities.pdb
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\BLL\bin\Debug\EntityFramework.xml
 Y:\יהודית\Final-Project-2019-Server\FinalProject2018\BLL\bin\Debug\EntityFramework.SqlServer.xml
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\BLL\bin\Debug\EASendMail45.dll

@@ -19,10 +19,20 @@ namespace BLL
             return db.MailboxMessages.FirstOrDefault(e => e.MailboxMessageId == id);
         }
 
-        public void AddMailboxMessage(MailboxMessage mailboxMessage)
+        public MailboxMessage AddMailboxMessage(MailboxMessage mailboxMessage)
         {
-            db.MailboxMessages.Add(mailboxMessage);
-            db.SaveChanges();
+            try
+            {
+                mailboxMessage.Date = new DateTime();
+                mailboxMessage.IsReaden = false;
+                db.MailboxMessages.Add(mailboxMessage);
+                db.SaveChanges();
+                return mailboxMessage;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public void DeleteMailboxMessage(int id)

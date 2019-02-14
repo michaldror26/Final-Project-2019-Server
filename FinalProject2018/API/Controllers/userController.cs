@@ -10,6 +10,7 @@ using BLL;
 using Entities;
 using Newtonsoft.Json.Linq;
 using API.Models;
+using System.Web.SessionState;
 
 namespace API.Controllers
 {
@@ -34,9 +35,9 @@ namespace API.Controllers
         [HttpPost]
         [Route("login")]
         public User Login(SiteUser siteUser)
-
         {
             var session = HttpContext.Current.Session;
+           // HttpSessionState session = HttpContext.Current.Session;
             if (session != null)
             {
                 try
@@ -47,7 +48,7 @@ namespace API.Controllers
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    throw;
                 }
 
                 return CurrentUser.currentUser;

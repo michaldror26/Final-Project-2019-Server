@@ -9,7 +9,7 @@ using Entities;
 
 namespace BLL
 {
-    public class MailViaGmailService
+    public class MailViaGmailService : BaseService
     {
         MailAddress myemail = new MailAddress("ymnredeecs@gmail.com", "לא ידוע");  //used for authentication
         string password = "0533177904";  //used for authentication
@@ -24,31 +24,50 @@ namespace BLL
         }
 
 
-        public void  sendOrderMessenge(SaleOrder so) {
-          
+        public void sendOrderMessenge(SaleOrder so)
+        {
+
             MailAddress mail_to = new MailAddress(so.Customer.Email,
-                                                  so.Customer.FirstName+" "+so.Customer.LastName);  //the email address of the receiver
+                                                  so.Customer.FirstName + " " + so.Customer.LastName);  //the email address of the receiver
 
 
             MailMessage message = new MailMessage(myemail, mail_to);
             message.Subject = "Test";  //subject
             message.IsBodyHtml = true;
             message.Body = "תודה שרכשת את המצרכים הבאים:";
-           // message.Body += string.Join(", ", so.SaleOrderProducts[0].Product.Name);
+            // message.Body += string.Join(", ", so.SaleOrderProducts[0].Product.Name);
             foreach (var sop in so.SaleOrderProducts)
             {
-                message.Body += "<li> " + sop.Product.Name+"   "+sop.Amount + "</li>";
+                message.Body += "<li> " + sop.Product.Name + "   " + sop.Amount + "</li>";
             }
             message.Body += "</ul>";
             send(message);
-            
+
         }
 
         private void send(MailMessage m)
         {
             try { client_smtp.Send(m); }
-            catch(Exception ex){ throw ex; }
+            catch (Exception ex) { throw new Exception("ארעה תקלה! לא נשלח המייל המבוקש"); }
+        }
+
+        public MailboxMessage sendContactUs(MailboxMessage mess)
+        {
+            Admin admin = db.Admins.FirstOrDefault();
+            if (admin == null)
+                return null;
+            MailAddress mail_to = new MailAddress(admin.Email, admin.FirstName + " " + admin.LastName);  //the email address of the receiver
+            MailAddress mail_from = new MailAddress(mess.FromEmail, mess.FromName);  //the email address of the receiver
+
+
+            MailMessage message = new MailMessage(mail_from, mail_to);
+            message.Subject = mess.Topic;  //subject
+            message.Body = mess.Content;
+            send(message);
+            
+            return mess;
+
         }
     }
-   
+
 }

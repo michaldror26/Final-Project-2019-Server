@@ -58,6 +58,7 @@
     <Compile Include="CustomerPaymentService.cs" />
     <Compile Include="EmployeeScheduleService.cs" />
     <Compile Include="MailViaGmailService.cs" />
+    <Compile Include="InventoryService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="ProviderService.cs" />
     <Compile Include="PurchaseOrderService.cs" />

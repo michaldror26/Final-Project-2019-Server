@@ -23,7 +23,7 @@ namespace BLL
         {
             try
             {
-                mailboxMessage.Date = new DateTime();
+                mailboxMessage.Date = DateTime.Now;
                 mailboxMessage.IsReaden = false;
                 db.MailboxMessages.Add(mailboxMessage);
                 db.SaveChanges();

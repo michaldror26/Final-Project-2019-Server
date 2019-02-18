@@ -17,10 +17,10 @@ namespace BLL
 
         public MailViaGmailService()
         {
-            client_smtp.EnableSsl = true;   //Gmail requires a ssl connection
             client_smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             client_smtp.UseDefaultCredentials = false;
-            client_smtp.Credentials = new NetworkCredential(myemail.Address, password); //authentication data
+            client_smtp.EnableSsl = true;
+            client_smtp.Credentials = new NetworkCredential("bechagecha@gmail.com", "bechagecha2019"); //authentication data
         }
 
 
@@ -58,13 +58,12 @@ namespace BLL
                 return null;
             MailAddress mail_to = new MailAddress(admin.Email, admin.FirstName + " " + admin.LastName);  //the email address of the receiver
             MailAddress mail_from = new MailAddress(mess.FromEmail, mess.FromName);  //the email address of the receiver
-
-
-            MailMessage message = new MailMessage(mail_from, mail_to);
-            message.Subject = mess.Topic;  //subject
-            message.Body = mess.Content;
-            send(message);
             
+            MailMessage message = new MailMessage(mail_from, mail_to);
+            message.Subject = mess.Topic; 
+            message.Body = mess.Content;
+            
+            client_smtp.Send(message);
             return mess;
 
         }

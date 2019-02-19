@@ -15,6 +15,7 @@ namespace BLL
             return db.SaleOrders.ToList();
         }
 
+
         public List<SaleOrder> GetAllSaleOrdersOfCustomer(int customerId)
         {
             List<SaleOrder> list = db.SaleOrders
@@ -81,5 +82,6 @@ namespace BLL
 
         }
         #endregion
+
     }
 }

@@ -66,6 +66,11 @@ public List<Category> GetAllCategoriesAndSubCategory()
             return db.Categories.FirstOrDefault(c => c.CategoryId == id);
         }
 
+        public Category getCategory(string name)
+        {
+            return db.Categories.FirstOrDefault(c => c.Name == name);
+        }
+
         public void AddCategory(Category category)
         {
             db.Categories.Add(category);

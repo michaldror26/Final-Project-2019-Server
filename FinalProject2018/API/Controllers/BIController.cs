@@ -21,10 +21,18 @@ namespace API.Controllers
 
         // GET: api/bi/saleValue
         [HttpGet]
-        [Route("saleValue")]
-        public Dictionary<string,int> GetAllCustomers()
+        [Route("sale/product")]
+        public Dictionary<string,int> GetSaleByProduct()
         {
-            return service.saleValueByCategories();
+            return service.saleByCategories();
+        }
+
+        // GET: api/bi/saleValue
+        [HttpGet]
+        [Route("sale/customer")]
+        public object GetSaleByCustomer()
+        {  
+            return service.saleByCustomers();
         }
     }
 }

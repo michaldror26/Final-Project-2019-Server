@@ -57,6 +57,12 @@ namespace BLL
         {
             return getAllProduct(category.CategoryId);
         }
+        public List<Product> getAllProduct(string categoryName)
+        {
+            Category category = cService.getCategory(categoryName);
+            return getAllProduct(category.CategoryId);
+        }
+
 
         //public Product getProductById(int id)
         //{

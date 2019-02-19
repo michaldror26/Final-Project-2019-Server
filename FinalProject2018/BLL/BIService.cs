@@ -23,28 +23,55 @@ namespace BLL
             lsop = db.SaleOrderProducts.ToList();
         }
 
-        public Dictionary<string, int> saleValueByCategories()
+        public Dictionary<string, int> saleByCategories()
         {
             Dictionary<string, int> ret = new Dictionary<string, int>();
             int sum;
 
-            sum = saleValueByCategory("אתרוגים");
+            sum = saleByCategory("אתרוגים");
             ret.Add("אתרוגים", sum);
 
-            sum = saleValueByCategory("לולבים");
+            sum = saleByCategory("לולבים");
             ret.Add("לולבים", sum);
 
-            sum = saleValueByCategory("ערבות");
+            sum = saleByCategory("ערבות");
             ret.Add("ערבות", sum);
 
-            sum = saleValueByCategory("הדסים");
+            sum = saleByCategory("הדסים");
             ret.Add("הדסים", sum);
 
             return ret;
         }
-          
 
-        private int saleValueByCategory(string categoryName)
+
+        public object saleByCustomers()
+        {
+            Dictionary<string, int> ret = new Dictionary<string, int>();
+
+            //בהמשך לסנן לקוחות ע"פ עונה
+            List<Customer> customers = db.Customers.ToList();
+         var result = from c in customers
+                      join so in lso on c.CustomerId equals so.CustomerId
+                      where so.Date.Year == DateTime.Now.Year
+                      select so into so1
+                      join sop in lsop on so1.SaleOrderId equals sop.SaleOrderId                  
+                      group new {so1.Customer ,sop.Amount} by so1.Customer into g
+                      select new
+                      {
+                          customer =  g.Key.FirstName+" "+g.Key.LastName,
+                          amount = g.Sum(gg=>gg.Amount)
+                      };
+
+            foreach (var item in result)
+            {
+                ret.Add(item.customer, item.amount);
+            }
+      
+            return ret;
+        }
+
+
+        private int saleByCategory(string categoryName)
         {
             List<Product> products = pService.getAllProduct(categoryName);
             int sum = (from p in products
@@ -55,5 +82,7 @@ namespace BLL
                        select sop1.Amount).ToList().Sum();
             return sum;
         }
+
+
     }
 }

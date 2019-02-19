@@ -16,8 +16,11 @@ namespace Entities
         public int MailboxMessageId { get; set; }
 
         public DateTime Date { get; set; }
-        
-        public string From { get; set; } //user or מערכת
+        [Required(ErrorMessage = "Required field!")]
+        public string FromName { get; set; } //user or מערכת
+        [Required(ErrorMessage = "Required field!")]
+        public string FromEmail { get; set; } //user or מערכת
+    
 
         [Required(ErrorMessage = "Required field!")]
         public string Topic { get; set; }

@@ -25,6 +25,8 @@ namespace API
 
         private bool IsWebApiRequest()
         {
+         //   return HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath.StartsWith("~/api");
+
             return HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath.StartsWith(WebApiConfig.UrlPrefixRelative);
 
         }

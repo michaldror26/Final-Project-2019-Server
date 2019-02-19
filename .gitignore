@@ -130,6 +130,8 @@ StyleCopReport.xml
 *_i.c
 *_p.c
 *_i.h
+*.bll
+*.dll
 *.ilk
 *.meta
 *.obj

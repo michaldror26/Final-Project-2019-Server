@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class BIService:BaseService
+    public class BIService : BaseService
     {
         ProductService pService;
         List<SaleOrder> lso;
@@ -50,23 +50,23 @@ namespace BLL
 
             //בהמשך לסנן לקוחות ע"פ עונה
             List<Customer> customers = db.Customers.ToList();
-         var result = from c in customers
-                      join so in lso on c.CustomerId equals so.CustomerId
-                      where so.Date.Year == DateTime.Now.Year
-                      select so into so1
-                      join sop in lsop on so1.SaleOrderId equals sop.SaleOrderId                  
-                      group new {so1.Customer ,sop.Amount} by so1.Customer into g
-                      select new
-                      {
-                          customer =  g.Key.FirstName+" "+g.Key.LastName,
-                          amount = g.Sum(gg=>gg.Amount)
-                      };
+            var result = from c in customers
+                         join so in lso on c.CustomerId equals so.CustomerId
+                         where so.Date.Year == DateTime.Now.Year
+                         select so into so1
+                         join sop in lsop on so1.SaleOrderId equals sop.SaleOrderId
+                         group new { so1.Customer, sop.Amount } by so1.Customer into g
+                         select new
+                         {
+                             customer = g.Key.FirstName + " " + g.Key.LastName,
+                             amount = g.Sum(gg => gg.Amount)
+                         };
 
             foreach (var item in result)
             {
                 ret.Add(item.customer, item.amount);
             }
-      
+
             return ret;
         }
 

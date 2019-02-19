@@ -8,23 +8,24 @@ using Entities;
 
 namespace BLL
 {
-    public class CustomerPaymentService : BaseService
+    public class CustomerPaymentService : BaseEntityService<CustomerPayment>
     {
-        public List<CustomerPayment> GetAllCustomerPayments()
-        {
-            return db.CustomerPayments.ToList();
-        }
-
-        public CustomerPayment getCustomerPaymentById(int id)
+        public override CustomerPayment get(int id)
         {
             return db.CustomerPayments.FirstOrDefault(c => c.CustomerPaymentId == id);
         }
 
-        public void AddCustomerPayment(CustomerPayment customerPayment)
+        public override List<CustomerPayment> getAll()
+        {
+            return db.CustomerPayments.ToList();
+        }
+
+        public override void add(CustomerPayment customerPayment)
         {
             db.CustomerPayments.Add(customerPayment);
             db.SaveChanges();
         }
+        
 
         public void DeleteCustomerPayment(int id)
         {
@@ -37,5 +38,7 @@ namespace BLL
         {
 
         }
+
+        
     }
 }

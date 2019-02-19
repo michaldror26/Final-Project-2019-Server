@@ -51,14 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201902131818188_55.cs" />
-    <Compile Include="Migrations\201902131818188_55.Designer.cs">
-      <DependentUpon>201902131818188_55.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902142016021_1212.cs" />
-    <Compile Include="Migrations\201902142016021_1212.Designer.cs">
-      <DependentUpon>201902142016021_1212.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,14 +66,6 @@
       <Project>{b44ad90f-750e-43cc-bd40-490039c3ca82}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902131818188_55.resx">
-      <DependentUpon>201902131818188_55.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902142016021_1212.resx">
-      <DependentUpon>201902142016021_1212.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

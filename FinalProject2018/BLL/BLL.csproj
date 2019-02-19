@@ -53,7 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntityService.cs" />
     <Compile Include="BaseService.cs" />
+    <Compile Include="BIService.cs" />
     <Compile Include="CategoryService.cs" />
     <Compile Include="CustomerPaymentService.cs" />
     <Compile Include="EmployeeScheduleService.cs" />

@@ -24,7 +24,7 @@ namespace API.Controllers
         [Route("getCategories")]
         public List<Category> getCategores()
         {
-             return service.GetAllCategories();
+             return service.getAll();
         }
 
         [HttpGet]

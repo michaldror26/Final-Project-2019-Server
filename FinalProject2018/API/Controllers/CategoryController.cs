@@ -29,7 +29,7 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public List<Category> getCategores(int id)
+        public IEnumerable<Category> getCategores(int id)
         {
             return service.GetSubCategories(id);
         }

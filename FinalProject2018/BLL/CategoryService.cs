@@ -36,11 +36,11 @@ namespace BLL
         {
             return tabel.ToList();
         }
-        
+
 
         public List<Category> GetSubCategories(int categoryId)
         {
-            
+            //return db.Categories.Where(c => isSub(c, categoryId));
             List<Category> list = getAll();
             List<Category> ret = new List<Category>();
             foreach (Category c in list)
@@ -51,6 +51,13 @@ namespace BLL
             return ret;
         }
 
+        public Category GetParentCategory(Category category, int? ancestor)
+        {
+            if (category.ParentCategoryId == null)
+                return category;       
+            return category.ParentCategoryId == ancestor ? category : GetParentCategory(category, ancestor);
+        }
+
         private bool isSub(Category c, int parentId)
         {
             if (c == null)
@@ -58,7 +65,6 @@ namespace BLL
             if (c.ID == parentId)
                 return true;
             return isSub(c.ParentCategory, parentId);
-
         }
 
         #region getSubCategoryWay2
@@ -88,7 +94,7 @@ namespace BLL
         #endregion
 
 
-       
+
 
         public override void delete(int id)
         {
@@ -103,6 +109,6 @@ namespace BLL
 
         }
 
-      
+
     }
 }

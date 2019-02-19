@@ -36,3 +36,19 @@ E:\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProjec
 C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\BLL.dll
 C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\BLL.pdb
 C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\BLL.dll.config
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\BLL.dll
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\DAL.dll
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\Entities.dll
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\EntityFramework.dll
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.dll
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\BLL.pdb
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\DAL.pdb
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\Entities.pdb
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\EntityFramework.xml
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\bin\Debug\EntityFramework.SqlServer.xml
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\ConsoleApp1\obj\Debug\ConsoleApp1.csprojResolveAssemblyReference.cache

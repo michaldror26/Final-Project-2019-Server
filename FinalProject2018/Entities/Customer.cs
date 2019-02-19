@@ -12,9 +12,8 @@ namespace Entities
     [Table("customer")]
     public class Customer : User
     {
-        
+        //[Column(name:"CustomerId")]
         public int ID { get; set; }
-        //public int SiteUserId { get; set; }
         //public virtual SiteUser siteUser { get; set; }
 
         public DateTime RegisteredDate { get; set; }

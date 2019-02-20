@@ -12,8 +12,7 @@ namespace Entities
     [Table("product")]
     public class Product
     {
-        [Key]
-        public int ProductId { get; set; }
+        public int ID { get; set; }
 
         [Required(ErrorMessage = "Required field!")]
         public string Name { get; set; }

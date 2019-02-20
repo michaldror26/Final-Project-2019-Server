@@ -51,6 +51,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201902192237341_afterPull.cs" />
+    <Compile Include="Migrations\201902192237341_afterPull.Designer.cs">
+      <DependentUpon>201902192237341_afterPull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902192303416_Category_ID.cs" />
+    <Compile Include="Migrations\201902192303416_Category_ID.Designer.cs">
+      <DependentUpon>201902192303416_Category_ID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902192304515_Category_ID2.cs" />
+    <Compile Include="Migrations\201902192304515_Category_ID2.Designer.cs">
+      <DependentUpon>201902192304515_Category_ID2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902192306147_Category_ID3.cs" />
+    <Compile Include="Migrations\201902192306147_Category_ID3.Designer.cs">
+      <DependentUpon>201902192306147_Category_ID3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902192313384_Customer_ID.cs" />
+    <Compile Include="Migrations\201902192313384_Customer_ID.Designer.cs">
+      <DependentUpon>201902192313384_Customer_ID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902192314261_Customer_ID2.cs" />
+    <Compile Include="Migrations\201902192314261_Customer_ID2.Designer.cs">
+      <DependentUpon>201902192314261_Customer_ID2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902192327248_rename_ID.cs" />
+    <Compile Include="Migrations\201902192327248_rename_ID.Designer.cs">
+      <DependentUpon>201902192327248_rename_ID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902192328579_rename_ID1.cs" />
+    <Compile Include="Migrations\201902192328579_rename_ID1.Designer.cs">
+      <DependentUpon>201902192328579_rename_ID1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902192333476_rename_ID2.cs" />
+    <Compile Include="Migrations\201902192333476_rename_ID2.Designer.cs">
+      <DependentUpon>201902192333476_rename_ID2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelStorManagment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +102,35 @@
       <Project>{b44ad90f-750e-43cc-bd40-490039c3ca82}</Project>
       <Name>Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902192237341_afterPull.resx">
+      <DependentUpon>201902192237341_afterPull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902192303416_Category_ID.resx">
+      <DependentUpon>201902192303416_Category_ID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902192304515_Category_ID2.resx">
+      <DependentUpon>201902192304515_Category_ID2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902192306147_Category_ID3.resx">
+      <DependentUpon>201902192306147_Category_ID3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902192313384_Customer_ID.resx">
+      <DependentUpon>201902192313384_Customer_ID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902192314261_Customer_ID2.resx">
+      <DependentUpon>201902192314261_Customer_ID2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902192327248_rename_ID.resx">
+      <DependentUpon>201902192327248_rename_ID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902192328579_rename_ID1.resx">
+      <DependentUpon>201902192328579_rename_ID1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902192333476_rename_ID2.resx">
+      <DependentUpon>201902192333476_rename_ID2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

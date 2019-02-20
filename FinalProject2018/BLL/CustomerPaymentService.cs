@@ -12,7 +12,7 @@ namespace BLL
     {
         public override CustomerPayment get(int id)
         {
-            return db.CustomerPayments.FirstOrDefault(c => c.CustomerPaymentId == id);
+            return db.CustomerPayments.FirstOrDefault(cp => cp.ID == id);
         }
 
         public override List<CustomerPayment> getAll()
@@ -29,7 +29,7 @@ namespace BLL
 
         public void DeleteCustomerPayment(int id)
         {
-            CustomerPayment customerPayment = db.CustomerPayments.FirstOrDefault(c => c.CustomerPaymentId == id);
+            CustomerPayment customerPayment = db.CustomerPayments.FirstOrDefault(cp => cp.ID == id);
             db.CustomerPayments.Remove(customerPayment);
             db.SaveChanges();
         }
@@ -39,6 +39,9 @@ namespace BLL
 
         }
 
-        
+        public override void delete(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

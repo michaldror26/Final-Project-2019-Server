@@ -13,7 +13,7 @@ namespace Entities
     public class SaleShippingCertificateProduct
     {
         [Key]
-        [Column(Order = 1)]
+         [Column(Order = 1)]
         public int SaleShippingCertificateId { get; set; }
         public virtual SaleShippingCertificate SaleShippingCertificate { get; set; }
         [Key]

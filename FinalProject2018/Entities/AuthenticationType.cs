@@ -11,8 +11,7 @@ namespace Entities
     [Table("authentication_type")]
    public class AuthenticationType
     {
-        [Key]
-        public int AuthenticationTypeId { get; set; }
+        public int ID { get; set; }
         public string  AuthName { get; set; }
         public virtual List<SiteUser> SiteUsers { get; set; }
     }

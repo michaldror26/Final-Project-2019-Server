@@ -12,8 +12,8 @@ namespace Entities
     [Table("customer")]
     public class Customer : User
     {
-        [Key]
-        public int CustomerId { get; set; }
+        
+        public int ID { get; set; }
         //public int SiteUserId { get; set; }
         //public virtual SiteUser siteUser { get; set; }
 

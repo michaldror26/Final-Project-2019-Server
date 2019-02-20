@@ -29,7 +29,7 @@ namespace BLL
 
         public User getUser(int siteUserId)
         {
-            SiteUser siteUser = db.SiteUsers.FirstOrDefault(su => su.Id==siteUserId);
+            SiteUser siteUser = db.SiteUsers.FirstOrDefault(su => su.ID==siteUserId);
             User user = getUser(siteUser);
             if (user != null)
                 return user;
@@ -42,19 +42,19 @@ namespace BLL
         {
             if (siteUser.AuthenticationTypeId == 1)
             {
-                Admin admin = db.Admins.FirstOrDefault(a => a.SiteUserId == siteUser.Id);
+                Admin admin = db.Admins.FirstOrDefault(a => a.SiteUserId == siteUser.ID);
                 if (admin != null)
                     return admin;
             }
             if (siteUser.AuthenticationTypeId == 2)
             {
-                Customer customer = db.Customers.FirstOrDefault(c => c.SiteUserId == siteUser.Id);
+                Customer customer = db.Customers.FirstOrDefault(c => c.SiteUserId == siteUser.ID);
                 if (customer != null)
                     return customer;
             }
             else if (siteUser.AuthenticationTypeId == 3)
             {
-                Employee employee = db.Employees.FirstOrDefault(e => e.SiteUserId == siteUser.Id);
+                Employee employee = db.Employees.FirstOrDefault(e => e.SiteUserId == siteUser.ID);
                 if (employee != null)
                     return employee;
             }
@@ -91,7 +91,7 @@ namespace BLL
 
         public void DeleteSiteUser(int id)
         {
-            SiteUser siteUser = db.SiteUsers.FirstOrDefault(su => su.Id == id);
+            SiteUser siteUser = db.SiteUsers.FirstOrDefault(su => su.ID == id);
             db.SiteUsers.Remove(siteUser);
         }
 
@@ -137,10 +137,10 @@ namespace BLL
             if (site_User != null)
             {
                 if (site_User.AuthenticationTypeId == 1)
-                    return (new CustomerService()).UpdateCustomerSiteUserId(site_User.Id, userId);
+                    return (new CustomerService()).UpdateCustomerSiteUserId(site_User.ID, userId);
                 else
                  if (site_User.AuthenticationTypeId == 2)
-                    return (new EmployeeService()).UpdateEmployeeSiteUserId(site_User.Id, userId);
+                    return (new EmployeeService()).UpdateEmployeeSiteUserId(site_User.ID, userId);
             }
             return null;
 

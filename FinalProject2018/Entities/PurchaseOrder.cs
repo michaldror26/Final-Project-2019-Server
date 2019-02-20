@@ -19,8 +19,7 @@ namespace Entities
             this.PurchaseOrderProducts = products;
             this.Remark = remark;
         }
-        [Key]
-        public int PurchaseOrderId { get; set; }
+        public int ID { get; set; }
         public DateTime Date { get; set; }
 
        [ForeignKey("Provider")]

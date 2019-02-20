@@ -50,7 +50,7 @@ namespace Entities
     public class SiteUser 
     {
        // [Key]
-        public int Id { get; set; }
+        public int ID { get; set; }
     
         public string UserName { get; set; }
 

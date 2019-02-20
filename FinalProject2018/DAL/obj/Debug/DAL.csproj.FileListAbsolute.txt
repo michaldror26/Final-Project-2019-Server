@@ -45,3 +45,13 @@ Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.pdb
 C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations._55.resources
 C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 C:\Users\מיכל\Desktop\פרויקט גמר\פרויקט\server\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations._1212.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.afterPull.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Category_ID.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Category_ID2.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Category_ID3.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Customer_ID.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.Customer_ID2.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.rename_ID.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.rename_ID1.resources
+Y:\יהודית\Final-Project-2019-Server\FinalProject2018\DAL\obj\Debug\DAL.Migrations.rename_ID2.resources

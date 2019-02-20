@@ -13,7 +13,7 @@ namespace Entities
     public class SaleOrderProduct
     {
         [Key]
-        [Column(Order = 1)]
+       [Column(Order = 1)]
         public int SaleOrderId { get; set; }
         public virtual SaleOrder SaleOrder { get; set; }
         [Key]

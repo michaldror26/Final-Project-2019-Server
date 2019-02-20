@@ -48,19 +48,19 @@ namespace BLL
             List<Product> ret = new List<Product>();
             foreach (Category c in lstc)
             {
-               ret.AddRange(lstp.Where(p => p.CategoryId == c.CategoryId).ToList());
+               ret.AddRange(lstp.Where(p => p.CategoryId == c.ID).ToList());
             }
             return ret;
         }
 
         public List<Product> getAllProduct(Category category)
         {
-            return getAllProduct(category.CategoryId);
+            return getAllProduct(category.ID);
         }
         public List<Product> getAllProduct(string categoryName)
         {
             Category category = cService.get(categoryName);
-            return getAllProduct(category.CategoryId);
+            return getAllProduct(category.ID);
         }
 
 

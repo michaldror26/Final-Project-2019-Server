@@ -12,8 +12,7 @@ namespace Entities
     [Table("mailbox_message")]
     public class MailboxMessage
     {
-        [Key]
-        public int MailboxMessageId { get; set; }
+        public int ID { get; set; }
 
         public DateTime Date { get; set; }
         [Required(ErrorMessage = "Required field!")]

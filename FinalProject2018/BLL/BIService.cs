@@ -51,10 +51,10 @@ namespace BLL
             //בהמשך לסנן לקוחות ע"פ עונה
             List<Customer> customers = db.Customers.ToList();
             var result = from c in customers
-                         join so in lso on c.CustomerId equals so.CustomerId
+                         join so in lso on c.ID equals so.CustomerId
                          where so.Date.Year == DateTime.Now.Year
                          select so into so1
-                         join sop in lsop on so1.SaleOrderId equals sop.SaleOrderId
+                         join sop in lsop on so1.ID equals sop.SaleOrderId
                          group new { so1.Customer, sop.Amount } by so1.Customer into g
                          select new
                          {
@@ -70,19 +70,37 @@ namespace BLL
             return ret;
         }
 
+        public float cartAverage(int year,int month)
+        {
+            List<SaleOrder> lso = db.SaleOrders.ToList();
+            List<SaleOrderProduct> lsop = db.SaleOrderProducts.ToList();
+
+            float avg =    (from so in lso
+                            join sop in lsop on so.ID equals sop.SaleOrderId
+                            where so.Date.Year == year
+                            && so.Date.Month==month
+                            select sop.Amount*sop.Product.SellingPrice).ToList().Average();
+            return avg;
+
+        }
+
+
+
 
         private int saleByCategory(string categoryName)
         {
             List<Product> products = pService.getAllProduct(categoryName);
             int sum = (from p in products
-                       join sop in lsop on p.ProductId equals sop.ProductId
+                       join sop in lsop on p.ID equals sop.ProductId
                        select sop into sop1
-                       join so in lso on sop1.SaleOrderId equals so.SaleOrderId
+                       join so in lso on sop1.SaleOrderId equals so.ID
                        where so.Date.Year == DateTime.Now.Year
                        select sop1.Amount).ToList().Sum();
             return sum;
         }
 
 
+       
+      
     }
 }

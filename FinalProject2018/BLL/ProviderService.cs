@@ -9,28 +9,28 @@ using Entities;
 
 namespace BLL
 {
-    public class ProviderService : BaseService
+    public class ProviderService : BaseEntityService<Provider>
     {
-        public List<Provider> GetAllProviders()
+        public override List<Provider> getAll()
         {
-            return db.Providers.ToList();
+            return tabel.ToList();
         }
 
-        public Provider GetProviderById(int id)
+        public override Provider get(int id)
         {
-            return db.Providers.FirstOrDefault(p => p.ProviderId == id);
+            return tabel.FirstOrDefault(p => p.ID == id);
         }
 
-        public void AddProvider(Provider provider)
+        public override void add(Provider provider)
         {
-            db.Providers.Add(provider);
+            tabel.Add(provider);
             db.SaveChanges();
         }
 
-        public void DeleteProvider(int id)
+        public override void delete(int id)
         {
-            Provider provider = db.Providers.FirstOrDefault(p => p.ProviderId == id);
-            db.Providers.Remove(provider);
+            Provider provider = tabel.FirstOrDefault(p => p.ID == id);
+           tabel.Remove(provider);
             db.SaveChanges();
         }
 

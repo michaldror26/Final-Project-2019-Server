@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,30 +10,31 @@ namespace BLL
 {
     public class CategoryService : BaseEntityService<Category>
     {
+
         public override Category get(int id)
         {
-            return db.Categories.FirstOrDefault(c => c.CategoryId == id);
+            return tabel.FirstOrDefault(c => c.ID == id);
         }
 
         public override List<Category> getAll()
         {
-            return db.Categories.ToList();
+            return tabel.ToList();
         }
 
         public Category get(string name)
         {
-            return db.Categories.FirstOrDefault(c => c.Name == name);
+            return tabel.FirstOrDefault(c => c.Name == name);
         }
 
         public override void add(Category category)
         {
-            db.Categories.Add(category);
+            tabel.Add(category);
             db.SaveChanges();
         }
 
         public List<Category> GetAllCategoriesAndSubCategory()
         {
-            return db.Categories.ToList();
+            return tabel.ToList();
         }
         
 
@@ -53,7 +55,7 @@ namespace BLL
         {
             if (c == null)
                 return false;
-            if (c.CategoryId == parentId)
+            if (c.ID == parentId)
                 return true;
             return isSub(c.ParentCategory, parentId);
 
@@ -88,11 +90,11 @@ namespace BLL
 
        
 
-        public void DeleteCategory(int id)
+        public override void delete(int id)
         {
-            Category category = db.Categories.FirstOrDefault(c => c.CategoryId == id);
+            Category category = tabel.FirstOrDefault(c => c.ID == id);
             //לוודא שאין תת-קטגוריה שתלויה בו
-            db.Categories.Remove(category);
+            tabel.Remove(category);
             db.SaveChanges();
         }
 

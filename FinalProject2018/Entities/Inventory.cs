@@ -11,9 +11,8 @@ namespace Entities
 {
     [Table("inventory")]
     public class Inventory
-    { 
-        [Key]
-        public int InventoryId { get; set; }
+    {
+        public int ID { get; set; }
 
         [ForeignKey("Product")]
         public int ProductId { get; set; }

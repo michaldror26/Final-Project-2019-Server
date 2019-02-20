@@ -31,13 +31,13 @@ namespace BLL
           .Include(x => x.Customer)
           .Include(y => y.SaleOrderProducts.Select(x => x.Product))
           .ToList()
-           .FirstOrDefault(o => o.SaleOrderId == orderId);
+           .FirstOrDefault(so => so.ID == orderId);
 
             return saleOrder;
         }
         public SaleOrder GetSaleOrderById(int id)
         {
-            return db.SaleOrders.FirstOrDefault(e => e.SaleOrderId == id);
+            return db.SaleOrders.FirstOrDefault(so => so.ID == id);
             //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
         }
 
@@ -51,7 +51,7 @@ namespace BLL
 
         public void DeleteSaleOrder(int id)
         {
-            SaleOrder saleOrder = db.SaleOrders.FirstOrDefault(c => c.SaleOrderId == id);
+            SaleOrder saleOrder = db.SaleOrders.FirstOrDefault(so => so.ID == id);
             db.SaleOrders.Remove(saleOrder);
             //לבדוק אם מוחק גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
 

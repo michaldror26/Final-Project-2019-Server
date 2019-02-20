@@ -26,7 +26,7 @@ namespace BLL
         }
         public SaleShippingCertificate GetSaleShippingCertificateById(int id)
         {
-            return db.SaleShippingCertificates.FirstOrDefault(e => e.SaleShippingCertificateId == id);
+            return db.SaleShippingCertificates.FirstOrDefault(ssc => ssc.ID == id);
             //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
         }
 
@@ -39,7 +39,7 @@ namespace BLL
 
         public void DeleteSaleShippingCertificate(int id)
         {
-            SaleShippingCertificate saleShippingCertificate = db.SaleShippingCertificates.FirstOrDefault(c => c.SaleShippingCertificateId == id);
+            SaleShippingCertificate saleShippingCertificate = db.SaleShippingCertificates.FirstOrDefault(ssc => ssc.ID == id);
             db.SaleShippingCertificates.Remove(saleShippingCertificate);
             //לבדוק אם מוחק גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
             db.SaveChanges();

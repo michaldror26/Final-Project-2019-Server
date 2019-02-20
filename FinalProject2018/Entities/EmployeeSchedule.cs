@@ -12,10 +12,9 @@ namespace Entities
     [Table("employee_schedule")]
     public class EmployeeSchedule
     {
-        [Key]
-        public int EmployeeScheduleId { get; set; }
+        public int ID { get; set; }
 
-      [ForeignKey("Employee")]
+        [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
 
         public virtual Employee Employee { get; set; }

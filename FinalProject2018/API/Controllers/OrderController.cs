@@ -46,7 +46,7 @@ namespace API.Controllers
         public void Post([FromBody()]List<SaleOrderProduct> products)
         {
             //ישתנה כשנשנה ל ID
-            SaleOrder so = new SaleOrder((CurrentUser.currentUser as Customer).CustomerId, products, "");
+            SaleOrder so = new SaleOrder((CurrentUser.currentUser as Customer).ID, products, "");
             soService.AddSaleOrder(so);
         }
 

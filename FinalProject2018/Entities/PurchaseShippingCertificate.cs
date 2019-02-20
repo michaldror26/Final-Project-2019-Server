@@ -12,8 +12,7 @@ namespace Entities
     [Table("purchase_shipping_certificate")]
     public class PurchaseShippingCertificate
     {
-        [Key]
-        public int PurchaseShippingCertificateId { get; set; }
+        public int ID { get; set; }
         public DateTime Date { get; set; }
 
        [ForeignKey("Provider")]

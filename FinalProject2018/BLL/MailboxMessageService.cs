@@ -16,7 +16,7 @@ namespace BLL
 
         public MailboxMessage getMailboxMessageById(int id)
         {
-            return db.MailboxMessages.FirstOrDefault(e => e.MailboxMessageId == id);
+            return db.MailboxMessages.FirstOrDefault(m => m.ID == id);
         }
 
         public MailboxMessage AddMailboxMessage(MailboxMessage mailboxMessage)
@@ -31,13 +31,13 @@ namespace BLL
             }
             catch (Exception e)
             {
-                throw;
+                throw e;
             }
         }
 
         public void DeleteMailboxMessage(int id)
         {
-            MailboxMessage mailboxMessage = db.MailboxMessages.FirstOrDefault(c => c.MailboxMessageId == id);
+            MailboxMessage mailboxMessage = db.MailboxMessages.FirstOrDefault(m=>m.ID == id);
             db.MailboxMessages.Remove(mailboxMessage);
             db.SaveChanges();
         }

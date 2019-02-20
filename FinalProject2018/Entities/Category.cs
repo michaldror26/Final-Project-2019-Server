@@ -13,10 +13,7 @@ namespace Entities
     public class Category
     {
 
-       
-        
-        [Key]
-        public int CategoryId { get; set; }
+        public int ID { get; set; }
 
         [Required(ErrorMessage = "Required field!")]
         public string Name { get; set; }

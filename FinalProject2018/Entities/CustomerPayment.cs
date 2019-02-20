@@ -12,8 +12,7 @@ namespace Entities
     [Table("customer_payment")]
     public class CustomerPayment
     {
-        [Key]
-        public int CustomerPaymentId { get; set; }
+        public int ID { get; set; }
         public DateTime Date { get; set; }
 
         [ForeignKey("Customer")]

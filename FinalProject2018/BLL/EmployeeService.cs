@@ -7,28 +7,28 @@ using Entities;
 
 namespace BLL
 {
-    public class EmployeeService : BaseService
+    public class EmployeeService : BaseEntityService<Employee>
     {
-        public List<Employee> GetAllEmployees()
+        public override List<Employee> getAll()
         {
-            return db.Employees.ToList();
+            return tabel.ToList();
         }
 
-        public Employee GetEmployeeById(int id)
+        public override Employee get(int id)
         {
-            return db.Employees.FirstOrDefault(e => e.EmployeeId == id);
+            return tabel.FirstOrDefault(e => e.ID == id);
         }
 
-        public void AddEmployee(Employee employee)
+        public override void add(Employee employee)
         {
-            db.Employees.Add(employee);
+            tabel.Add(employee);
             db.SaveChanges();
         }
 
-        public void DeleteEmployee(int id)
+        public override void delete(int id)
         {
-            Employee employee = db.Employees.FirstOrDefault(e => e.EmployeeId== id);
-            db.Employees.Remove(employee);
+            Employee employee = tabel.FirstOrDefault(e => e.ID == id);
+            tabel.Remove(employee);
             db.SaveChanges();
         }
 
@@ -38,7 +38,7 @@ namespace BLL
         }
         public Employee UpdateEmployeeSiteUserId(int siteUserId, int empId)
         {
-            Employee employee = db.Employees.FirstOrDefault(emp => emp.EmployeeId == empId);
+            Employee employee = tabel.FirstOrDefault(e => e.ID == empId);
            //yyy if (employee != null) { employee.SiteUserId = siteUserId; }
             return employee;
         }

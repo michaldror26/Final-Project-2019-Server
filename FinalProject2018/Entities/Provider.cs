@@ -12,8 +12,7 @@ namespace Entities
     [Table("provider")]
     public class Provider: User
     {
-        [Key]
-        public int ProviderId { get; set; }
+        public int ID { get; set; }
 
         public virtual List<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual List<PurchaseShippingCertificate> PurchaseShippingCertificates { get; set; }

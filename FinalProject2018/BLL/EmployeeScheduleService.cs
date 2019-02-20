@@ -14,7 +14,7 @@ namespace BLL
         EmployeeService employeeService = new EmployeeService();
         public List<EmployeeSchedule> getEmoloyeeSchedule(int id)
         {
-            Employee emp = employeeService.GetEmployeeById(id);
+            Employee emp = employeeService.get(id);
             if (emp != null)
             {
                 return emp.EmployeeSchedules;
@@ -24,7 +24,7 @@ namespace BLL
 
         public int enter(int id)
         {
-            Employee emp = employeeService.GetEmployeeById(id);
+            Employee emp = employeeService.get(id);
             if (emp == null)
                 return -1;
 
@@ -39,7 +39,7 @@ namespace BLL
 
         public int exit(int id)
         {
-            Employee emp = employeeService.GetEmployeeById(id);
+            Employee emp = employeeService.get(id);
             if (emp == null)
                 return -1;
             try

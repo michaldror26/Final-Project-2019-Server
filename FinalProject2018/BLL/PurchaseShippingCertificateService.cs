@@ -26,7 +26,7 @@ namespace BLL
         }
         public PurchaseShippingCertificate GetPurchaseShippingCertificateById(int id)
         {
-            return db.PurchaseShippingCertificates.FirstOrDefault(e => e.PurchaseShippingCertificateId == id);
+            return db.PurchaseShippingCertificates.FirstOrDefault(psc => psc.ID == id);
             //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
         }
 
@@ -39,7 +39,7 @@ namespace BLL
 
         public void DeletePurchaseShippingCertificate(int id)
         {
-            PurchaseShippingCertificate purchaseShippingCertificate = db.PurchaseShippingCertificates.FirstOrDefault(c => c.PurchaseShippingCertificateId == id);
+            PurchaseShippingCertificate purchaseShippingCertificate = db.PurchaseShippingCertificates.FirstOrDefault(psc => psc.ID == id);
             db.PurchaseShippingCertificates.Remove(purchaseShippingCertificate);
             //לבדוק אם מוחק גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
             db.SaveChanges();

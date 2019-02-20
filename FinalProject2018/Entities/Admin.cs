@@ -12,8 +12,7 @@ namespace Entities
     public class Admin:User
     {
 
-        [Key]
-        public int AdminId { get; set; }
+        public int ID { get; set; }
 
 
     }

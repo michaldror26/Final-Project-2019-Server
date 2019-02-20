@@ -26,7 +26,7 @@ namespace BLL
         }
         public PurchaseOrder GetPurchaseOrderById(int id)
         {
-            return db.PurchaseOrders.FirstOrDefault(e => e.PurchaseOrderId == id);
+            return db.PurchaseOrders.FirstOrDefault(po => po.ID == id);
             //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
         }
 
@@ -39,7 +39,7 @@ namespace BLL
 
         public void DeletePurchaseOrder(int id)
         {
-            PurchaseOrder purchaseOrder = db.PurchaseOrders.FirstOrDefault(c => c.PurchaseOrderId == id);
+            PurchaseOrder purchaseOrder = db.PurchaseOrders.FirstOrDefault(po=>po.ID == id);
             db.PurchaseOrders.Remove(purchaseOrder);
             //לבדוק אם מוחק גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
             db.SaveChanges();

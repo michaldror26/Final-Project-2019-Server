@@ -17,23 +17,27 @@ namespace API.Controllers
     {
         SaleOrderService soService;
         PurchaseOrderService poService;
-        
+
         public OrderController()
         {
             soService = new SaleOrderService();
             poService = new PurchaseOrderService();
         }
-        
+
         // GET: api/Order/customer:id
-        [HttpGet()]
+      
+        [Route("GetAllSaleOrders")]
+        public List<SaleOrder> GetAllSaleOrders()
+        {
+            return soService.GetAllSaleOrders();
+        }
+       
         [Route("customer/{id:int}")]
         public List<SaleOrder> Get(int id)
         {
             return soService.GetAllSaleOrdersOfCustomer(id);
         }
-
         // GET: api/Order/:id
-        [HttpGet()]
         [Route("GetOrder/{id:int}")]
         public SaleOrder GetOrder(int id)
         {
@@ -45,9 +49,19 @@ namespace API.Controllers
         [Route("customer")]
         public void Post([FromBody()]List<SaleOrderProduct> products)
         {
+
             //ישתנה כשנשנה ל ID
-            SaleOrder so = new SaleOrder((CurrentUser.currentUser as Customer).ID, products, "");
-            soService.AddSaleOrder(so);
+            try
+            {
+                SaleOrder so;
+                so = new SaleOrder((CurrentUser.currentUser as Customer).ID, products, "");
+                soService.AddSaleOrder(so);
+            }
+            catch (Exception e)
+            {
+                //new CustomerService().getCustomerById()
+            }
+
         }
 
         // POST: api/Order/customer/id
@@ -58,7 +72,7 @@ namespace API.Controllers
             SaleOrder so = new SaleOrder(id, products, "");
             soService.AddSaleOrder(so);
         }
-        
+
         [HttpPost()]
         [Route("provider/{id:int}")]
         public void Post([FromUri()] int id, [FromBody()]List<PurchaseOrderProduct> products)

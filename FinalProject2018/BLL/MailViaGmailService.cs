@@ -26,13 +26,14 @@ namespace BLL
 
         public void sendOrderMessenge(SaleOrder so)
         {
-
+            MailAddress mail_from = new MailAddress("bechagecha@gmail.com", "מערכת בחגייך");  //the email address of the receiver
+           
             MailAddress mail_to = new MailAddress(so.Customer.Email,
                                                   so.Customer.FirstName + " " + so.Customer.LastName);  //the email address of the receiver
 
 
             MailMessage message = new MailMessage(myemail, mail_to);
-            message.Subject = "Test";  //subject
+            message.Subject = "ביצעת קניה בתאריך" + DateTime.Now.ToString();  //subject
             message.IsBodyHtml = true;
             message.Body = "תודה שרכשת את המצרכים הבאים:";
             // message.Body += string.Join(", ", so.SaleOrderProducts[0].Product.Name);
@@ -63,7 +64,7 @@ namespace BLL
             message.Subject = mess.Topic; 
             message.Body = mess.Content;
             
-            client_smtp.Send(message);
+            send(message);
             return mess;
 
         }

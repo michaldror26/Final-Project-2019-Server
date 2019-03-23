@@ -67,10 +67,10 @@ namespace API.Controllers
         // POST: api/Order/customer/id
         [HttpPost()]
         [Route("customer/{id}")]
-        public void Post([FromUri()] int id, [FromBody()]List<SaleOrderProduct> products)
+        public SaleOrder Post([FromUri()] int id, [FromBody()]List<SaleOrderProduct> products)
         {
             SaleOrder so = new SaleOrder(id, products, "");
-            soService.AddSaleOrder(so);
+           return soService.AddSaleOrder(so);
         }
 
         [HttpPost()]

@@ -41,12 +41,13 @@ namespace BLL
             //לבדוק אם מביא גם את כל הרשימה של המוצרים לטבלת מוצרים שנרכשו
         }
 
-        public void AddSaleOrder(SaleOrder saleOrder)
+        public SaleOrder AddSaleOrder(SaleOrder saleOrder)
         {
-            db.SaleOrders.Add(saleOrder);
+           SaleOrder s =  db.SaleOrders.Add(saleOrder);
             db.SaveChanges();
             MailViaGmailService ms = new MailViaGmailService();
             ms.sendOrderMessenge(saleOrder);
+            return s;
         }
 
         public void DeleteSaleOrder(int id)

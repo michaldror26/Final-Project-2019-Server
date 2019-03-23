@@ -49,7 +49,7 @@ namespace API.Controllers
 
             return CurrentUser.currentUser;
         }
-        
+
 
         [HttpPost]
         [Route("logout")]
@@ -60,6 +60,38 @@ namespace API.Controllers
             if (session != null)
             {
                 session.Remove("user");
+            }
+        }
+        [HttpPost]
+        [Route("changePassword")]
+        public string changePassword(string userName)
+        {
+            MailViaGmailService mailService = new MailViaGmailService();
+            UserSiteService userSiteService = new UserSiteService();
+            SiteUser siteUser = userSiteService.getSiteUser(userName);
+            if (siteUser != null)
+            {
+                User user = userSiteService.getUser(siteUser.ID);
+                if (user != null)
+                {
+                    if (user.Email != null)
+                    {
+                        mailService.sendPasswordToCustomer(user.Email, user.FirstName + " " + user.LastName);
+                        return "הסיסמא נשלחה לכתובת המייל שלך";
+                    }
+                    else
+                    {
+                        return "אין ברשותינו מידע על כתובת המייל שלך עבורו נשלח לך את סיסמתך למערכת<br> שלח בקשה למערכת לאיפוס סיסמתך<br>ואנו ניצור עימך קשר בהקדם";
+                    }
+                }
+                else
+                {
+                    return "לא קיים משתמש בעל שם זה";
+                }
+            }
+            else
+            {
+                return "לא קיים משתמש בעל שם זה";
             }
         }
 

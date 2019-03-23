@@ -68,6 +68,16 @@ namespace BLL
             return mess;
 
         }
+
+        public void sendPasswordToCustomer(string to_mail,string to_name)
+        {
+            MailAddress mail_from = new MailAddress("bechagecha@gmail.com", "מערכת בחגייך");  //the email address of the receiver
+            MailAddress mail_to = new MailAddress(to_mail, to_name);  //the email address of the receiver
+            MailMessage message = new MailMessage(myemail, mail_to);
+            message.Subject = "איפוס סיסמא";  //subject
+            message.Body ="הסיסמא שלך היא : " + "pass";
+            send(message);
+        }
     }
 
 }

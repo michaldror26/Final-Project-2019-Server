@@ -43,12 +43,12 @@ namespace BLL
             //    lstp.AddRange(c.Products);
             //}
             //return lstp;
-            List<Category>lstc=cService.GetSubCategories(categoryId);
-            List<Product>lstp= db.Products.ToList();
+            List<Category> lstc = cService.GetSubCategories(categoryId);
+            List<Product> lstp = db.Products.ToList();
             List<Product> ret = new List<Product>();
             foreach (Category c in lstc)
             {
-               ret.AddRange(lstp.Where(p => p.CategoryId == c.ID).ToList());
+                ret.AddRange(lstp.Where(p => p.CategoryId == c.ID).ToList());
             }
             return ret;
         }
